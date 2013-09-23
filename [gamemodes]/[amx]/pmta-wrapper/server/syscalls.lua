@@ -637,13 +637,13 @@ g_SAMPSyscallPrototypes = {
 	
 	
 	-- Weapon
-	GetSlotFromWeapon = { 'i' };
-	GetWeaponIDFromName = { 's' };
-	GetWeaponNameFromID = { 'i', 's', 'i' };
-	GiveWeapon = { 'p', 'i' };
-	SetWeaponAmmo = { 'p', 'i', 'i' };
-	TakeAllWeapons = { 'p' };
-	TakeWeapon = { 'p', 'i' };
+	GetSlotFromWeapon = { 'i' },
+	GetWeaponIDFromName = { 's' },
+	GetWeaponNameFromID = { 'i', 's', 'i' },
+	GiveWeapon = { 'p', 'i' },
+	SetWeaponAmmo = { 'p', 'i', 'i' },
+	TakeAllWeapons = { 'p' },
+	TakeWeapon = { 'p', 'i' },
 	--GetOriginalWeaponProperty
 	--GetWeaponProperty
 	--SetWeaponProperty
