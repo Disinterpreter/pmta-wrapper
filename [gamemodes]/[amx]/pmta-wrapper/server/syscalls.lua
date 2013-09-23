@@ -150,6 +150,20 @@ function GetVehiclePosition(amx, vehicle, refX, refY, refZ)
 
 end
 
+function SpawnPlayer( amx, player, x, y, z )
+	return spawnPlayer( player, x, y, z );
+end
+
+function FadeCamera( amx, player, state )
+	return fadeCamera( player, state );
+end
+
+function SetCameraTarget( amx, player, target )
+	return setCameraTarget( player, target );
+end
+
+
+
 function acos(amx, f)
 	return float2cell(math.acos(f))
 end
@@ -275,6 +289,9 @@ g_SAMPSyscallPrototypes = {
 
 	CreateVehicle = {'i', 'f', 'f', 'f'},
 	GetVehiclePosition = {'v', 'r', 'r', 'r'},
+	SpawnPlayer	= { 'p', 'f', 'f', 'f' };
+	FadeCamera = { 'p', 'b' };
+	SetCameraTarget = { 'p', 'p' };
 
 	acos = {'f'},
 	asin = {'f'},
