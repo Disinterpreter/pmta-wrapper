@@ -27,6 +27,8 @@ function joinHandler(player)
 				clientCall(player, 'addAMX', amx.name, amx.publics.OnGameModeInit and true)
 			end
 		)
+		
+		procCallOnAll('OnPlayerConnect', playerID)
 	end
 end
 addEventHandler('onPlayerJoin', root, joinHandler)
