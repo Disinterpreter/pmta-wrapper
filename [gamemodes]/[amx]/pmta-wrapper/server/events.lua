@@ -33,6 +33,7 @@ addEventHandler('onPlayerJoin', root, joinHandler)
 
 addEventHandler('onPlayerQuit', root,
 	function(reason)
+		local playerID = getElemID(source)
 		g_Players[playerID] = nil
 	end
 )
