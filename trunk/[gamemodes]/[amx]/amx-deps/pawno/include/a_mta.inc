@@ -41,13 +41,34 @@ native SpawnPlayer(playerid, Float:X, Float:Y, Float:Z);
 native FadeCamera(playerid, fadestate);
 native SetCameraTarget(playerid, playerid2);
 native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
+native GetPlayerName(playerid);
+native SetPlayerName(playerid, newName[], bufSize);
+native GetPlayerMoney(playerid);
+native GetPlayerPing(playerid);
+native GivePlayerMoney(playerid, money);
+native SetPlayerMoney(playerid, money);
+native GetPlayerIP(playerid);
+//native GetPlayerFromName(name[]);
+native RedirectPlayer(playerid, host[], port);
+native SetPlayerAlpha(playerid, alpha);
+native SetPlayerHealth(playerid, Float:Health);
+native SetPlayerFrozen(playerid, state);
+native GetPlayerAlpha(playerid);
+native GetPlayerHealth(playerid, &Float:Health)
+native GetPlayerFrozen(playerid);
+
+
+
+
+
+
+
+//Camera natives
 native GetCameraInterior(playerid);
 native GetCameraMatrix(playerid, &Float:refCameraX, &Float:refCameraY, &Float:refCameraZ, &Float:refTargetX, &Float:refTargetY, &Float:refTargetZ, &Float:refRoll, &Float:refFov );
 //native GetCameraTarget(playerid)
 native SetCameraInterior(playerid, interior);
 native SetCameraMatrix(playerid, Float:X, Float:Y, Float:Z);
-native GetPlayerName(playerid);
-native SetPlayerName(playerid, newName[], bufSize);
 
 
 // Vehicle natives
