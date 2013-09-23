@@ -195,12 +195,13 @@ function GetPlayerIP( axm, player )
 	return getPlayerIP( player );
 end
 
---[[
+
 function GetPlayerFromName( amx, name )
+	local player = getPlayerFromName( name );
 	local playerID = getElemID( player )
 	
 	return playerID
-end]]
+end
 
 function RedirectPlayer( amx, player, serverIP, serverPort )
 	return redirectPlayer( player, serverIP, serverPort );

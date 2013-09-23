@@ -48,7 +48,7 @@ native GetPlayerPing(playerid);
 native GivePlayerMoney(playerid, money);
 native SetPlayerMoney(playerid, money);
 native GetPlayerIP(playerid);
-//native GetPlayerFromName(name[]);
+native GetPlayerFromName(name[]);
 native RedirectPlayer(playerid, host[], port);
 native SetPlayerAlpha(playerid, alpha);
 native SetPlayerHealth(playerid, Float:Health);
