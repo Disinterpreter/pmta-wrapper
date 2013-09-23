@@ -167,10 +167,28 @@ function SetVehicleHealth ( amx, vehicle, health )
 	writeMemFloat(amx, vehicle, health)
 end
 
-function SetVehicleLocked( vehicle, locked )
+function SetVehicleLocked ( amx ,vehicle, locked )
 	return setVehicleLocked ( vehicle, locked )
 end
 
+function RespawnVehicle ( amx, vehicle )
+	return respawnVehicle ( vehicle )
+end
+
+function GetVehicleType ( amx, vehicle, nameBuf )
+	local vehType = getVehicleType ( vehicle )
+	writeMemString( amx, nameBuf, vehType )
+end
+
+function GetVehicleName ( amx, vehicle, nameBuf )
+	local vehName =  getVehicleName ( vehicle )
+	writeMemString(amx, nameBuf, vehName)
+end
+
+function BlowVehicle ( vehicle )
+	return blowVehicle ( vehicle )
+end
+------------------------------------------------------------------------
 -- Player functions
 
 function SetPlayerName ( amx, player, newName )
@@ -552,12 +570,16 @@ g_SAMPSyscallPrototypes = {
 	FixVehicle = { 'v' },
 	SetVehiclePlateText = { 'v', 's' },
 	GetVehicleHealth = { 'v' },
+	SetVehicleHealth = { 'v', 'f' },
+	FixVehicle = { 'v' },
+	SetVehiclePlateText = { 'v', 's' },
+	GetVehicleHealth = { 'v' },
 	SetVehicleHealth = { 'v', 'f' };
 	SetVehicleLocked = { 'v', 'b' },
-	
-	
-	
-	
+	RespawnVehicle = { 'v' },
+	GetVehicleType = { 'v' },
+	GetVehicleName = { 'v' },
+	BlowVehicle = { 'v' },
 	
 	
 	
