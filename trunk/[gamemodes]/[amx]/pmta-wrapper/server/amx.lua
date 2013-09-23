@@ -1,4 +1,4 @@
-﻿g_LoadedAMXs = {}
+g_LoadedAMXs = {}
 g_Events = {}
 
 g_Players = {}
