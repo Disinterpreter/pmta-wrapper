@@ -30,8 +30,18 @@ native amxVersion(&Float:ver);
 native amxVersionString(buffer[], maxsize);
 native md5hash(str[], const buf[], bufsize);
 
+// Callbacks
 forward OnGameModeInit();
+forward OnPlayerConnect(playerid);
+
+// Player natives
+native SpawnPlayer(playerid, Float:X, Float:Y, Float:Z);
+native FadeCamera(playerid, fadestate);
+native SetCameraTarget(playerid, playerid2);
 native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
+
+
+// Vehicle natives
 native CreateVehicle(model, Float:X, Float:Y, Float:Z);
 native GetVehiclePosition(vehicleid, &Float:X, &Float:Y, &Float:Z);
 native SetVehicleAlpha(model, Float:Alpha);
