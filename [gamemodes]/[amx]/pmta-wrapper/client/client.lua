@@ -12,29 +12,12 @@ addEventHandler('onClientResourceStart', resourceRoot,
 	false
 )
 
-addEventHandler('onClientResourceStop', resourceRoot,
-	function()
-		TogglePlayerClock(false, true)
-	end,
-	false
-)
-
 function setAMXVersion(ver)
 	g_AMXVersion = ver
 end
 
 function addAMX(name, type)
-	g_AMXs[name] = { name = name, type = type, vehicles = {}, playerobjects = {}, textdraws = {}, textlabels = {}, menus = {}, blips = {} }
-	setmetatable(
-		g_AMXs[name].vehicles,
-		{
-			__index = function(t, k)
-				local vehInfo = {}
-				t[k] = vehInfo
-				return t[k]
-			end
-		}
-	)
+	g_AMXs[name] = { name = name, type = type }
 end
 
 function removeAMX(amxName)

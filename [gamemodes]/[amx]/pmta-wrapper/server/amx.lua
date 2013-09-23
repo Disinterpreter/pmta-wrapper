@@ -1,20 +1,10 @@
 g_LoadedAMXs = {}
-g_Events = {}
 
 g_Players = {}
-g_Bots = {}
 g_Vehicles = {}
-g_Objects = {}
-g_Pickups = {}
-g_Markers = {}
-g_SlothBots = {}
 
 function initGameModeGlobals()
-	g_PlayerClasses = {}
-	g_Teams = setmetatable({}, { __index = function(t, k) t[k] = createTeam('Team ' .. (k+1)) return t[k] end })
-	g_ShowPlayerMarkers = true
-	g_ShowZoneNames = true
-	g_GlobalChatRadius = false
+
 end
 
 addEventHandler('onResourceStart', g_ResRoot,
@@ -46,8 +36,6 @@ addEventHandler('onResourceStart', g_ResRoot,
 				end
 			end
 		end
-		
-		exports.amxscoreboard:addScoreboardColumn('Score')
 	end,
 	false
 )
@@ -117,28 +105,13 @@ function loadAMX(fileName, res)
 	
 	g_LoadedAMXs[amx.name] = amx
 
-	amx.pickups = {}
 	amx.vehicles = {}
-	amx.objects = {}
-	amx.playerobjects = {}
-	amx.timers = {}
-	amx.files = {}
-	amx.textdraws = {}
-	amx.textlabels = {}
-	amx.menus = {}
-	amx.gangzones = {}
-	amx.bots = {}
-	amx.markers = {}
-	amx.dbresults = {}
-	amx.slothbots = {}
 	
 	clientCall(root, 'addAMX', amx.name, amx.type)
 	
 	-- run initialization
 	if amx.type == 'gamemode' then
-		setWeather(10)
 		initGameModeGlobals()
-		ShowPlayerMarkers(amx, true)
 		procCallOnAll('OnGameModeInit')
 		table.each(g_Players, 'elem', gameModeInit)
 	else
@@ -150,9 +123,6 @@ function loadAMX(fileName, res)
 		procCallInternal(amx, 'OnPlayerConnect', id)
 	end
 	
-	if not alreadySyncingWeapons and isWeaponSyncingNeeded(amx) then
-		clientCall(root, 'enableWeaponSyncing', true)
-	end
 	triggerEvent('onAMXStart', getResourceRootElement(res), amx.res, amx.name)
 	return amx
 end
@@ -170,24 +140,7 @@ function unloadAMX(amx, notifyClient)
 	end
 	
 	amxUnload(amx.cptr)
-	
-	for i,elemtype in ipairs({'pickups', 'vehicles', 'objects', 'gangzones','bots','markers','textlabels','textdraws'}) do
-		for id,data in pairs(amx[elemtype]) do
-			removeElem(amx, elemtype, data.elem)
-			destroyElement(data.elem)
-		end
-	end
-	
-	for i,vehinfo in pairs(amx.vehicles) do
-		if vehinfo.respawntimer then
-			killTimer(vehinfo.respawntimer)
-			vehinfo.respawntimer = nil
-		end
-	end
-	
-	table.each(amx.timers, killTimer)
-	table.each(amx.files, fileClose)
-	
+
 	if notifyClient == nil or notifyClient == true then
 		clientCall(root, 'removeAMX', amx.name)
 	end
@@ -199,9 +152,6 @@ function unloadAMX(amx, notifyClient)
 	end
 	
 	g_LoadedAMXs[amx.name] = nil
-	if not isWeaponSyncingNeeded() then
-		clientCall(root, 'enableWeaponSyncing', false)
-	end
 	if getResourceState(amx.res) == 'running' then
 		stopResource(amx.res)
 	end
@@ -226,13 +176,8 @@ addEventHandler('onResourceStop', getRootElement(),
 
 addEventHandler('onResourceStop', g_ResRoot,
 	function()
-		exports.amxscoreboard:removeScoreboardColumn('Score')
 		table.each(g_LoadedAMXs, unloadAMX, false)
 		amxUnloadAllPlugins()
-		for i=0,49 do
-			setGarageOpen(i, false)
-		end
-		setWeather(0)
 	end
 )
 
@@ -253,25 +198,6 @@ function getRunningFilterScripts()
 		end
 	end
 	return result
-end
-
-function isWeaponSyncingNeeded(amx)
-	local fns = { 'GetPlayerWeaponData', 'RemovePlayerFromVehicle', 'SetVehicleToRespawn' }
-	if amx then
-		for i,fn in ipairs(fns) do
-			if table.find(amx.natives, fn) then
-				return true
-			end
-			return false
-		end
-	else
-		for name,amx in pairs(g_LoadedAMXs) do
-			if isWeaponSyncingNeeded(amx) then
-				return true
-			end
-		end
-		return false
-	end
 end
 
 function readPrefixTable(hFile, offset, length, nameAsKey)
