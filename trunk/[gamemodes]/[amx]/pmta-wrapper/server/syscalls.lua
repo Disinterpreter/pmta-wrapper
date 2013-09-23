@@ -127,7 +127,7 @@ end
 
 -----------------------------------------------------
 -- Implementation of PAWN API
--- Example of CreateVehicle
+-- Vehicle
 function CreateVehicle(amx, model, x, y, z)
 	local vehicle = createVehicle(model, x, y, z, 0, 0, 90.0)
 	
@@ -148,6 +148,28 @@ function GetVehiclePosition(amx, vehicle, refX, refY, refZ)
 	writeMemFloat(amx, refZ, z)
 
 
+end
+
+function FixVehicle ( amx, vehicle )
+	return fixVehicle ( vehicle )
+end
+
+function SetVehiclePlateText ( amx, vehicle, nuberplate )
+	return setVehiclePlateText ( vehicle, nuberplate )
+end
+
+function GetVehicleHealth ( amx, vehicle )
+	local health = getElementHealth ( vehicle )
+	writeMemFloat(amx, vehicle, health)
+end
+
+function SetVehicleHealth ( amx, vehicle, health )
+	local health = setElementHealth ( vehicle, health )
+	writeMemFloat(amx, vehicle, health)
+end
+
+function SetVehicleLocked( vehicle, locked )
+	return setVehicleLocked ( vehicle, locked )
 end
 
 -- Player functions
@@ -272,7 +294,6 @@ end
 function SetCameraMatrix( amx, player, positionX, positionY, positionZ )
 	return setCameraMatrix( player, positionX, positionY, positionZ );
 end
-
 
 function acos(amx, f)
 	return float2cell(math.acos(f))
@@ -400,7 +421,11 @@ g_SAMPSyscallPrototypes = {
 	-- Vehicle
 	CreateVehicle = {'i', 'f', 'f', 'f'},
 	GetVehiclePosition = {'v', 'r', 'r', 'r'},
-
+	FixVehicle = { 'v' };
+	SetVehiclePlateText = { 'v', 's' };
+	GetVehicleHealth = { 'v' };
+	SetVehicleHealth = { 'v', 'f' };
+	SetVehicleLocked = { 'v', 'b' }
 	
 	
 	
@@ -439,6 +464,7 @@ g_SAMPSyscallPrototypes = {
 	FadeCamera = { 'p', 'b' };
 	SetPlayerName = { 'p', 's' };
 	GetPlayerName = { 'p', 'r', 'i' };
+
 	
 	
 	GetPlayerMoney = { 'p' };
@@ -462,8 +488,6 @@ g_SAMPSyscallPrototypes = {
 	--GetCameraTarget = { 'p' };
 	SetCameraInterior = { 'p', 'i' };
 	SetCameraMatrix = { 'p', 'f', 'f', 'f' };
-
-
 
 	acos = {'f'},
 	asin = {'f'},
