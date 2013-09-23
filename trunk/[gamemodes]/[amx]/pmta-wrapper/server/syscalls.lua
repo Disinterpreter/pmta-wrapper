@@ -140,7 +140,6 @@ function CreateVehicle(amx, model, x, y, z)
 	return vehID
 end
 
--- Example of GetVehiclePosition
 function GetVehiclePosition(amx, vehicle, refX, refY, refZ)
 	local x, y, z = getElementPosition(vehicle);
 	writeMemFloat(amx, refX, x)
@@ -295,6 +294,135 @@ function SetCameraMatrix( amx, player, positionX, positionY, positionZ )
 	return setCameraMatrix( player, positionX, positionY, positionZ );
 end
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Weapon functions
+function GetSlotFromWeapon( amx, weapon )
+	return getSlotFromWeapon( weapon );
+end
+
+function GetWeaponIDFromName( amx, name )
+	return getWeaponIDFromName( name );
+end
+
+function GetWeaponNameFromID( amx, id, nameBuf, bufSize )
+	local name = getWeaponNameFromID( id );
+	if #name <= bufSize then
+		writeMemString( amx, nameBuf, name );
+	end
+end
+
+function GiveWeapon( amx, player, weapon )
+	return giveWeapon( player, weapon );
+end
+
+function SetWeaponAmmo( amx, player, weapon, totalAmmo )
+	return setWeaponAmmo( player, weapon, totalAmmo );
+end
+
+function TakeAllWeapons( amx, player )
+	return takeAllWeapons( player );
+end
+
+function TakeWeapon( amx, player, weaponid )
+	return takeWeapon( player, weaponid );
+end
+
+--[[
+function GetOriginalWeaponProperty( amx, player, weaponid )
+	return getOriginalWeaponProperty( player, weaponid );
+end
+
+function GetWeaponProperty( amx, player, weaponid )
+	return getWeaponProperty( player, weaponid );
+end
+
+function SetWeaponProperty( amx, player, weaponid )
+	return setWeaponProperty( player, weaponid );
+end]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Other functions
+
 function acos(amx, f)
 	return float2cell(math.acos(f))
 end
@@ -421,9 +549,9 @@ g_SAMPSyscallPrototypes = {
 	-- Vehicle
 	CreateVehicle = {'i', 'f', 'f', 'f'},
 	GetVehiclePosition = {'v', 'r', 'r', 'r'},
-	FixVehicle = { 'v' };
-	SetVehiclePlateText = { 'v', 's' };
-	GetVehicleHealth = { 'v' };
+	FixVehicle = { 'v' },
+	SetVehiclePlateText = { 'v', 's' },
+	GetVehicleHealth = { 'v' },
 	SetVehicleHealth = { 'v', 'f' };
 	SetVehicleLocked = { 'v', 'b' },
 	
@@ -488,7 +616,49 @@ g_SAMPSyscallPrototypes = {
 	--GetCameraTarget = { 'p' };
 	SetCameraInterior = { 'p', 'i' },
 	SetCameraMatrix = { 'p', 'f', 'f', 'f' },
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	-- Weapon
+	GetSlotFromWeapon = { 'i' };
+	GetWeaponIDFromName = { 's' };
+	GetWeaponNameFromID = { 'i', 's', 'i' };
+	GiveWeapon = { 'p', 'i' };
+	SetWeaponAmmo = { 'p', 'i', 'i' };
+	TakeAllWeapons = { 'p' };
+	TakeWeapon = { 'p', 'i' };
+	--GetOriginalWeaponProperty
+	--GetWeaponProperty
+	--SetWeaponProperty
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	-- Other
 	acos = {'f'},
 	asin = {'f'},
 	atan = {'f'},

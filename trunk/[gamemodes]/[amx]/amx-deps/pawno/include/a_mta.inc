@@ -83,3 +83,61 @@ native SetVehiclePlateText (model, nuberplate[]);
 native GetVehicleHealth (model);
 native SetVehicleHealth (model, &Float:Health);
 native SetVehicleLocked (model, locked);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Weapon
+native GetSlotFromWeapon(idweapon);
+native GetWeaponIDFromName(weaponname[]);
+native GetWeaponNameFromID(weaponid, name[], bufsize);
+native GiveWeapon(playerid, weaponid);
+native SetWeaponAmmo( playerid, weaponid, ammo );
+native TakeAllWeapons( playerid );
+native TakeWeapon( playerid, weaponid );
+//native GetOriginalWeaponProperty
+//native GetWeaponProperty
+//native SetWeaponProperty
