@@ -58,3 +58,13 @@ public OnPlayerConsole(playerid, text[])
 {
 	printf("Player %d typed in console: %s", playerid, text);
 }
+
+public OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, skin, interior, dimension)
+{
+	printf("Player %d spawned: %f %f %f %f %d %d %d %d", playerid, X, Y, Z, Rot, teamid, skin, interior, dimension);
+}
+
+public OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss)
+{
+	printf("Player %d damaged %d with weapon %d on bodypart %d with hploss %f", attackerid, playerid, weaponid, bodypart, loss);
+}

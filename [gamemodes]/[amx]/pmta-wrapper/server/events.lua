@@ -54,3 +54,16 @@ function OnConsole ( text )
 	end
 end
 addEventHandler ( "onConsole", getRootElement(), OnConsole ) -- add an event handler for onConsole
+
+
+-- Player Events
+function OnPlayerSpawn ( posX, posY, posZ, spawnRotation, theTeam, theSkin, theInterior, theDimension )
+	procCallOnAll("OnPlayerSpawn", getElemID(source), float2cell(posX), float2cell(posY), float2cell(posZ), float2cell(spawnRotation), 0, theSkin, theInterior, theDimension )
+end
+addEventHandler ( "onPlayerSpawn", getRootElement(), OnPlayerSpawn )
+
+
+function OnPlayerDamage ( attacker, weapon, bodypart, loss )
+	procCallOnAll("OnPlayerDamage", getElemID(source), getElemID(attacker), weapon, bodypart, float2cell(loss))
+end
+addEventHandler ( "onPlayerDamage", getRootElement (), OnPlayerDamage )

@@ -35,6 +35,8 @@ forward OnGameModeInit();
 forward OnPlayerConnect(playerid);
 forward OnPlayerChat(playerid, msg[], msgType);
 forward OnPlayerConsole(playerid, text[]);
+forward OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, skin, interior, dimension);
+forward OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss);
 
 // Player natives
 native SpawnPlayer(playerid, Float:X, Float:Y, Float:Z);
