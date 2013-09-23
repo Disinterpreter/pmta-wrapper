@@ -106,7 +106,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)..\..\..\..\..\modules"
+			OutputDirectory="$(SolutionDir)"
 			IntermediateDirectory="Release"
 			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"

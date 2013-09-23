@@ -127,7 +127,28 @@ end
 
 -----------------------------------------------------
 -- Implementation of PAWN API
+-- Example of CreateVehicle
+function CreateVehicle(amx, model, x, y, z)
+	local vehicle = createVehicle(model, x, y, z, 0, 0, 90.0)
+	
+	if vehicle == false then
+		return false
+	end
+	
+	local vehID = addElem(amx, 'vehicles', vehicle)
+	
+	return vehID
+end
 
+-- Example of GetVehiclePosition
+function GetVehiclePosition(amx, vehicle, refX, refY, refZ)
+	local x, y, z = getElementPosition(vehicle);
+	writeMemFloat(amx, refX, x)
+	writeMemFloat(amx, refY, y)
+	writeMemFloat(amx, refZ, z)
+
+
+end
 
 function acos(amx, f)
 	return float2cell(math.acos(f))
@@ -252,7 +273,8 @@ end
 
 g_SAMPSyscallPrototypes = {	
 
-	
+	CreateVehicle = {'i', 'f', 'f', 'f'},
+	GetVehiclePosition = {'v', 'r', 'r', 'r'},
 
 	acos = {'f'},
 	asin = {'f'},
