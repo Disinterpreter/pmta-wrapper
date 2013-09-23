@@ -191,7 +191,10 @@ local skinReplace = {
 	[299] = 124		-- Claude
 }
 
-	
+g_SAMPSyscallPrototypes = {	
+
+
+
 	acos = {'f'},
 	asin = {'f'},
 	atan = {'f'},
