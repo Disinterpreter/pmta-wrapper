@@ -149,7 +149,7 @@ MTAEXPORT void RegisterFunctions ( lua_State * luaVM )
 		pModuleManager->RegisterFunction(luaVM, "amxVersionString", CFunctions::amxVersionString);
 		
 		string resName;
-		if(!pModuleManager->GetResourceName(luaVM, resName) || resName.compare("amx"))
+		if(!pModuleManager->GetResourceName(luaVM, resName) || resName.compare("pmta-wrapper"))
 			return;
 
 		mainVM = luaVM;

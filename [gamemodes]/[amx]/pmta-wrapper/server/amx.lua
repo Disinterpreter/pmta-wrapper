@@ -87,7 +87,7 @@ function loadAMX(fileName, res)
 	fileClose(hAMX)
 	
 	local alreadyGameModeRunning = getRunningGameMode() and true
-	local alreadySyncingWeapons = isWeaponSyncingNeeded()
+	
 	if alreadyGameModeRunning and amx.type == 'gamemode' then
 		outputDebugString('Not loading ' .. fileName .. ' - a gamemode is already running', 1)
 		return false
@@ -134,7 +134,6 @@ function unloadAMX(amx, notifyClient)
 	if amx.type == 'gamemode' then
 		procCallInternal(amx, 'OnGameModeExit')
 		fadeCamera(root, false, 0)
-		ShowPlayerMarkers(amx, false)
 	elseif amx.type == 'filterscript' then
 		procCallInternal(amx, 'OnFilterScriptExit')
 	end
@@ -234,13 +233,6 @@ function procCallInternal(amx, nameOrOffset, ...)
 			 ret = amxCall(amx.cptr, -1, ...)
 		end
 	else
-		if(g_EventNames[nameOrOffset]) then
-			for k,v in pairs(g_Events) do
-				if v == nameOrOffset then
-					amxCall(amx.cptr, k, ...)
-				end
-			end
-		end
 		ret = amxCall(amx.cptr, nameOrOffset, ...)
 	end
 	amx.proc = prevProc
