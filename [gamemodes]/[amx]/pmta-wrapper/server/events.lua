@@ -67,3 +67,10 @@ function OnPlayerDamage ( attacker, weapon, bodypart, loss )
 	procCallOnAll("OnPlayerDamage", getElemID(source), getElemID(attacker), weapon, bodypart, float2cell(loss))
 end
 addEventHandler ( "onPlayerDamage", getRootElement (), OnPlayerDamage )
+
+function OnPlayerCommand ( command, ... )
+	local args = { ... }
+	local args = table.concat(args)
+	procCallOnAll("OnPlayerCommand", getElemID(source), command, args)
+end
+addEventHandler("onPlayerCommand", root, OnPlayerCommand)
