@@ -150,17 +150,7 @@ function GetVehiclePosition(amx, vehicle, refX, refY, refZ)
 
 end
 
-function SpawnPlayer( amx, player, x, y, z )
-	return spawnPlayer( player, x, y, z );
-end
-
-function FadeCamera( amx, player, state )
-	return fadeCamera( player, state );
-end
-
-function SetCameraTarget( amx, player, target )
-	return setCameraTarget( player, target );
-end
+-- Player functions
 
 function SetPlayerName ( amx, player, newName )
 	return setPlayerName ( player, newName )
@@ -172,6 +162,84 @@ function GetPlayerName ( amx, player, nameBuf, bufSize )
 		writeMemString(amx, nameBuf, name)
 	end
 end
+
+function SpawnPlayer( amx, player, x, y, z )
+	return spawnPlayer( player, x, y, z );
+end
+
+function SetPlayerName ( amx, player, newName )
+	return setPlayerName ( player, newName )
+end
+
+function GetPlayerName ( amx, player )
+	return getPlayerName ( player )
+end
+
+function GetPlayerMoney( amx, player )
+	return getPlayerMoney( player );
+end
+
+function GetPlayerPing( amx, player )
+	return getPlayerPing( player );
+end
+
+function GivePlayerMoney( amx, player, money )
+	return givePlayerMoney( player, money );
+end
+
+function SetPlayerMoney( amx, player, money )
+	return setPlayerMoney( player, money );
+end
+
+function GetPlayerIP( axm, player )
+	return getPlayerIP( player );
+end
+
+--[[
+function GetPlayerFromName( amx, name )
+	local playerID = getElemID( player )
+	
+	return playerID
+end]]
+
+function RedirectPlayer( amx, player, serverIP, serverPort )
+	return redirectPlayer( player, serverIP, serverPort );
+end
+
+function SetPlayerAlpha( amx, player, alpha )
+	return setElementAlpha( player, alpha );
+end
+
+function SetPlayerHealth( amx, player, health )
+	return setElementHealth( player, health );
+end
+
+function SetPlayerFrozen( amx, player, state )
+	return setElementFrozen( player, state );
+end
+
+function GetPlayerAlpha( amx, player )
+	return getElementAlpha( player );
+end
+
+function GetPlayerHealth( amx, player, refHealth )
+	local health = getElementHealth( player );
+	writeMemFloat( amx, refHealth, health );
+end
+
+function GetPlayerFrozen( axm, player )
+	return isElementFrozen( player );
+end
+
+-- Camera functions
+function FadeCamera( amx, player, state )
+	return fadeCamera( player, state );
+end
+
+function SetCameraTarget( amx, player, target )
+	return setCameraTarget( player, target );
+end
+
 
 function GetCameraInterior( amx, player )
 	return getCameraInterior( player );
@@ -203,6 +271,8 @@ end
 function SetCameraMatrix( amx, player, positionX, positionY, positionZ )
 	return setCameraMatrix( player, positionX, positionY, positionZ );
 end
+
+
 function acos(amx, f)
 	return float2cell(math.acos(f))
 end
@@ -326,17 +396,66 @@ end
 
 g_SAMPSyscallPrototypes = {	
 
+	-- Vehicle
 	CreateVehicle = {'i', 'f', 'f', 'f'},
 	GetVehiclePosition = {'v', 'r', 'r', 'r'},
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	-- Player
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	SpawnPlayer	= { 'p', 'f', 'f', 'f' };
 	FadeCamera = { 'p', 'b' };
-	SetCameraTarget = { 'p', 'p' };
 	SetPlayerName = { 'p', 's' };
 	GetPlayerName = { 'p', 'r', 'i' };
 	
 	
+	GetPlayerMoney = { 'p' };
+	GetPlayerPing = { 'p' };
+	GivePlayerMoney = { 'p', 'i' };
+	SetPlayerMoney = { 'p', 'i' };
+	GetPlayerIP = { 'p' };
+	--GetPlayerFromName = { 's' };
+	RedirectPlayer = { 'p', 's', 'i' };
+	SetPlayerAlpha = { 'p', 'f' };
+	SetPlayerHealth = { 'p', 'f' };
+	SetPlayerFrozen = { 'p', 'b' };
+	GetPlayerAlpha = { 'p' };
+	GetPlayerHealth = { 'p', 'r' };
+	GetPlayerFrozen = { 'p' };
+	
+	-- Camera
+	SetCameraTarget = { 'p', 'p' };
 	GetCameraInterior = { 'p' };
 	GetCameraMatrix = { 'p', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r' };
 	--GetCameraTarget = { 'p' };
