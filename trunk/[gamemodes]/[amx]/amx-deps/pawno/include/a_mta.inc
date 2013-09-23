@@ -39,20 +39,62 @@ forward OnPlayerCommand(playerid, cmd[], args[]);
 forward OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, skin, interior, dimension);
 forward OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss);
 
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+//////////////// Native Functions ///////////////////
+////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////
 // Player natives
+//native forcePlayerMap 
+//native getAlivePlayers 
+//native getDeadPlayers 
+//native getPlayerAnnounceValue 
+//native getPlayerBlurLevel 
+//native getPlayerCount
+native GetPlayerMoney(playerid);
+//native getPlayerNametagColor 
+//native getPlayerNametagText
+native GetPlayerPing(playerid);
+//native getPlayerTeam 
+//native getPlayerVersion 
+//native getPlayerWantedLevel 
+//native getRandomPlayer
+native GivePlayerMoney(playerid, money);
+//native isPlayerMapForced 
+//native isPlayerMuted 
+//native isPlayerNametagShowing 
+//native setPlayerAnnounceValue 
+//native setPlayerBlurLevel
+native SetPlayerMoney(playerid, money);
+//native setPlayerMuted 
+//native setPlayerNametagColor 
+//native setPlayerNametagShowing 
+//native setPlayerNametagText 
+//native setPlayerTeam 
+//native setPlayerWantedLevel 
+//native isPlayerHudComponentVisible 
+//native showPlayerHudComponent 
+//native setPlayerHudComponentVisible
 native SpawnPlayer(playerid, Float:X, Float:Y, Float:Z);
-native FadeCamera(playerid, fadestate);
-native SetCameraTarget(playerid, playerid2);
-native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
+//native takePlayerMoney
+native GetPlayerFromName(name[]);
+native GetPlayerIP(playerid);
 native GetPlayerName(playerid, const nuberplate[], buf);
 native SetPlayerName(playerid, newName[], bufSize);
-native GetPlayerMoney(playerid);
-native GetPlayerPing(playerid);
-native GivePlayerMoney(playerid, money);
-native SetPlayerMoney(playerid, money);
-native GetPlayerIP(playerid);
-native GetPlayerFromName(name[]);
 native RedirectPlayer(playerid, host[], port);
+//native getPlayerIdleTime 
+//native resendPlayerModInfo 
+//native isVoiceEnabled 
+//native setPlayerVoiceBroadcastTo 
+//native setPlayerVoiceIgnoreFrom 
+//native takePlayerScreenShot
+
+
+////////////////////////////////////////////////////
+//Element-Player natives
+native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
 native SetPlayerAlpha(playerid, alpha);
 native SetPlayerHealth(playerid, Float:Health);
 native SetPlayerFrozen(playerid, state2);
@@ -61,19 +103,18 @@ native GetPlayerHealth(playerid, &Float:Health);
 native GetPlayerFrozen(playerid);
 
 
-
-
-
-
-
+////////////////////////////////////////////////////
 //Camera natives
+native FadeCamera(playerid, fadestate);
 native GetCameraInterior(playerid);
 native GetCameraMatrix(playerid, &Float:refCameraX, &Float:refCameraY, &Float:refCameraZ, &Float:refTargetX, &Float:refTargetY, &Float:refTargetZ, &Float:refRoll, &Float:refFov );
 //native GetCameraTarget(playerid)
 native SetCameraInterior(playerid, interior);
 native SetCameraMatrix(playerid, Float:X, Float:Y, Float:Z);
+native SetCameraTarget(playerid, playerid2);
 
 
+////////////////////////////////////////////////////
 // Vehicle natives
 native AddVehicleUpgrade(vehicleid, upgradeid); 
 native AttachTrailerToVehicle(vehicleid, vehicleid2); 
@@ -81,8 +122,8 @@ native BlowVehicle(vehicleid);
 native DetachTrailerFromVehicle(vehicleid); 
 native CreateVehicle(model, Float:X, Float:Y, Float:Z);
 navive FixVehicle (vehicleid);
-//navive GetVehicleColor
-//navive getVehicleCompatibleUpgrades
+//navive GetVehicleColor(
+//navive getVehicleCompatibleUpgrades(
 native GetVehicleController(vehicleid);
 native GetVehicleDoorState(vehicleid, door); 
 native GetVehicleEngineState(vehicleid); 
@@ -90,72 +131,96 @@ native GetVehicleLandingGearDown(vehicleid);
 native GetVehicleLightState(vehicleid); 
 native GetVehicleName (vehicleid, const vehiclename[], buf);
 native GetVehicleOccupant(vehicleid);
-//native GetVehicleOccupants 
+//native GetVehicleOccupants(
 native GetVehicleOverrideLights(vehicleid); 
 native GetVehiclePaintjob(vehicleid); 
 native GetVehiclePanelState(vehicleid, panel); 
 native GetVehicleSirensOn(vehicleid); 
-//native GetVehiclesOfType
-//native GetVehicleTowedByVehicle
+//native GetVehiclesOfType(
+//native GetVehicleTowedByVehicle(
+//native GetVehicleTowingVehicle (
+//native GetVehicleTurnVelocity( 
+//native GetVehicleTurretPosition (
+native GetVehicleType (vehicleid, const vehicletype[], buf);
+//native GetVehicleUpgradeOnSlot( 
+//native GetVehicleUpgrades( 
+//native GetVehicleUpgradeSlotName( 
+//native GetVehicleWheelStates( 
+//native GetVehicleDoorOpenRatio( 
+//native GetVehicleHandling(
+//native GetModelHandling(
+//native GetOriginalHandling(
+//native IsVehicleDamageProof( 
+//native IsVehicleFuelTankExplodable( 
+//native IsVehicleLocked( 
+//native IsVehicleOnGround( 
+//native RemoveVehicleUpgrade( 
+//native ResetVehicleExplosionTime( 
+//native ReSetVehicleIdleTime( 
+native RespawnVehicle (vehicleid);
+//native SetVehicleColor( 
+//native SetVehicleDamageProof( 
+//native SetVehicleDoorState( 
+//native SetVehicleDoorsUndamageable( 
+//native SetVehicleEngineState( 
+//native SetVehicleFuelTankExplodable( 
+//native SetVehicleIdleRespawnDelay( 
+//native SetVehicleLandingGearDown( 
+//native SetVehicleLightState( 
+native SetVehicleLocked (vehicleid, locked);
+//native SetVehicleOverrideLights( 
+//native SetVehiclePaintjob( 
+//native SetVehiclePanelState( 
+//native SetVehicleRespawnDelay( 
+//native SetVehicleRespawnPosition( 
+//native SetVehicleSirensOn( 
+//native SetVehicleTurretPosition( 
+//native SetVehicleDoorOpenRatio( 
+//native SetVehicleHandling( 
+//native SetModelHandling( 
+//native SetVehicleTurnVelocity( 
+//native SetVehicleWheelStates( 
+//native SpawnVehicle( 
+//native ToggleVehicleRespawn( 
+//native GetTrainDirection( 
+//native GetTrainSpeed( 
+//native GetVehicleHeadLightColor( 
+//native GetVehicleModelFromName( 
+//native GetVehicleNameFromModel( 
+//native IsTrainDerailable( 
+//native IsTrainDerailed( 
+//native IsVehicleBlown( 
+//native IsVehicleTaxiLightOn( 
+//native SetTrainDerailable( 
+//native SetTrainDerailed( 
+//native SetTrainDirection( 
+//native SetTrainSpeed( 
+//native SetVehicleHeadLightColor( 
+//native SetVehicleTaxiLightOn( 
+//native GetVehicleVariant( 
+//native SetVehicleVariant( 
+//native GetVehicleSirenParams( 
+//native RemoveVehicleSirens( 
+//native GetVehicleSirens( 
+//native AddVehicleSirens( 
+//native SetVehicleSirens(
+//native GetVehiclePlateText (vehicleid, const nuberplate[], buf);
+native SetVehiclePlateText (vehicleid, nuberplate[]);
 
 
+
+////////////////////////////////////////////////////
+//Element-Vehicle natives
 native GetVehiclePosition(vehicleid, &Float:X, &Float:Y, &Float:Z);
 native SetVehicleAlpha(vehicleid, Float:Alpha);
-native GetVehiclePlateText (vehicleid, const nuberplate[], buf);
-native SetVehiclePlateText (vehicleid, nuberplate[]);
 native GetVehicleHealth (vehicleid, &Float:Health);
 native SetVehicleHealth (vehicleid, Float:Health);
-native SetVehicleLocked (vehicleid, locked);
-native RespawnVehicle (vehicleid);
-native GetVehicleType (vehicleid, const vehicletype[], buf);
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Weapon
+////////////////////////////////////////////////////
+// Weapon natives
 native GetSlotFromWeapon(idweapon);
 native GetWeaponIDFromName(weaponname[]);
 native GetWeaponNameFromID(weaponid, const name[], bufsize);

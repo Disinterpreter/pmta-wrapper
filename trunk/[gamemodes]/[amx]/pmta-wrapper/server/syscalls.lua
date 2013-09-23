@@ -125,48 +125,17 @@ function syscall(amx, svc, prototype, ...)		-- svc = service number (= index in 
 	return result or 0
 end
 
+----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+-- >>>>>>>>>>>>>>>>>>>>>>> Implementation of PAWN API <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------------
+----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+
+
+
+
 -----------------------------------------------------
--- Implementation of PAWN API
--- Vehicle
-
-function GetVehiclePosition(amx, vehicle, refX, refY, refZ)
-	local x, y, z = getElementPosition(vehicle);
-	writeMemFloat(amx, refX, x)
-	writeMemFloat(amx, refY, y)
-	writeMemFloat(amx, refZ, z)
-
-
-end
-
-function SetVehiclePlateText ( amx, vehicle, nuberplate )
-	return setVehiclePlateText ( vehicle, nuberplate )
-end
-
-function GetVehicleHealth ( amx, vehicle, refHealth )
-	local health = getElementHealth( vehicle );
-	writeMemFloat( amx, refHealth, health );
-end
-
-function SetVehicleHealth ( amx, vehicle, health )
-	return setElementHealth ( vehicle, health )
-end
-
-function SetVehicleLocked ( amx ,vehicle, locked )
-	return setVehicleLocked ( vehicle, locked )
-end
-
-function RespawnVehicle ( amx, vehicle )
-	return respawnVehicle ( vehicle )
-end
-
-function GetVehicleType ( amx, vehicle, nameBuf, bufSize )
-	local vehType = getVehicleType ( vehicle )
-	if #vehType <= bufSize then
-		writeMemString( amx, nameBuf, vehType )
-	end
-end
-
---
+-- Vehicle ( Sorted )
 
 function AddVehicleUpgrade(amx, vehicle, upgradeID)
 	return addVehicleUpgrade(vehicle, upgradeID);
@@ -287,12 +256,184 @@ function GetVehicleTowedByVehicle( )
 end
 ]]
 
+--getVehicleTowingVehicle 
+--getVehicleTurnVelocity 
+--getVehicleTurretPosition 
+
+function GetVehicleType ( amx, vehicle, nameBuf, bufSize )
+	local vehType = getVehicleType ( vehicle )
+	if #vehType <= bufSize then
+		writeMemString( amx, nameBuf, vehType )
+	end
+end
+
+--getVehicleUpgradeOnSlot 
+--getVehicleUpgrades 
+--getVehicleUpgradeSlotName 
+--getVehicleWheelStates 
+--getVehicleDoorOpenRatio 
+--getVehicleHandling 
+--getModelHandling 
+--getOriginalHandling 
+--isVehicleDamageProof 
+--isVehicleFuelTankExplodable 
+--isVehicleLocked 
+--isVehicleOnGround 
+--removeVehicleUpgrade 
+--resetVehicleExplosionTime 
+--resetVehicleIdleTime 
+
+
+function RespawnVehicle ( amx, vehicle )
+	return respawnVehicle ( vehicle )
+end
+
+--setVehicleColor 
+--setVehicleDamageProof 
+--setVehicleDoorState 
+--setVehicleDoorsUndamageable 
+--setVehicleEngineState 
+--setVehicleFuelTankExplodable 
+--setVehicleIdleRespawnDelay 
+--setVehicleLandingGearDown 
+--setVehicleLightState 
+
+function SetVehicleLocked ( amx ,vehicle, locked )
+	return setVehicleLocked ( vehicle, locked )
+end
+
+--setVehicleOverrideLights 
+--setVehiclePaintjob 
+--setVehiclePanelState 
+--setVehicleRespawnDelay 
+--setVehicleRespawnPosition 
+--setVehicleSirensOn 
+--setVehicleTurretPosition 
+--setVehicleDoorOpenRatio 
+--setVehicleHandling 
+--setModelHandling 
+--setVehicleTurnVelocity 
+--setVehicleWheelStates 
+--spawnVehicle 
+--toggleVehicleRespawn 
+--getTrainDirection 
+--getTrainSpeed 
+--getVehicleHeadLightColor 
+--getVehicleModelFromName 
+--getVehicleNameFromModel 
+--isTrainDerailable 
+--isTrainDerailed 
+--isVehicleBlown 
+--isVehicleTaxiLightOn 
+--setTrainDerailable 
+--setTrainDerailed 
+--setTrainDirection 
+--setTrainSpeed 
+--setVehicleHeadLightColor 
+--setVehicleTaxiLightOn 
+--getVehicleVariant 
+--setVehicleVariant 
+--getVehicleSirenParams 
+--removeVehicleSirens 
+--getVehicleSirens 
+--addVehicleSirens? 
+--setVehicleSirens 
+
+function SetVehiclePlateText ( amx, vehicle, nuberplate )
+	return setVehiclePlateText ( vehicle, nuberplate )
+end
+
+
+
 
 ------------------------------------------------------------------------
--- Player functions
+--Element-Vehicle functions
 
-function SetPlayerName ( amx, player, newName )
-	return setPlayerName ( player, newName )
+
+function GetVehiclePosition(amx, vehicle, refX, refY, refZ)
+	local x, y, z = getElementPosition(vehicle);
+	writeMemFloat(amx, refX, x)
+	writeMemFloat(amx, refY, y)
+	writeMemFloat(amx, refZ, z)
+
+
+end
+
+function GetVehicleHealth ( amx, vehicle, refHealth )
+	local health = getElementHealth( vehicle );
+	writeMemFloat( amx, refHealth, health );
+end
+
+function SetVehicleHealth ( amx, vehicle, health )
+	return setElementHealth ( vehicle, health )
+end
+
+
+------------------------------------------------------------------------
+-- Player functions ( Start is empty but next stuff is sorted )
+
+--forcePlayerMap 
+--getAlivePlayers 
+--getDeadPlayers 
+--getPlayerAnnounceValue 
+--getPlayerBlurLevel 
+--getPlayerCount
+
+function GetPlayerMoney( amx, player )
+	return getPlayerMoney( player );
+end
+
+--getPlayerNametagColor 
+--getPlayerNametagText
+
+function GetPlayerPing( amx, player )
+	return getPlayerPing( player );
+end
+
+--getPlayerTeam 
+--getPlayerVersion 
+--getPlayerWantedLevel 
+--getRandomPlayer
+
+function GivePlayerMoney( amx, player, money )
+	return givePlayerMoney( player, money );
+end
+
+--isPlayerMapForced 
+--isPlayerMuted 
+--isPlayerNametagShowing 
+--setPlayerAnnounceValue 
+--setPlayerBlurLevel
+
+function SetPlayerMoney( amx, player, money )
+	return setPlayerMoney( player, money );
+end
+
+--setPlayerMuted 
+--setPlayerNametagColor 
+--setPlayerNametagShowing 
+--setPlayerNametagText 
+--setPlayerTeam 
+--setPlayerWantedLevel 
+--isPlayerHudComponentVisible 
+--showPlayerHudComponent 
+--setPlayerHudComponentVisible
+
+function SpawnPlayer( amx, player, x, y, z )
+	return spawnPlayer( player, x, y, z );
+end
+
+--takePlayerMoney
+
+function GetPlayerFromName( amx, name )
+	local player = getPlayerFromName( name );
+	local playerID = getElemID( player )
+	
+	return playerID
+end
+
+function GetPlayerIP( axm, player )
+	return getPlayerIP( player );
 end
 
 function GetPlayerName ( amx, player, nameBuf, bufSize )
@@ -302,45 +443,28 @@ function GetPlayerName ( amx, player, nameBuf, bufSize )
 	end
 end
 
-function SpawnPlayer( amx, player, x, y, z )
-	return spawnPlayer( player, x, y, z );
-end
-
 function SetPlayerName ( amx, player, newName )
 	return setPlayerName ( player, newName )
 end
 
-function GetPlayerMoney( amx, player )
-	return getPlayerMoney( player );
-end
-
-function GetPlayerPing( amx, player )
-	return getPlayerPing( player );
-end
-
-function GivePlayerMoney( amx, player, money )
-	return givePlayerMoney( player, money );
-end
-
-function SetPlayerMoney( amx, player, money )
-	return setPlayerMoney( player, money );
-end
-
-function GetPlayerIP( axm, player )
-	return getPlayerIP( player );
-end
-
-
-function GetPlayerFromName( amx, name )
-	local player = getPlayerFromName( name );
-	local playerID = getElemID( player )
-	
-	return playerID
-end
 
 function RedirectPlayer( amx, player, serverIP, serverPort )
 	return redirectPlayer( player, serverIP, serverPort );
 end
+
+--getPlayerIdleTime 
+--resendPlayerModInfo 
+--isVoiceEnabled 
+--setPlayerVoiceBroadcastTo 
+--setPlayerVoiceIgnoreFrom 
+--takePlayerScreenShot
+
+
+
+
+
+------------------------------------------------------------------------
+-- Element-Player functions
 
 function SetPlayerAlpha( amx, player, alpha )
 	return setElementAlpha( player, alpha );
@@ -367,6 +491,9 @@ function GetPlayerFrozen( axm, player )
 	return isElementFrozen( player );
 end
 
+
+
+------------------------------------------------------------------------
 -- Camera functions
 function FadeCamera( amx, player, state )
 	return fadeCamera( player, state );
@@ -410,71 +537,8 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
---Weapon functions
+------------------------------------------------------------------------
+--Weapon functions ( Sorted )
 function GetSlotFromWeapon( amx, weapon )
 	return getSlotFromWeapon( weapon );
 end
@@ -534,7 +598,7 @@ end]]
 
 
 
-
+------------------------------------------------------------------------
 --Other functions
 
 function acos(amx, f)
@@ -659,7 +723,7 @@ function format(amx, outBuf, outBufSize, fmt, ...)
 end
 
 g_SAMPSyscallPrototypes = {	
-
+	------------------------------------------------------------------------
 	-- Vehicle
 	AddVehicleUpgrade = { 'v', 'i' },
 	AttachTrailerToVehicle = { 'v', 'v' },
@@ -683,90 +747,154 @@ g_SAMPSyscallPrototypes = {
 	GetVehicleSirensOn = { 'v' },
 	--GetVehiclesOfType
 	--GetVehicleTowedByVehicle
-	
-	
-	
-	
-	
+	--getVehicleTowingVehicle 
+	--getVehicleTurnVelocity 
+	--getVehicleTurretPosition 
+	GetVehicleType = { 'v', 'r', 'i' },
+	--getVehicleUpgradeOnSlot 
+	--getVehicleUpgrades 
+	--getVehicleUpgradeSlotName 
+	--getVehicleWheelStates 
+	--getVehicleDoorOpenRatio 
+	--getVehicleHandling 
+	--getModelHandling 
+	--getOriginalHandling 
+	--isVehicleDamageProof 
+	--isVehicleFuelTankExplodable 
+	--isVehicleLocked 
+	--isVehicleOnGround 
+	--removeVehicleUpgrade 
+	--resetVehicleExplosionTime 
+	--resetVehicleIdleTime 
+	RespawnVehicle = { 'v' },
+	--setVehicleColor 
+	--setVehicleDamageProof 
+	--setVehicleDoorState 
+	--setVehicleDoorsUndamageable 
+	--setVehicleEngineState 
+	--setVehicleFuelTankExplodable 
+	--setVehicleIdleRespawnDelay 
+	--setVehicleLandingGearDown 
+	--setVehicleLightState 
+	SetVehicleLocked = { 'v', 'b' },
+	--setVehicleOverrideLights 
+	--setVehiclePaintjob 
+	--setVehiclePanelState 
+	--setVehicleRespawnDelay 
+	--setVehicleRespawnPosition 
+	--setVehicleSirensOn 
+	--setVehicleTurretPosition 
+	--setVehicleDoorOpenRatio 
+	--setVehicleHandling 
+	--setModelHandling 
+	--setVehicleTurnVelocity 
+	--setVehicleWheelStates 
+	--spawnVehicle 
+	--toggleVehicleRespawn 
+	--getTrainDirection 
+	--getTrainSpeed 
+	--getVehicleHeadLightColor 
+	--getVehicleModelFromName 
+	--getVehicleNameFromModel 
+	--isTrainDerailable 
+	--isTrainDerailed 
+	--isVehicleBlown 
+	--isVehicleTaxiLightOn 
+	--setTrainDerailable 
+	--setTrainDerailed 
+	--setTrainDirection 
+	--setTrainSpeed 
+	--setVehicleHeadLightColor 
+	--setVehicleTaxiLightOn 
+	--getVehicleVariant 
+	--setVehicleVariant 
+	--getVehicleSirenParams 
+	--removeVehicleSirens 
+	--getVehicleSirens 
+	--addVehicleSirens 
+	--setVehicleSirens 
 	SetVehiclePlateText = { 'v', 's' },
+
+	------------------------------------------------------------------------
+	--Element-Vehicle
 	GetVehicleHealth = { 'v', 'r' },
 	SetVehicleHealth = { 'v', 'f' };
-	SetVehicleLocked = { 'v', 'b' },
-	RespawnVehicle = { 'v' },
-	GetVehicleType = { 'v', 'r', 'i' },
 	GetVehiclePosition = {'v', 'r', 'r', 'r'},
-
+	--- ......
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	------------------------------------------------------------------------
 	-- Player
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	SpawnPlayer	= { 'p', 'f', 'f', 'f' },
-	FadeCamera = { 'p', 'b' },
-	SetPlayerName = { 'p', 's' },
-	GetPlayerName = { 'p', 'r', 'i' },
-
-	
-	
+	--forcePlayerMap 
+	--getAlivePlayers 
+	--getDeadPlayers 
+	--getPlayerAnnounceValue 
+	--getPlayerBlurLevel 
+	--getPlayerCount
 	GetPlayerMoney = { 'p' },
+	--getPlayerNametagColor 
+	--getPlayerNametagText
 	GetPlayerPing = { 'p' },
+	--getPlayerTeam 
+	--getPlayerVersion 
+	--getPlayerWantedLevel 
+	--getRandomPlayer
 	GivePlayerMoney = { 'p', 'i' },
+	--isPlayerMapForced 
+	--isPlayerMuted 
+	--isPlayerNametagShowing 
+	--setPlayerAnnounceValue 
+	--setPlayerBlurLevel
 	SetPlayerMoney = { 'p', 'i' },
-	GetPlayerIP = { 'p' },
+	--setPlayerMuted 
+	--setPlayerNametagColor 
+	--setPlayerNametagShowing 
+	--setPlayerNametagText 
+	--setPlayerTeam 
+	--setPlayerWantedLevel 
+	--isPlayerHudComponentVisible 
+	--showPlayerHudComponent 
+	--setPlayerHudComponentVisible
+	SpawnPlayer	= { 'p', 'f', 'f', 'f' },
+	--takePlayerMoney
 	GetPlayerFromName = { 's' },
+	GetPlayerIP = { 'p' },
+	GetPlayerName = { 'p', 'r', 'i' },
+	SetPlayerName = { 'p', 's' },
 	RedirectPlayer = { 'p', 's', 'i' },
+	--getPlayerIdleTime 
+	--resendPlayerModInfo 
+	--isVoiceEnabled 
+	--setPlayerVoiceBroadcastTo 
+	--setPlayerVoiceIgnoreFrom 
+	--takePlayerScreenShot
+
+
+
+
+
+	------------------------------------------------------------------------
+	-- Element-Player functions
 	SetPlayerAlpha = { 'p', 'f' },
 	SetPlayerHealth = { 'p', 'f' },
 	SetPlayerFrozen = { 'p', 'b' },
 	GetPlayerAlpha = { 'p' },
 	GetPlayerHealth = { 'p', 'r' },
 	GetPlayerFrozen = { 'p' },
+	--- ......
 	
+	------------------------------------------------------------------------
 	-- Camera
-	SetCameraTarget = { 'p', 'p' },
+	FadeCamera = { 'p', 'b' },
 	GetCameraInterior = { 'p' },
 	GetCameraMatrix = { 'p', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r' },
 	--GetCameraTarget = { 'p' };
 	SetCameraInterior = { 'p', 'i' },
 	SetCameraMatrix = { 'p', 'f', 'f', 'f' },
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	SetCameraTarget = { 'p', 'p' },
+
+	------------------------------------------------------------------------
 	-- Weapon
 	GetSlotFromWeapon = { 'i' },
 	GetWeaponIDFromName = { 's' },
@@ -778,17 +906,9 @@ g_SAMPSyscallPrototypes = {
 	--GetOriginalWeaponProperty
 	--GetWeaponProperty
 	--SetWeaponProperty
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	------------------------------------------------------------------------
 	-- Other
 	acos = {'f'},
 	asin = {'f'},
