@@ -157,14 +157,13 @@ function SetVehiclePlateText ( amx, vehicle, nuberplate )
 	return setVehiclePlateText ( vehicle, nuberplate )
 end
 
-function GetVehicleHealth ( amx, vehicle )
-	local health = getElementHealth ( vehicle )
-	writeMemFloat(amx, vehicle, health)
+function GetVehicleHealth ( amx, vehicle, refHealth )
+	local health = getElementHealth( vehicle );
+	writeMemFloat( amx, refHealth, health );
 end
 
 function SetVehicleHealth ( amx, vehicle, health )
-	local health = setElementHealth ( vehicle, health )
-	writeMemFloat(amx, vehicle, health)
+	return setElementHealth ( vehicle, health )
 end
 
 function SetVehicleLocked ( amx ,vehicle, locked )
@@ -175,14 +174,18 @@ function RespawnVehicle ( amx, vehicle )
 	return respawnVehicle ( vehicle )
 end
 
-function GetVehicleType ( amx, vehicle, nameBuf )
+function GetVehicleType ( amx, vehicle, nameBuf, bufSize )
 	local vehType = getVehicleType ( vehicle )
-	writeMemString( amx, nameBuf, vehType )
+	if #vehType <= bufSize then
+		writeMemString( amx, nameBuf, vehType )
+	end
 end
 
-function GetVehicleName ( amx, vehicle, nameBuf )
+function GetVehicleName ( amx, vehicle, nameBuf, bufSize )
 	local vehName =  getVehicleName ( vehicle )
-	writeMemString(amx, nameBuf, vehName)
+	if #vehName <= bufSize then
+		writeMemString(amx, nameBuf, vehName)
+	end
 end
 
 function BlowVehicle ( vehicle )
@@ -208,10 +211,6 @@ end
 
 function SetPlayerName ( amx, player, newName )
 	return setPlayerName ( player, newName )
-end
-
-function GetPlayerName ( amx, player )
-	return getPlayerName ( player )
 end
 
 function GetPlayerMoney( amx, player )
@@ -569,16 +568,12 @@ g_SAMPSyscallPrototypes = {
 	GetVehiclePosition = {'v', 'r', 'r', 'r'},
 	FixVehicle = { 'v' },
 	SetVehiclePlateText = { 'v', 's' },
-	GetVehicleHealth = { 'v' },
-	SetVehicleHealth = { 'v', 'f' },
-	FixVehicle = { 'v' },
-	SetVehiclePlateText = { 'v', 's' },
-	GetVehicleHealth = { 'v' },
+	GetVehicleHealth = { 'v', 'r' },
 	SetVehicleHealth = { 'v', 'f' };
 	SetVehicleLocked = { 'v', 'b' },
 	RespawnVehicle = { 'v' },
-	GetVehicleType = { 'v' },
-	GetVehicleName = { 'v' },
+	GetVehicleType = { 'v', 'r', 'i' },
+	GetVehicleName = { 'v', 'r', 'i' },
 	BlowVehicle = { 'v' },
 	
 	
@@ -661,7 +656,7 @@ g_SAMPSyscallPrototypes = {
 	-- Weapon
 	GetSlotFromWeapon = { 'i' },
 	GetWeaponIDFromName = { 's' },
-	GetWeaponNameFromID = { 'i', 's', 'i' },
+	GetWeaponNameFromID = { 'i', 'r', 'i' },
 	GiveWeapon = { 'p', 'i' },
 	SetWeaponAmmo = { 'p', 'i', 'i' },
 	TakeAllWeapons = { 'p' },

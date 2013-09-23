@@ -44,7 +44,7 @@ native SpawnPlayer(playerid, Float:X, Float:Y, Float:Z);
 native FadeCamera(playerid, fadestate);
 native SetCameraTarget(playerid, playerid2);
 native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
-native GetPlayerName(playerid);
+native GetPlayerName(playerid, const nuberplate[], buf);
 native SetPlayerName(playerid, newName[], bufSize);
 native GetPlayerMoney(playerid);
 native GetPlayerPing(playerid);
@@ -77,19 +77,19 @@ native SetCameraMatrix(playerid, Float:X, Float:Y, Float:Z);
 // Vehicle natives
 native CreateVehicle(model, Float:X, Float:Y, Float:Z);
 native GetVehiclePosition(vehicleid, &Float:X, &Float:Y, &Float:Z);
-native SetVehicleAlpha(model, Float:Alpha);
-navive FixVehicle (model);
-native GetVehiclePlateText (model);
-native SetVehicleAlpha(model, Float:alpha);
-native FixVehicle(model);
-native SetVehiclePlateText (model, nuberplate[]);
-native GetVehicleHealth (model);
-native SetVehicleHealth (model, &Float:Health);
-native SetVehicleLocked (model, locked);
-native RespawnVehicle (model);
-native GetVehicleType (model);
-native GetVehicleName (model);
-native BlowVehicle (model);
+native SetVehicleAlpha(vehicleid, Float:Alpha);
+navive FixVehicle (vehicleid);
+native GetVehiclePlateText (vehicleid, const nuberplate[], buf);
+native SetVehicleAlpha(vehicleid, Float:alpha);
+native FixVehicle(vehicleid);
+native SetVehiclePlateText (vehicleid, nuberplate[]);
+native GetVehicleHealth (vehicleid, &Float:Health);
+native SetVehicleHealth (vehicleid, Float:Health);
+native SetVehicleLocked (vehicleid, locked);
+native RespawnVehicle (vehicleid);
+native GetVehicleType (vehicleid, const vehicletype[], buf);
+native GetVehicleName (vehicleid, const vehiclename[], buf);
+native BlowVehicle (vehicleid);
 
 
 
@@ -140,7 +140,7 @@ native BlowVehicle (model);
 // Weapon
 native GetSlotFromWeapon(idweapon);
 native GetWeaponIDFromName(weaponname[]);
-native GetWeaponNameFromID(weaponid, name[], bufsize);
+native GetWeaponNameFromID(weaponid, const name[], bufsize);
 native GiveWeapon(playerid, weaponid);
 native SetWeaponAmmo( playerid, weaponid, ammo );
 native TakeAllWeapons( playerid );
@@ -148,4 +148,3 @@ native TakeWeapon( playerid, weaponid );
 //native GetOriginalWeaponProperty
 //native GetWeaponProperty
 //native SetWeaponProperty
->>>>>>> .r24
