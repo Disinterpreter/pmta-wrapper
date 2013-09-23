@@ -33,6 +33,8 @@ native md5hash(str[], const buf[], bufsize);
 // Callbacks
 forward OnGameModeInit();
 forward OnPlayerConnect(playerid);
+forward OnPlayerChat(playerid, msg[], msgType);
+forward OnPlayerConsole(playerid, text[]);
 
 // Player natives
 native SpawnPlayer(playerid, Float:X, Float:Y, Float:Z);
@@ -45,7 +47,7 @@ native GetCameraMatrix(playerid, &Float:refCameraX, &Float:refCameraY, &Float:re
 native SetCameraInterior(playerid, interior);
 native SetCameraMatrix(playerid, Float:X, Float:Y, Float:Z);
 native GetPlayerName(playerid);
-native SetPlayerName(playerid, newName[]);
+native SetPlayerName(playerid, newName[], bufSize);
 
 
 // Vehicle natives
