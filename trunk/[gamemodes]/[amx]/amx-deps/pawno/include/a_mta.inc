@@ -44,6 +44,8 @@ native GetCameraMatrix(playerid, &Float:refCameraX, &Float:refCameraY, &Float:re
 //native GetCameraTarget(playerid)
 native SetCameraInterior(playerid, interior);
 native SetCameraMatrix(playerid, Float:X, Float:Y, Float:Z);
+native GetPlayerName(playerid);
+native SetPlayerName(playerid, newName[]);
 
 
 // Vehicle natives

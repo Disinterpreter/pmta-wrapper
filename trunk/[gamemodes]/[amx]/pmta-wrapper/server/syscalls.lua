@@ -162,6 +162,14 @@ function SetCameraTarget( amx, player, target )
 	return setCameraTarget( player, target );
 end
 
+function SetPlayerName ( amx, player, newName )
+	return setPlayerName ( player, newName )
+end
+
+function GetPlayerName ( amx, player )
+	return getPlayerName ( player )
+end
+
 function GetCameraInterior( amx, player )
 	return getCameraInterior( player );
 end
@@ -192,7 +200,6 @@ end
 function SetCameraMatrix( amx, player, positionX, positionY, positionZ )
 	return setCameraMatrix( player, positionX, positionY, positionZ );
 end
-
 function acos(amx, f)
 	return float2cell(math.acos(f))
 end
@@ -321,11 +328,15 @@ g_SAMPSyscallPrototypes = {
 	SpawnPlayer	= { 'p', 'f', 'f', 'f' };
 	FadeCamera = { 'p', 'b' };
 	SetCameraTarget = { 'p', 'p' };
+	SetPlayerName = { 'p', 's' };
+	GetPlayerName = { 'p' };
 	GetCameraInterior = { 'p' };
 	GetCameraMatrix = { 'p', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r' };
 	--GetCameraTarget = { 'p' };
 	SetCameraInterior = { 'p', 'i' };
 	SetCameraMatrix = { 'p', 'f', 'f', 'f' };
+
+
 
 	acos = {'f'},
 	asin = {'f'},
