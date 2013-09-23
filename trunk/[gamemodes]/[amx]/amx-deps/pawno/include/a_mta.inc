@@ -35,6 +35,7 @@ forward OnGameModeInit();
 forward OnPlayerConnect(playerid);
 forward OnPlayerChat(playerid, msg[], msgType);
 forward OnPlayerConsole(playerid, text[]);
+forward OnPlayerCommand(playerid, cmd[], args[]);
 forward OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, skin, interior, dimension);
 forward OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss);
 
@@ -54,9 +55,9 @@ native GetPlayerFromName(name[]);
 native RedirectPlayer(playerid, host[], port);
 native SetPlayerAlpha(playerid, alpha);
 native SetPlayerHealth(playerid, Float:Health);
-native SetPlayerFrozen(playerid, state);
+native SetPlayerFrozen(playerid, state2);
 native GetPlayerAlpha(playerid);
-native GetPlayerHealth(playerid, &Float:Health)
+native GetPlayerHealth(playerid, &Float:Health);
 native GetPlayerFrozen(playerid);
 
 
@@ -76,10 +77,9 @@ native SetCameraMatrix(playerid, Float:X, Float:Y, Float:Z);
 // Vehicle natives
 native CreateVehicle(model, Float:X, Float:Y, Float:Z);
 native GetVehiclePosition(vehicleid, &Float:X, &Float:Y, &Float:Z);
-native SetVehicleAlpha(model, Float:Alpha);
-navive FixVehicle (model);
-native SetVehiclePlateText (model, )
+native SetVehicleAlpha(model, Float:alpha);
+native FixVehicle(model);
 native SetVehiclePlateText (model, nuberplate[]);
 native GetVehicleHealth (model);
 native SetVehicleHealth (model, &Float:Health);
-native SetVehicleLocked (model, locked)
+native SetVehicleLocked (model, locked);

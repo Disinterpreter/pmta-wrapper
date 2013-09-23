@@ -425,7 +425,7 @@ g_SAMPSyscallPrototypes = {
 	SetVehiclePlateText = { 'v', 's' };
 	GetVehicleHealth = { 'v' };
 	SetVehicleHealth = { 'v', 'f' };
-	SetVehicleLocked = { 'v', 'b' }
+	SetVehicleLocked = { 'v', 'b' },
 	
 	
 	
@@ -460,34 +460,34 @@ g_SAMPSyscallPrototypes = {
 	
 	
 	
-	SpawnPlayer	= { 'p', 'f', 'f', 'f' };
-	FadeCamera = { 'p', 'b' };
-	SetPlayerName = { 'p', 's' };
-	GetPlayerName = { 'p', 'r', 'i' };
+	SpawnPlayer	= { 'p', 'f', 'f', 'f' },
+	FadeCamera = { 'p', 'b' },
+	SetPlayerName = { 'p', 's' },
+	GetPlayerName = { 'p', 'r', 'i' },
 
 	
 	
-	GetPlayerMoney = { 'p' };
-	GetPlayerPing = { 'p' };
-	GivePlayerMoney = { 'p', 'i' };
-	SetPlayerMoney = { 'p', 'i' };
-	GetPlayerIP = { 'p' };
-	GetPlayerFromName = { 's' };
-	RedirectPlayer = { 'p', 's', 'i' };
-	SetPlayerAlpha = { 'p', 'f' };
-	SetPlayerHealth = { 'p', 'f' };
-	SetPlayerFrozen = { 'p', 'b' };
-	GetPlayerAlpha = { 'p' };
-	GetPlayerHealth = { 'p', 'r' };
-	GetPlayerFrozen = { 'p' };
+	GetPlayerMoney = { 'p' },
+	GetPlayerPing = { 'p' },
+	GivePlayerMoney = { 'p', 'i' },
+	SetPlayerMoney = { 'p', 'i' },
+	GetPlayerIP = { 'p' },
+	GetPlayerFromName = { 's' },
+	RedirectPlayer = { 'p', 's', 'i' },
+	SetPlayerAlpha = { 'p', 'f' },
+	SetPlayerHealth = { 'p', 'f' },
+	SetPlayerFrozen = { 'p', 'b' },
+	GetPlayerAlpha = { 'p' },
+	GetPlayerHealth = { 'p', 'r' },
+	GetPlayerFrozen = { 'p' },
 	
 	-- Camera
-	SetCameraTarget = { 'p', 'p' };
-	GetCameraInterior = { 'p' };
-	GetCameraMatrix = { 'p', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r' };
+	SetCameraTarget = { 'p', 'p' },
+	GetCameraInterior = { 'p' },
+	GetCameraMatrix = { 'p', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r' },
 	--GetCameraTarget = { 'p' };
-	SetCameraInterior = { 'p', 'i' };
-	SetCameraMatrix = { 'p', 'f', 'f', 'f' };
+	SetCameraInterior = { 'p', 'i' },
+	SetCameraMatrix = { 'p', 'f', 'f', 'f' },
 
 	acos = {'f'},
 	asin = {'f'},

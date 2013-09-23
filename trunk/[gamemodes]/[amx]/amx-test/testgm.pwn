@@ -68,3 +68,8 @@ public OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss)
 {
 	printf("Player %d damaged %d with weapon %d on bodypart %d with hploss %f", attackerid, playerid, weaponid, bodypart, loss);
 }
+
+public OnPlayerCommand(playerid, cmd[], args[])
+{
+	printf("Player %d entered cmd %s with args: %s", playerid, cmd, args);
+}
