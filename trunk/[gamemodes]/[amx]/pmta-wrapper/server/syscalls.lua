@@ -24,32 +24,8 @@ function argsToMTA(amx, prototype, ...)
 			val = val % 0x100			-- a
 		elseif vartype == 'p' then		-- player
 			val = g_Players[val] and g_Players[val].elem
-		elseif vartype == 'z' then		-- bot/ped
-			val = g_Bots[val] and g_Bots[val].elem
-		elseif vartype == 't' then		-- team
-			val = val ~= 0 and g_Teams[val]
 		elseif vartype == 'v' then		-- vehicle
 			val = g_Vehicles[val] and g_Vehicles[val].elem
-		elseif vartype == 'o' then		-- object
-			val = g_Objects[val] and g_Objects[val].elem
-		elseif vartype == 'u' then		-- pickup
-			val = g_Pickups[val] and g_Pickups[val].elem
-		elseif vartype == 'h' then		-- file handle
-			val = amx.files[val]
-		elseif vartype == 'x' then		-- textdraw
-			val = amx.textdraws[val]
-		elseif vartype == 'm' then		-- menu
-			val = amx.menus[val]
-		elseif vartype == 'g' then		-- gang zone
-			val = amx.gangzones[val] and amx.gangzones[val].elem
-		elseif vartype == 'k' then		-- native marker
-			val = g_Markers[val] and g_Markers[val].elem
-		elseif vartype == 'l' then		-- slothbots
-			val = g_SlothBots[val] and g_SlothBots[val].elem
-		elseif vartype == 'd' then		-- database result
-			val = amx.dbresults[val]
-		elseif vartype == 'a' then		-- 3D text label
-			val = amx.textlabels[val]
 		end
 		if val == nil then
 			val = false
@@ -149,47 +125,9 @@ function syscall(amx, svc, prototype, ...)		-- svc = service number (= index in 
 	return result or 0
 end
 
-----------------------------------------------
---  Start of SA-MP API implementation
+-----------------------------------------------------
+-- Implementation of PAWN API
 
-local skinReplace = {
-	-- invalid skins
-	[3] = 0,
-	[4] = 0,
-	[5] = 0,
-	[6] = 0,
-	[8] = 0,
-	[42] = 0,
-	[65] = 0,
-	[74] = 0,
-	[86] = 0,
-	[119] = 0,
-	[149] = 0,
-	[208] = 0,
-	[273] = 0,
-	
-	-- story skins
-	[1] = 261,		-- The Truth
-	[2] = 37,		-- Mack
-	[265] = 284,	-- Police
-	[266] = 281,	--  "
-	[267] = 280,	--  "
-	[268] = 72,		-- Paul
-	[269] = 105,	-- Big Smoke
-	[270] = 107,	-- Sweet
-	[271] = 106,	-- Ryder
-	[272] = 112,	-- Black jacket, white pants
-	[290] = 57,		-- Rosenberg
-	[291] = 111,	-- Jeans jacket, black pants
-	[292] = 109,	-- Ese
-	[293] = 83,		-- O.G. LOC
-	[294] = 120,	-- Wuzi
-	[295] = 165,	-- Toreno
-	[296] = 249,	-- Pimp
-	[297] = 24,		-- Madd Dog
-	[298] = 192,	-- Cathalena
-	[299] = 124		-- Claude
-}
 
 function acos(amx, f)
 	return float2cell(math.acos(f))
@@ -314,7 +252,7 @@ end
 
 g_SAMPSyscallPrototypes = {	
 
-
+	
 
 	acos = {'f'},
 	asin = {'f'},
