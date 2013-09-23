@@ -39,6 +39,11 @@ native SpawnPlayer(playerid, Float:X, Float:Y, Float:Z);
 native FadeCamera(playerid, fadestate);
 native SetCameraTarget(playerid, playerid2);
 native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
+native GetCameraInterior(playerid);
+native GetCameraMatrix(playerid, &Float:refCameraX, &Float:refCameraY, &Float:refCameraZ, &Float:refTargetX, &Float:refTargetY, &Float:refTargetZ, &Float:refRoll, &Float:refFov );
+//native GetCameraTarget(playerid)
+native SetCameraInterior(playerid, interior);
+native SetCameraMatrix(playerid, Float:X, Float:Y, Float:Z);
 
 
 // Vehicle natives
