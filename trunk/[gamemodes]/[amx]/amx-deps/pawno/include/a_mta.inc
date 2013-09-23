@@ -75,21 +75,39 @@ native SetCameraMatrix(playerid, Float:X, Float:Y, Float:Z);
 
 
 // Vehicle natives
+native AddVehicleUpgrade(vehicleid, upgradeid); 
+native AttachTrailerToVehicle(vehicleid, vehicleid2); 
+native BlowVehicle(vehicleid); 
+native DetachTrailerFromVehicle(vehicleid); 
 native CreateVehicle(model, Float:X, Float:Y, Float:Z);
+navive FixVehicle (vehicleid);
+//navive GetVehicleColor
+//navive getVehicleCompatibleUpgrades
+native GetVehicleController(vehicleid);
+native GetVehicleDoorState(vehicleid, door); 
+native GetVehicleEngineState(vehicleid); 
+native GetVehicleLandingGearDown(vehicleid); 
+native GetVehicleLightState(vehicleid); 
+native GetVehicleName (vehicleid, const vehiclename[], buf);
+native GetVehicleOccupant(vehicleid);
+//native GetVehicleOccupants 
+native GetVehicleOverrideLights(vehicleid); 
+native GetVehiclePaintjob(vehicleid); 
+native GetVehiclePanelState(vehicleid, panel); 
+native GetVehicleSirensOn(vehicleid); 
+//native GetVehiclesOfType
+//native GetVehicleTowedByVehicle
+
+
 native GetVehiclePosition(vehicleid, &Float:X, &Float:Y, &Float:Z);
 native SetVehicleAlpha(vehicleid, Float:Alpha);
-navive FixVehicle (vehicleid);
 native GetVehiclePlateText (vehicleid, const nuberplate[], buf);
-native SetVehicleAlpha(vehicleid, Float:alpha);
-native FixVehicle(vehicleid);
 native SetVehiclePlateText (vehicleid, nuberplate[]);
 native GetVehicleHealth (vehicleid, &Float:Health);
 native SetVehicleHealth (vehicleid, Float:Health);
 native SetVehicleLocked (vehicleid, locked);
 native RespawnVehicle (vehicleid);
 native GetVehicleType (vehicleid, const vehicletype[], buf);
-native GetVehicleName (vehicleid, const vehiclename[], buf);
-native BlowVehicle (vehicleid);
 
 
 

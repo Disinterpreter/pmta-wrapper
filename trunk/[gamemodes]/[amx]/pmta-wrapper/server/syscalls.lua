@@ -128,17 +128,6 @@ end
 -----------------------------------------------------
 -- Implementation of PAWN API
 -- Vehicle
-function CreateVehicle(amx, model, x, y, z)
-	local vehicle = createVehicle(model, x, y, z, 0, 0, 90.0)
-	
-	if vehicle == false then
-		return false
-	end
-	
-	local vehID = addElem(amx, 'vehicles', vehicle)
-	
-	return vehID
-end
 
 function GetVehiclePosition(amx, vehicle, refX, refY, refZ)
 	local x, y, z = getElementPosition(vehicle);
@@ -147,10 +136,6 @@ function GetVehiclePosition(amx, vehicle, refX, refY, refZ)
 	writeMemFloat(amx, refZ, z)
 
 
-end
-
-function FixVehicle ( amx, vehicle )
-	return fixVehicle ( vehicle )
 end
 
 function SetVehiclePlateText ( amx, vehicle, nuberplate )
@@ -181,6 +166,75 @@ function GetVehicleType ( amx, vehicle, nameBuf, bufSize )
 	end
 end
 
+--
+
+function AddVehicleUpgrade(amx, vehicle, upgradeID)
+	return addVehicleUpgrade(vehicle, upgradeID);
+end
+
+function AttachTrailerToVehicle(amx, trailer, vehicle)
+	return attachTrailerToVehicle(vehicle, trailer);
+end
+
+function BlowVehicle ( vehicle )
+	return blowVehicle ( vehicle )
+end
+
+function DetachTrailerFromVehicle(amx, puller)
+	return detachTrailerFromVehicle(puller)
+end
+
+function CreateVehicle(amx, model, x, y, z)
+	local vehicle = createVehicle(model, x, y, z, 0, 0, 90.0)
+	
+	if vehicle == false then
+		return false
+	end
+	
+	local vehID = addElem(amx, 'vehicles', vehicle)
+	
+	return vehID
+end
+
+function FixVehicle ( amx, vehicle )
+	return fixVehicle ( vehicle )
+end
+
+
+--[[
+function GetVehicleColor( amx, vehicle )
+
+end
+
+function getVehicleCompatibleUpgrades( amx, vehicle )
+
+end
+]]
+
+function GetVehicleController( amx, vehicle )
+	local player = getVehicleController( vehicle );
+	
+	local playerID = getElemID( player )
+	
+	return playerID
+end
+
+function GetVehicleDoorState(amx, vehicle, door)
+	return getVehicleDoorState(vehicle, door)
+end
+
+function GetVehicleEngineState( amx, vehicle )
+	return getVehicleEngineState( vehicle );
+end
+
+function GetVehicleLandingGearDown( amx, vehicle )
+	return getVehicleLandingGearDown( vehicle );
+end
+
+function GetVehicleLightState( amx, vehicle )
+	return getVehicleLightState( vehicle );
+end
+
 function GetVehicleName ( amx, vehicle, nameBuf, bufSize )
 	local vehName =  getVehicleName ( vehicle )
 	if #vehName <= bufSize then
@@ -188,9 +242,52 @@ function GetVehicleName ( amx, vehicle, nameBuf, bufSize )
 	end
 end
 
-function BlowVehicle ( vehicle )
-	return blowVehicle ( vehicle )
+function GetVehicleOccupant( amx, vehicle )
+	local player = getVehicleOccupant( vehicle );
+	
+	local playerID = getElemID( player )
+	
+	return playerID
 end
+
+
+--[[
+function GetVehicleOccupants( amx, vehicle )
+
+end
+]]
+
+function GetVehicleOverrideLights( amx, vehicle )
+	return getVehicleOverrideLights( vehicle );
+end
+
+
+function GetVehiclePaintjob(amx, vehicle)
+	return getVehiclePaintjob(vehicle)
+end
+
+function GetVehiclePanelState(amx, vehicle, panel)
+	return getVehiclePanelState(vehicle, panel)
+end
+
+function GetVehicleSirensOn(amx, vehicle)
+	return getVehicleSirensOn(vehicle)
+end
+
+--[[
+
+function GetVehiclesOfType( amx, model )
+
+end
+]]
+
+--[[
+function GetVehicleTowedByVehicle( )
+
+end
+]]
+
+
 ------------------------------------------------------------------------
 -- Player functions
 
@@ -564,24 +661,41 @@ end
 g_SAMPSyscallPrototypes = {	
 
 	-- Vehicle
+	AddVehicleUpgrade = { 'v', 'i' },
+	AttachTrailerToVehicle = { 'v', 'v' },
+	BlowVehicle = { 'v' },
+	DetachTrailerFromVehicle = { 'v' },
 	CreateVehicle = {'i', 'f', 'f', 'f'},
-	GetVehiclePosition = {'v', 'r', 'r', 'r'},
 	FixVehicle = { 'v' },
+	--GetVehicleColor
+	--getVehicleCompatibleUpgrades
+	GetVehicleController = { 'v' },
+	GetVehicleDoorState = { 'v', 'i' },
+	GetVehicleEngineState = { 'v' },
+	GetVehicleLandingGearDown = { 'v' },
+	GetVehicleLightState = { 'v' },
+	GetVehicleName = { 'v', 'r', 'i' },
+	GetVehicleOccupant = { 'v' },
+	--GetVehicleOccupants
+	GetVehicleOverrideLights = { 'v' },
+	GetVehiclePaintjob = { 'v' },
+	GetVehiclePanelState = { 'v', 'i' },
+	GetVehicleSirensOn = { 'v' },
+	--GetVehiclesOfType
+	--GetVehicleTowedByVehicle
+	
+	
+	
+	
+	
 	SetVehiclePlateText = { 'v', 's' },
 	GetVehicleHealth = { 'v', 'r' },
 	SetVehicleHealth = { 'v', 'f' };
 	SetVehicleLocked = { 'v', 'b' },
 	RespawnVehicle = { 'v' },
 	GetVehicleType = { 'v', 'r', 'i' },
-	GetVehicleName = { 'v', 'r', 'i' },
-	BlowVehicle = { 'v' },
-	
-	
-	
-	
-	
-	
-	
+	GetVehiclePosition = {'v', 'r', 'r', 'r'},
+
 	
 	
 	
