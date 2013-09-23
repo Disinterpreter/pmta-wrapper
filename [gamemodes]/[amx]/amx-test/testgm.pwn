@@ -48,3 +48,13 @@ public OnPlayerConnect(playerid)
 	SpawnPlayer(playerid, 0.0, 0.0, 10.0);
 	SetCameraTarget(playerid, playerid);
 }
+
+public OnPlayerChat(playerid, msg[], msgType)
+{
+	printf("Player %d said: %s with type %d", playerid, msg, msgType);
+}
+
+public OnPlayerConsole(playerid, text[])
+{
+	printf("Player %d typed in console: %s", playerid, text);
+}

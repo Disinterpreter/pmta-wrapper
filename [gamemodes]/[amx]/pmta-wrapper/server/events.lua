@@ -39,3 +39,18 @@ addEventHandler('onPlayerQuit', root,
 		g_Players[playerID] = nil
 	end
 )
+
+
+-- Chat Events
+
+function OnPlayerChat(message, messageType)
+	procCallOnAll("OnPlayerChat", getElemID(source), tostring(message), messageType)
+end
+addEventHandler("onPlayerChat", root, OnPlayerChat)
+
+function OnConsole ( text )
+	if ( getElementType ( source ) == "player" ) then
+		procCallOnAll("OnPlayerConsole", getElemID(source), tostring(text))
+	end
+end
+addEventHandler ( "onConsole", getRootElement(), OnConsole ) -- add an event handler for onConsole

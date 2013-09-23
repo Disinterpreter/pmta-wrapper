@@ -166,8 +166,11 @@ function SetPlayerName ( amx, player, newName )
 	return setPlayerName ( player, newName )
 end
 
-function GetPlayerName ( amx, player )
-	return getPlayerName ( player )
+function GetPlayerName ( amx, player, nameBuf, bufSize )
+	local name = getPlayerName(player)
+	if #name <= bufSize then
+		writeMemString(amx, nameBuf, name)
+	end
 end
 
 function GetCameraInterior( amx, player )
@@ -325,11 +328,15 @@ g_SAMPSyscallPrototypes = {
 
 	CreateVehicle = {'i', 'f', 'f', 'f'},
 	GetVehiclePosition = {'v', 'r', 'r', 'r'},
+	
+	
 	SpawnPlayer	= { 'p', 'f', 'f', 'f' };
 	FadeCamera = { 'p', 'b' };
 	SetCameraTarget = { 'p', 'p' };
 	SetPlayerName = { 'p', 's' };
-	GetPlayerName = { 'p' };
+	GetPlayerName = { 'p', 'r', 'i' };
+	
+	
 	GetCameraInterior = { 'p' };
 	GetCameraMatrix = { 'p', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r' };
 	--GetCameraTarget = { 'p' };
