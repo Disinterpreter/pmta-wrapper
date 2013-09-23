@@ -75,3 +75,9 @@ native SetCameraMatrix(playerid, Float:X, Float:Y, Float:Z);
 native CreateVehicle(model, Float:X, Float:Y, Float:Z);
 native GetVehiclePosition(vehicleid, &Float:X, &Float:Y, &Float:Z);
 native SetVehicleAlpha(model, Float:Alpha);
+navive FixVehicle (model);
+native SetVehiclePlateText (model, )
+native SetVehiclePlateText (model, nuberplate[]);
+native GetVehicleHealth (model);
+native SetVehicleHealth (model, &Float:Health);
+native SetVehicleLocked (model, locked)
