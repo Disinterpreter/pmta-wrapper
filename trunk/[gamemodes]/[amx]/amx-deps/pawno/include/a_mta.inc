@@ -155,11 +155,10 @@ native GetPedAlpha( pedid );
 native SetPedAlpha( pedid, alpha );
 native GetPedHealth( pedid, &Float:Health );
 native SetPedHealth( pedid, Float:health );
-native GetPedFrozen( pedid );
+native IsPedFrozen( pedid );
 native SetPedFrozen( pedid, frozen );
 native GetPedSkin( pedid );
 native SetPedSkin( pedid, skin );
-native IsPedFrozen( pedid );
 native IsPedInWater( pedid );
 
 native GetVehiclePosition( vehicleid, &Float:X, &Float:Y, &Float:Z );
@@ -170,15 +169,16 @@ native GetVehicleInterior( vehicleid );
 native SetVehicleInterior( vehicleid, interior );
 native GetVehicleDimension( vehicleid );
 native SetVehicleDimension( vehicleid, dimension );
+native GetVehicleVelocity( vehicleid, &Float:velX, &Float:velY, &Float:velZ );
+native SetVehicleVelocity( vehicleid, Float:velX, Float:velY, Float:velZ );
 native GetVehicleAlpha( vehicleid );
 native SetVehicleAlpha( vehicleid, alpha );
 native GetVehicleHealth( vehicleid, &Float:Health );
 native SetVehicleHealth( vehicleid, Float:health );
-native GetVehicleFrozen( vehicleid );
+native IsVehicleFrozen( vehicleid );
 native SetVehicleFrozen( vehicleid, frozen );
 native GetVehicleModel( vehicleid );
 native SetVehicleModel( vehicleid, model );
-native IsVehicleFrozen( vehicleid );
 native IsVehicleInWater( vehicleid );
 
 native GetPlayerPosition( playerid, &Float:X, &Float:Y, &Float:Z );
@@ -195,11 +195,10 @@ native GetPlayerAlpha( playerid );
 native SetPlayerAlpha( playerid, alpha );
 native GetPlayerHealth( playerid, &Float:Health );
 native SetPlayerHealth( playerid, Float:health );
-native GetPlayerFrozen( playerid );
+native IsPlayerFrozen( playerid );
 native SetPlayerFrozen( playerid, frozen );
 native GetPlayerSkin( playerid );
 native SetPlayerSkin( playerid, skin );
-native IsPlayerFrozen( playerid );
 native IsPlayerInWater( playerid );
 
 
