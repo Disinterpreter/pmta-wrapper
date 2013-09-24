@@ -180,6 +180,15 @@ SetPlayerSkin = SetElementModel;
 SetPedSkin = SetElementModel;
 SetVehicleModel = SetElementModel;
 
+function SetElementAlpha( amx, elem, alpha )
+	return setElementAlpha ( elem, alpha );
+end
+
+SetPedAlpha = SetElementAlpha;
+SetPlayerAlpha = SetElementAlpha;
+SetVehicleAlpha = SetElementAlpha;
+SetObjectAlpha = SetElementAlpha;
+
 --[[
 getElementAttachedOffsets 
 getElementCollisionsEnabled 
@@ -204,7 +213,6 @@ isElementDoubleSided
 isElementVisibleTo 
 isElementWithinColShape 
 removeElementData 
-setElementAlpha 
 setElementCollisionsEnabled 
 setElementData 
 setElementDoubleSided 
