@@ -2,6 +2,7 @@ g_LoadedAMXs = {}
 
 g_Players = {}
 g_Vehicles = {}
+g_Peds = {}
 
 function initGameModeGlobals()
 

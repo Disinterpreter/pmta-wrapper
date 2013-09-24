@@ -68,11 +68,29 @@ public OnPlayerConsole(playerid, text[])
 	new cmd[256];
 
 	cmd = strtok(text, idx);
+	
+	new Float:X, Float:Y, Float:Z;
+	GetPlayerPosition(playerid, X, Y, Z);
+	
 	if(strcmp("car", cmd, true) == 0) // spawn car
 	{
-		new Float:X, Float:Y, Float:Z;
-		GetPlayerPosition(playerid, X, Y, Z);
-		CreateVehicle(540, X + 5.0, Y, Z);
+
+		new id = CreateVehicle(540, X + 5.0, Y, Z);
+		WarpPlayerIntoVehicle(playerid, id);
+	}
+	else if(strcmp("cped", cmd, true) == 0) // create ped with alpha
+	{
+	    new ped = CreatePed(0, X + 2.0, Y, Z);
+	    new msg[256];
+	    new Float:fX, Float:fY, Float:fZ;
+	    GetPedPosition(ped, fX, fY, fZ);
+	    format(msg, sizeof(msg), "ped created: %d %f %f %f", ped, fX, fY, fZ);
+	    OutputChatBoxToAll(msg);
+	    SetPedAlpha(ped, 230);
+	}
+	else if(strcmp("alpha", cmd, true) == 0)
+	{
+		SetPlayerAlpha(playerid, 230);
 	}
 }
 

@@ -57,6 +57,8 @@ native OutputChatBoxToAll(text[], r = 255, g = 255, b = 255, colorCoded = 0);
 //native getPlayerAnnounceValue 
 native GetPlayerCount();
 native GetPlayerMoney(playerid);
+native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
+native SetPlayerPosition(playerid, Float:X, Float:Y, Float:Z);
 //native getPlayerNametagColor 
 //native getPlayerNametagText
 native GetPlayerPing(playerid);
@@ -92,6 +94,56 @@ native RedirectPlayer(playerid, host[], port);
 //native setPlayerVoiceBroadcastTo 
 //native setPlayerVoiceIgnoreFrom 
 //native takePlayerScreenShot
+native SetPlayerAlpha(playerid, alpha);
+native SetPlayerHealth(playerid, Float:Health);
+native SetPlayerFrozen(playerid, state2);
+native GetPlayerAlpha(playerid);
+native GetPlayerHealth(playerid, &Float:Health);
+native GetPlayerFrozen(playerid);
+native AddPlayerClothes( Playerid, clothestex[], clothesmodel[], clothestype );
+native DoesPlayerHaveJetPack( Playerid );
+native GetPlayerAmmoInClip( Playerid );
+native GetPlayerArmor( Playerid );
+//native GetPlayerClothes( Playerid );
+//native GetPlayerContactElement( Playerid );
+native GetPlayerFightingStyle( Playerid );
+native GetPlayerGravity( Playerid );
+//native GetPlayerMoveState( Playerid );
+native GetPlayerOccupiedVehicle( Playerid );
+native GetPlayerOccupiedVehicleSeat( Playerid );
+native GetPlayerSkin( Playerid );
+native GetPlayerStat( Playerid, statid, &Float:value );
+//native getPlayerTarget( Playerid );
+native GetPlayerTotalAmmo( Playerid );
+//native GetPlayerVoice( Playerid );
+native GetPlayerWalkingStyle( Playerid );
+native GetPlayerWeapon( Playerid );
+//native GetPlayerWeaponMuzzlePosition( Playerid );
+native GetPlayerWeaponSlot( Playerid );
+native IsPlayerChoking( Playerid );
+native IsPlayerDoingGangDriveby( Playerid );
+//native IsPlayerDoingTask( Playerid ); ( CLIENT ONLY )
+native IsPlayerFrozen( Playerid );
+native IsPlayerHeadless( Playerid );
+native IsPlayerInVehicle( Playerid );
+native IsPlayerInWater( Playerid );
+native IsPlayerOnFire( Playerid );
+native IsPlayerOnGround( Playerid );
+//native SetPlayerAimTarget( Playerid, Float:x, Float:y, Float:z ); ( CLIENT ONLY )
+native SetPlayerAnalogControlState( Playerid, analog[], &Float:fstate );
+native SetPlayerAnimation( Playerid );
+native SetPlayerAnimationProgress( Playerid );
+native SetPlayerArmor( Playerid, Float:armor );
+native SetPlayerChoking( Playerid, choking );
+native SetPlayerDoingGangDriveby( Playerid, driveby );
+native SetPlayerFightingStyle( Playerid, style );
+native SetPlayerGravity( Playerid, Float:gravity );
+native SetPlayerHeadless( Playerid, headless );
+native SetPlayerOnFire( Playerid, onfire );
+native SetPlayerStat( Playerid, statid, Float:value );
+native SetPlayerWeaponSlot( Playerid, slotid );
+native SetPlayerWalkingStyle( Playerid, styleid );
+native WarpPlayerIntoVehicle( Playerid, vehicleid );
 
 
 ////////////////////////////////////////////////////
@@ -103,8 +155,9 @@ native SetPlayerBlurLevel(playerid, level);
 
 ////////////////////////////////////////////////////
 //Element-Ped natives
-native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
-native SetPlayerPosition(playerid, Float:X, Float:Y, Float:Z);
+native CreatePed(modelid, Float:X, Float:Y, Float:Z, Float:Rot = 0.0, sync = 1);
+native GetPedPosition(playerid, &Float:X, &Float:Y, &Float:Z);
+native SetPedPosition(playerid, Float:X, Float:Y, Float:Z);
 native SetPedAlpha(playerid, alpha);
 native SetPedHealth(playerid, Float:Health);
 native SetPedFrozen(playerid, state2);
