@@ -369,6 +369,13 @@ native SetVehicleSirens( vehicleid, sirenPoint, Float:posX, Float:posY, Float:po
 //getVehicleSirenParams 
 //getVehicleSirens 
 
+////////////////////////////////////////////////////
+// Object natives
+native CreateObject( id, Float:x, Float:y, Float:z );
+native MoveObject( objectid, time, Float:tarX, Float:tarY, Float:tarZ );
+native StopObject( objectid },
+native GetObjectScale( objectid, &Float:Scale ); 'o', 'f' },
+native SetObjectScale( objectid, Float:Scale );
 
 
 ////////////////////////////////////////////////////

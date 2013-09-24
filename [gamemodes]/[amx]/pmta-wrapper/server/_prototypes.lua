@@ -9,6 +9,14 @@ g_SAMPSyscallPrototypes = {
 	ChangeInfo = { 'p', 'i', 's' },
 
 	------------------------------------------------------------------------
+	-- Object
+	CreateObject = { 'i', 'f', 'f', 'f' },
+	MoveObject = { 'o', 'i', 'f', 'f', 'f' },
+	StopObject = { 'o' },
+	GetObjectScale = { 'o', 'f' },
+	SetObjectScale = { 'o', 'f' },
+	
+	------------------------------------------------------------------------
 	-- Vehicle
 	AddVehicleUpgrade = { 'v', 'i' },
 	AttachTrailerToVehicle = { 'v', 'v' },

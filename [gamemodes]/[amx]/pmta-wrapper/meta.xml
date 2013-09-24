@@ -1,5 +1,5 @@
 <meta>
-  <info name="AMX" author="adamix" type="gamemode" />
+  <info name="AMX" author="adamix, Kenix, CoolDark" type="gamemode" />
 
   <min_mta_version server="1.3.4-9.05815" client="1.3.4-9.05815" />
   <script src="rpc/server.lua" type="server" />
@@ -18,6 +18,7 @@
   <script src="server/function/player.lua" type="server" />
   <script src="server/function/vehicle.lua" type="server" />
   <script src="server/function/weapon.lua" type="server" />
+  <script src="server/function/object.lua" type="server" />
   <!-- end -->
   <script src="server/_prototypes.lua" type="server" />
   <script src="server/events.lua" type="server" />

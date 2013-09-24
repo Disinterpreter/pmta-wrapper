@@ -4,6 +4,7 @@ g_Players = {}
 g_Vehicles = {}
 g_Peds = {}
 g_Guis = {}
+g_Objects = {}
 
 function initGameModeGlobals()
 
