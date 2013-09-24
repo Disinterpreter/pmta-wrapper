@@ -370,6 +370,22 @@ native SetVehicleSirens( vehicleid, sirenPoint, Float:posX, Float:posY, Float:po
 //getVehicleSirens 
 
 ////////////////////////////////////////////////////
+// Marker natives
+native CreateMarker( Float:x, Float:y, Float:z );
+native GetMarkerColor( markerid, &r, &g, &b );
+native GetMarkerIcon( markerid, const buf[], bufSize );
+native GetMarkerSize( markerid, &Float:Size );
+native GetMarkerTarget( markerid, &Float:tarX, &Float:tarY, &Float:tarZ );
+native GetMarkerType( markerid, const buf[], bufSize );
+native SetMarkerColor( markerid, r, g, b );
+native SetMarkerIcon( markerid, icon[] );
+native SetMarkerSize( markerid, Float:Size );
+native SetMarkerTarget( markerid, Float:tarX, Float:tarY, Float:tarZ );
+native SetMarkerType( markerid, icon[] );
+//getMarkerCount 
+//isElementWithinMarker 
+
+////////////////////////////////////////////////////
 // Object natives
 native CreateObject( id, Float:x, Float:y, Float:z );
 native MoveObject( objectid, time, Float:tarX, Float:tarY, Float:tarZ );
