@@ -373,8 +373,8 @@ native SetVehicleSirens( vehicleid, sirenPoint, Float:posX, Float:posY, Float:po
 // Object natives
 native CreateObject( id, Float:x, Float:y, Float:z );
 native MoveObject( objectid, time, Float:tarX, Float:tarY, Float:tarZ );
-native StopObject( objectid },
-native GetObjectScale( objectid, &Float:Scale ); 'o', 'f' },
+native StopObject( objectid );
+native GetObjectScale( objectid, &Float:Scale );
 native SetObjectScale( objectid, Float:Scale );
 
 
