@@ -28,6 +28,8 @@ function argsToMTA(amx, prototype, ...)
 			val = g_Vehicles[val] and g_Vehicles[val].elem
 		elseif vartype == 'e' then
 			val = g_Peds[val] and g_Peds[val].elem
+		elseif vartype == 'o' then
+			val = g_Objects[val] and g_Objects[val].elem
 		end
 		if val == nil then
 			val = false
