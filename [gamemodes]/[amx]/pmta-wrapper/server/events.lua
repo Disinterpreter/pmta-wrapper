@@ -71,6 +71,6 @@ addEventHandler ( "onPlayerDamage", getRootElement (), OnPlayerDamage )
 function OnPlayerCommand ( command, ... )
 	local args = { ... }
 	local args = table.concat(args)
-	procCallOnAll("OnPlayerCommand", getElemID(source), command, args)
+	procCallOnAll("OnPlayerCommand", getElemID(source), command, tostring(args))
 end
 addEventHandler("onPlayerCommand", root, OnPlayerCommand)
