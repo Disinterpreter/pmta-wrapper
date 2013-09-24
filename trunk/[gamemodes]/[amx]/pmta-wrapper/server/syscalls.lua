@@ -436,8 +436,13 @@ function GetPlayerFromName( amx, name )
 	return playerID
 end
 
-function GetPlayerIP( axm, player )
-	return getPlayerIP( player );
+function GetPlayerIP( axm, player, refStr, bufSize )
+	local ip = getPlayerIP( player );
+	if #ip <= bufSize then
+		writeMemString(amx, refStr, name);
+		return true;
+	end
+	return false;
 end
 
 function GetPlayerName ( amx, player, nameBuf, bufSize )
@@ -877,7 +882,7 @@ g_SAMPSyscallPrototypes = {
 	SpawnPlayer	= { 'p', 'f', 'f', 'f' },
 	--takePlayerMoney
 	GetPlayerFromName = { 's' },
-	GetPlayerIP = { 'p' },
+	GetPlayerIP = { 'p', 'r', 'i' },
 	GetPlayerName = { 'p', 'r', 'i' },
 	SetPlayerName = { 'p', 's' },
 	RedirectPlayer = { 'p', 's', 'i' },
