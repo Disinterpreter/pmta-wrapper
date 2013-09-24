@@ -266,6 +266,28 @@ g_SAMPSyscallPrototypes = {
 	SetPlayerWeaponSlot = { 'p', 'i' },
 	SetPlayerWalkingStyle = { 'p', 'i' },
 	WarpPlayerIntoVehicle = { 'p', 'v' },
+	GetPlayerIdleTime = { 'p' },
+	ResendPlayerModInfo = { 'p' },
+	TakePlayerScreenShot = { 'p', 'i', 'i' },
+	IsPlayerHudComponentVisible = {'p', 's'},
+	ShowPlayerHudComponent = { 'p', 's', 'b' },
+	SetPlayerHudComponentVisible = { 'p', 's', 'b' },
+	SetPlayerMuted = { 'p', 'b' },
+	SetPlayerNametagColor = { 'p', 'i', 'i', 'i' },
+	SetPlayerNametagShowing = { 'p', 'b' },
+	SetPlayerNametagText = { 'p', 's' },
+	IsPlayerMapForced = { 'p' },
+	IsPlayerMuted = { 'p' },
+	IsPlayerNametagShowing = { 'p' },
+	SetPlayerAnnounceValue = { 'p', 's', 's' },
+	SetPlayerBlurLevel = { 'p', 'i' },
+	GetPlayerVersion = { 'p' },
+	GetPlayerWantedLevel = { 'p' },
+	GetPlayerNametagColor = { 'p' },
+	GetPlayerNametagText = { 'p' },
+	ForcePlayerMap = { 'p', 'b' },
+	GetPlayerAnnounceValue = { 'p', 's' },
+
 	--SetPlayerAimTarget = { 'p', 'f', 'f', 'f' }, ( CLIENT ONLY )
 	--IsPlayerDoingTask ( CLIENT ONLY )
 	--GetPlayerWeaponMuzzlePosition
@@ -274,7 +296,6 @@ g_SAMPSyscallPrototypes = {
 	--GetPlayerClothes
 	--GetPlayerContactElement
 	--GetPlayerMoveState
-	--getPlayerIdleTime 
 	--resendPlayerModInfo 
 	--isVoiceEnabled 
 	--setPlayerVoiceBroadcastTo 
@@ -283,7 +304,6 @@ g_SAMPSyscallPrototypes = {
 	--setPlayerMuted 
 	--setPlayerNametagColor 
 	--setPlayerNametagShowing 
-	--setPlayerNametagText 
 	--setPlayerTeam 
 	--isPlayerHudComponentVisible 
 	--showPlayerHudComponent 
@@ -302,6 +322,7 @@ g_SAMPSyscallPrototypes = {
 	--getPlayerAnnounceValue 
 	--getPlayerNametagColor 
 	--getPlayerNametagText
+	--IsVoiceEnabled = {  },
 	------------------------------------------------------------------------
 	-- Ped functions
 	CreatePed = { 'i', 'f', 'f', 'f', 'f', 'i' },

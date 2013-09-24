@@ -74,33 +74,124 @@ function RedirectPlayer( amx, player, serverIP, serverPort )
 	return redirectPlayer( player, serverIP, serverPort );
 end
 
---getPlayerIdleTime 
---resendPlayerModInfo 
---isVoiceEnabled 
---setPlayerVoiceBroadcastTo 
---setPlayerVoiceIgnoreFrom 
---takePlayerScreenShot
---isPlayerHudComponentVisible 
---showPlayerHudComponent 
---setPlayerHudComponentVisible
---setPlayerMuted 
---setPlayerNametagColor 
---setPlayerNametagShowing 
---setPlayerNametagText 
---setPlayerTeam 
---isPlayerMapForced 
---isPlayerMuted 
---isPlayerNametagShowing 
---setPlayerAnnounceValue 
---setPlayerBlurLevel
---getPlayerTeam 
---getPlayerVersion 
---getPlayerWantedLevel 
---getRandomPlayer
---getPlayerNametagColor 
---getPlayerNametagText
---forcePlayerMap 
+function GetPlayerIdleTime( amx, player )
+	return getPlayerIdleTime ( player )
+end
+
+function ResendPlayerModInfo( amx, player )
+	return resendPlayerModInfo ( player )
+end
+
+function TakePlayerScreenShot( amx, player, width, height )
+	return takePlayerScreenShot ( player, width, height )
+end
+
+function IsPlayerHudComponentVisible( amx, player, component )
+	return isPlayerHudComponentVisible ( player, component )
+end
+
+function ShowPlayerHudComponent ( amx, player, component, show )
+	return setPlayerHudComponentVisible ( player, component, show)
+end
+SetPlayerHudComponentVisible = ShowPlayerHudComponent
+
+function SetPlayerMuted( amx, player, enabled )
+	return setPlayerMuted ( player, enabled )
+end
+
+function SetPlayerNametagColor( player, r,g,b )
+	return setPlayerNametagColor ( player, r, g, b )
+end
+
+function SetPlayerNametagShowing( amx, player, showing )
+	return setPlayerNametagShowing ( player, showing )
+end
+
+function SetPlayerNametagText( amx, player, text )
+	return setPlayerNametagText ( player, text )
+end
+
+function IsPlayerMapForced( amx, player )
+	return isPlayerMapForced ( player )
+end
+
+function IsPlayerMuted( amx, player )
+	return isPlayerMuted ( player )
+end
+
+function IsPlayerNametagShowing( amx, player )
+	return isPlayerNametagShowing (player)
+end
+
+function SetPlayerAnnounceValue( amx, player, key, value )
+	return setPlayerAnnounceValue ( player, key, value )
+end
+
+function SetPlayerBlurLevel( amx, player, level )
+	return setPlayerBlurLevel ( player, level )
+end
+
+function GetPlayerVersion( amx, player, nameBuf, bufSize )
+	version = getPlayerVersion ( player )
+ 	if #version <= bufSize then
+  		writeMemString( amx, nameBuf, version );
+  		return true;
+ 	end
+	return false;
+end
+
+function GetPlayerWantedLevel( amx, player )
+	return getPlayerWantedLevel ( player )
+end
+
+function GetPlayerNametagColor( amx, player, nameBuf )
+	r,g,b = getPlayerNametagColor ( player )
+  	writeMemInt( amx, nameBuf, r )
+  	writeMemInt( amx, nameBuf, g )
+  	writeMemInt( amx, nameBuf, b )
+end
+
+function GetPlayerNametagText( amx, player, nameBuf, bufSize)
+	local nameTag = getPlayerNametagText ( player )
+	if #nameTag <= bufSize then
+		writeMemString( amx, nameBuf, nameTag );
+		return true;
+	end
+	return false;
+end
+
+function ForcePlayerMap( amx, player, forceOn )
+	return forcePlayerMap (player, forceMn)
+end
+
+function GetPlayerAnnounceValue( player, key )
+	local value = getPlayerAnnounceValue ( player, key )
+	if #value <= bufSize then
+		writeMemString( amx, nameBuf, value );
+		return true;
+	end
+	return false;
+end
+
+--[[function GetRandomPlayer( player )
+	-- body
+end]]
+--[[function SetPlayerTeam( player, team )
+	-- body
+end]]
+
+--[[function GetPlayerTarget( ... )
+	-- body
+end]]
+
+--[[function setPlayerVoiceBroadcastTo( amx, player,  )
+	-- body
+end]]
+
+--[[function IsVoiceEnabled( amx )
+	isVoiceEnabled ( amx )
+end]]
+
 --getAlivePlayers 
 --getDeadPlayers 
---getPlayerAnnounceValue 
---getPlayerBlurLevel 
+--setPlayerVoiceIgnoreFrom 
