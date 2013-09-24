@@ -6,9 +6,18 @@
   <script src="server/util.lua" type="server" />
   <script src="server/_triggerqueue.lua" type="server" />
   <script src="server/rcon.lua" type="server" />
+  <!-- Implementation of PAWN API -->
   <script src="server/_args.lua" type="server" />
   <script src="server/syscalls.lua" type="server" />
+  <script src="server/camera.lua" type="server" />
+  <script src="server/element.lua" type="server" />
+  <script src="server/other.lua" type="server" />
+  <script src="server/ped.lua" type="server" />
+  <script src="server/player.lua" type="server" />
+  <script src="server/vehicle.lua" type="server" />
+  <script src="server/weapon.lua" type="server" />
   <script src="server/_prototypes.lua" type="server" />
+  <!-- end -->
   <script src="server/events.lua" type="server" />
   <script src="server/amx.lua" type="server" />
 
