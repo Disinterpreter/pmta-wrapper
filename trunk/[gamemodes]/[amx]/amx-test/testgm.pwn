@@ -57,6 +57,17 @@ public OnPlayerChat(playerid, msg[], msgType)
 public OnPlayerConsole(playerid, text[])
 {
 	printf("Player %d typed in console: %s", playerid, text);
+	
+	new idx;
+	new cmd[256];
+
+	cmd = strtok(text, idx);
+	if(strcmp("car", cmd, true) == 0) // spawn car
+	{
+		new Float:X, Float:Y, Float:Z;
+		GetPlayerPosition(playerid, X, Y, Z);
+		CreateVehicle(540, X + 5.0, Y, Z);
+	}
 }
 
 public OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, skin, interior, dimension)

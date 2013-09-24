@@ -491,6 +491,16 @@ function GetPlayerFrozen( axm, player )
 	return isElementFrozen( player );
 end
 
+function GetPlayerPosition( amx, player, refX, refY, refZ )
+	local x, y, z = getElementPosition( player );
+	writeMemFloat( amx, refX, x );
+	writeMemFloat( amx, refY, y );
+	writeMemFloat( amx, refZ, z );
+end
+
+function SetPlayerPosition( amx, player, fX, fY, fZ )
+	return setElementPosition( player, fX, fY, fZ );
+end
 
 
 ------------------------------------------------------------------------
@@ -882,6 +892,8 @@ g_SAMPSyscallPrototypes = {
 	GetPlayerAlpha = { 'p' },
 	GetPlayerHealth = { 'p', 'r' },
 	GetPlayerFrozen = { 'p' },
+	GetPlayerPosition = { 'p', 'r', 'r', 'r' },
+	SetPlayerPosition = { 'p', 'f', 'f', 'f' },
 	--- ......
 	
 	------------------------------------------------------------------------
