@@ -99,13 +99,30 @@ native SetPlayerWeaponSlot( Playerid, slotid );
 native SetPlayerWalkingStyle( Playerid, styleid );
 native WarpPlayerIntoVehicle( Playerid, vehicleid );
 native GetPlayerBlurLevel(playerid);
+native GetPlayerIdleTime (playerid);
 native SetPlayerBlurLevel(playerid, level);
-//native getPlayerIdleTime 
-//native resendPlayerModInfo 
-//native isVoiceEnabled 
-//native setPlayerVoiceBroadcastTo 
-//native setPlayerVoiceIgnoreFrom 
-//native takePlayerScreenShot
+native ResendPlayerModInfo( playerid );
+native TakePlayerScreenShot (playerid, width, height);
+native IsPlayerHudComponentVisible (playerid, component[]);
+native ShowPlayerHudComponent (playerid, component[], show);
+native SetPlayerHudComponentVisible (playerid, component[], show);
+native SetPlayerMuted (playerid, enabled);
+native SetPlayerNametagColor (playerid, r, g, b);
+native SetPlayerNametagShowing (playerid, showing);
+native SetPlayerNametagText (playerid, text[]);
+native IsPlayerMapForced (playerid);
+native IsPlayerMuted (playerid);
+native IsPlayerNametagShowing (playerid);
+native SetPlayerAnnounceValue (playerid, key[], value[]);
+native SetPlayerBlurLevel (playerid, level);
+native GetPlayerVersion (playerid);
+native GetPlayerWantedLevel (playerid);
+native GetPlayerNametagColor (playerid);
+native GetPlayerNametagText (playerid);
+native ForcePlayerMap (playerid, forceOn);
+native GetPlayerAnnounceValue (playerid, key[]);
+
+
 //native GetPlayerClothes( Playerid );
 //native GetPlayerContactElement( Playerid );
 //native GetPlayerMoveState( Playerid );
@@ -120,7 +137,6 @@ native SetPlayerBlurLevel(playerid, level);
 //native getPlayerVersion 
 //native getPlayerWantedLevel 
 //native getRandomPlayer
-//native isPlayerMapForced 
 //native isPlayerMuted 
 //native isPlayerNametagShowing 
 //native setPlayerAnnounceValue 
@@ -136,6 +152,9 @@ native SetPlayerBlurLevel(playerid, level);
 //native getAlivePlayers 
 //native getDeadPlayers 
 //native getPlayerAnnounceValue 
+//native setPlayerVoiceBroadcastTo 
+//native isVoiceEnabled  ();
+//native setPlayerVoiceIgnoreFrom 
 
 ////////////////////////////////////////////////////
 //Element natives
