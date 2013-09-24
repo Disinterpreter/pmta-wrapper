@@ -217,10 +217,11 @@ native SetVehiclePlateText (vehicleid, nuberplate[]);
 ////////////////////////////////////////////////////
 //Element-Vehicle natives
 native GetVehiclePosition(vehicleid, &Float:X, &Float:Y, &Float:Z);
-native SetVehicleAlpha(vehicleid, Float:Alpha);
+native SetVehiclePosition(vehicleid, Float:X, Float:Y, Float:Z);
 native GetVehicleHealth (vehicleid, &Float:Health);
 native SetVehicleHealth (vehicleid, Float:Health);
-
+native SetVehicleAlpha(vehicleid, alpha);
+native GetVehicleAlpha(vehicleid);
 
 
 
