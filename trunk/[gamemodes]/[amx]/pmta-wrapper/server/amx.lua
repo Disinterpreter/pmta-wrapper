@@ -6,6 +6,7 @@ g_Peds = {}
 g_Guis = {}
 g_Objects = {}
 g_Markers = {}
+g_Pickups = {}
 
 function initGameModeGlobals()
 
