@@ -9,6 +9,19 @@ g_SAMPSyscallPrototypes = {
 	ChangeInfo = { 'p', 'i', 's' },
 
 	------------------------------------------------------------------------
+	-- Pickup
+	CreatePickup = { 'f', 'f', 'f', 'i', 'i' },
+	GetPickupAmmo = { 'k' },
+	GetPickupAmount = { 'k' },
+	GetPickupType = { 'm', 'r', 'i' },
+	GetPickupWeapon = { 'k' },
+	SetPickupType = { 'k', 's' },
+	GetPickupRespawnInterval = { 'k' },
+	IsPickupSpawned = { 'k' },
+	SetPickupRespawnInterval = { 'k', 'i' },
+	UsePickup = { 'k', 'p' },
+	
+	------------------------------------------------------------------------
 	-- Marker
 	CreateMarker = { 'f', 'f', 'f' },
 	GetMarkerColor = { 'm', 'r', 'r', 'r' },

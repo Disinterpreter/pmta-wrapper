@@ -370,6 +370,19 @@ native SetVehicleSirens( vehicleid, sirenPoint, Float:posX, Float:posY, Float:po
 //getVehicleSirens 
 
 ////////////////////////////////////////////////////
+// Pickup natives
+native CreatePickup( Float:x, Float:y, Float:z, ptype, ammount );
+native GetPickupAmmo( pickupid );
+native GetPickupAmount( pickupid )
+native GetPickupType( pickupid, const ptype[], bufSize );
+native GetPickupWeapon( pickupid );
+native SetPickupType( pickupid, ptype[] );
+native GetPickupRespawnInterval( pickupid );
+native IsPickupSpawned( pickupid );
+native SetPickupRespawnInterval( pickupid, interval );
+native UsePickup( pickupid, playerid );
+
+////////////////////////////////////////////////////
 // Marker natives
 native CreateMarker( Float:x, Float:y, Float:z );
 native GetMarkerColor( markerid, &r, &g, &b );
