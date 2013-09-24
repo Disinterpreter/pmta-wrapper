@@ -34,71 +34,72 @@ g_SAMPSyscallPrototypes = {
 	SetVehicleLocked = { 'v', 'b' },
 	SpawnVehicle = { 'v', 'f', 'f', 'f' },
 	SetVehiclePlateText = { 'v', 's' },
+	GetVehicleTowingVehicle = { 'v' },
+	GetVehicleTurnVelocity = { 'v', 'r', 'r', 'r' },
+	GetVehicleTurretPosition = { 'v', 'r', 'r' },
+	GetVehicleUpgradeOnSlot = { 'v', 'i' },
+	GetVehicleUpgradeSlotName = { 'v', 'i', 's', 'i' },
+	GetVehicleWheelStates = { 'v', 'r', 'r', 'r', 'r' },
+	GetVehicleDoorOpenRatio = { 'v', 'f' },
+	IsVehicleDamageProof = { 'v' },
+	IsVehicleFuelTankExplodable = { 'v' },
+	RemoveVehicleUpgrade = { 'v', 'i' },
+	ResetVehicleExplosionTime = { 'v' },
+	ResetVehicleIdleTime = { 'v' },
+	SetVehicleDamageProof = { 'v', 'b' },
+	SetVehicleDoorState = { 'v', 'i', 'i' },
+	SetVehicleDoorsUndamageable = { 'v', 'b' },
+	SetVehicleEngineState = { 'v', 'b' },
+	SetVehicleFuelTankExplodable = { 'v', 'b' },
+	SetVehicleIdleRespawnDelay = { 'v', 'i' },
+	SetVehicleLandingGearDown = { 'v', 'b' },
+	SetVehicleLightState = { 'v', 'i', 'i' },
+	SetVehicleOverrideLights = { 'v', 'i' },
+	SetVehiclePaintjob = { 'v', 'i' },
+	SetVehiclePanelState = { 'v', 'i', 'i' },
+	SetVehicleRespawnDelay = { 'v', 'i' },
+	SetVehicleRespawnPosition = { 'v', 'f', 'f', 'f' },
+	SetVehicleSirensOn = { 'v', 'b' },
+	SetVehicleTurretPosition = { 'v', 'f', 'f', 'f' },
+	SetVehicleDoorOpenRatio = { 'v', 'i', 'f' },
+	SetVehicleTurnVelocity = { 'v', 'f', 'f', 'f' },
+	SetVehicleWheelStates = { 'v', 'i' },
+	ToggleVehicleRespawn = { 'v', 'b' },
+	GetTrainDirection = { 'v' },
+	GetTrainSpeed = { 'v' },
+	GetVehicleHeadLightColor = { 'v', 'r', 'r', 'r' },
+	GetVehicleModelFromName = { 's' },
+	GetVehicleNameFromModel = { 'i', 's', 'i' },
+	IsTrainDerailable = { 'v' },
+	IsTrainDerailed = { 'v' },
+	IsVehicleBlown = { 'v' },
+	IsVehicleTaxiLightOn = { 'v' },
+	SetTrainDerailable = { 'v', 'b' },
+	SetTrainDerailed = { 'v', 'b' },
+	SetTrainDirection = { 'v', 'b' },
+	SetTrainSpeed = { 'v', 'f' },
+	SetVehicleHeadLightColor = { 'v', 'i', 'i', 'i' },
+	SetVehicleTaxiLightOn = { 'v', 'b' },
+	GetVehicleVariant = { 'v', 'r', 'r' },
+	SetVehicleVariant = { 'v' },
+	RemoveVehicleSirens = { 'v' },
+	AddVehicleSirens = { 'v', 'i', 'i' },
+	SetVehicleSirens = { 'v', 'i', 'f', 'f', 'f', 'i', 'i', 'i' },
+	--SetVehicleColor
 	--GetVehicleColor
 	--getVehicleCompatibleUpgrades
 	--GetVehicleOccupants
 	--GetVehiclesOfType
 	--GetVehicleTowedByVehicle
-	--getVehicleTowingVehicle 
-	--getVehicleTurnVelocity 
-	--getVehicleTurretPosition 
-	--getVehicleUpgradeOnSlot 
-	--getVehicleUpgrades 
-	--getVehicleUpgradeSlotName 
-	--getVehicleWheelStates 
-	--getVehicleDoorOpenRatio 
+	--getVehicleUpgrades  
 	--getVehicleHandling 
 	--getModelHandling 
 	--getOriginalHandling 
-	--isVehicleDamageProof 
-	--isVehicleFuelTankExplodable 
-	--removeVehicleUpgrade 
-	--resetVehicleExplosionTime 
-	--resetVehicleIdleTime 
-	--setVehicleColor 
-	--setVehicleDamageProof 
-	--setVehicleDoorState 
-	--setVehicleDoorsUndamageable 
-	--setVehicleEngineState 
-	--setVehicleFuelTankExplodable 
-	--setVehicleIdleRespawnDelay 
-	--setVehicleLandingGearDown 
-	--setVehicleLightState 
-	--setVehicleOverrideLights 
-	--setVehiclePaintjob 
-	--setVehiclePanelState 
-	--setVehicleRespawnDelay 
-	--setVehicleRespawnPosition 
-	--setVehicleSirensOn 
-	--setVehicleTurretPosition 
-	--setVehicleDoorOpenRatio 
 	--setVehicleHandling 
 	--setModelHandling 
-	--setVehicleTurnVelocity 
-	--setVehicleWheelStates 
-	--toggleVehicleRespawn 
-	--getTrainDirection 
-	--getTrainSpeed 
-	--getVehicleHeadLightColor 
-	--getVehicleModelFromName 
-	--getVehicleNameFromModel 
-	--isTrainDerailable 
-	--isTrainDerailed 
-	--isVehicleBlown 
-	--isVehicleTaxiLightOn 
-	--setTrainDerailable 
-	--setTrainDerailed 
-	--setTrainDirection 
-	--setTrainSpeed 
-	--setVehicleHeadLightColor 
-	--setVehicleTaxiLightOn 
-	--getVehicleVariant 
-	--setVehicleVariant 
 	--getVehicleSirenParams 
-	--removeVehicleSirens 
 	--getVehicleSirens 
-	--addVehicleSirens 
-	--setVehicleSirens 
+
 
 	------------------------------------------------------------------------
 	--Element

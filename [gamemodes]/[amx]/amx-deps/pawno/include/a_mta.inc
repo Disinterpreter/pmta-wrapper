@@ -284,72 +284,71 @@ native SpawnVehicle( vehicleid, Float:x, Float:y, Float:z );
 native RespawnVehicle (vehicleid);
 native SetVehicleLocked (vehicleid, locked);
 native SetVehiclePlateText (vehicleid, nuberplate[]);
-//native GetVehicleOccupants(
-//native GetVehiclesOfType(
-//native GetVehicleTowedByVehicle(
-//native GetVehicleTowingVehicle (
-//native GetVehicleTurnVelocity( 
-//native GetVehicleTurretPosition (
-//native GetVehicleUpgradeOnSlot( 
-//native GetVehicleUpgrades( 
-//native GetVehicleUpgradeSlotName( 
-//native GetVehicleWheelStates( 
-//native GetVehicleDoorOpenRatio( 
-//native GetVehicleHandling(
-//native GetModelHandling(
-//native GetOriginalHandling(
-//native IsVehicleDamageProof( 
-//native IsVehicleFuelTankExplodable( 
-//native RemoveVehicleUpgrade( 
-//native ResetVehicleExplosionTime( 
-//native ReSetVehicleIdleTime( 
-//native SetVehicleColor( 
-//native SetVehicleDamageProof( 
-//native SetVehicleDoorState( 
-//native SetVehicleDoorsUndamageable( 
-//native SetVehicleEngineState( 
-//native SetVehicleFuelTankExplodable( 
-//native SetVehicleIdleRespawnDelay( 
-//native SetVehicleLandingGearDown( 
-//native SetVehicleLightState( 
-//native SetVehicleOverrideLights( 
-//native SetVehiclePaintjob( 
-//native SetVehiclePanelState( 
-//native SetVehicleRespawnDelay( 
-//native SetVehicleRespawnPosition( 
-//native SetVehicleSirensOn( 
-//native SetVehicleTurretPosition( 
-//native SetVehicleDoorOpenRatio( 
-//native SetVehicleHandling( 
-//native SetModelHandling( 
-//native SetVehicleTurnVelocity( 
-//native SetVehicleWheelStates( 
-//navive GetVehicleColor(
-//navive getVehicleCompatibleUpgrades(
-//native ToggleVehicleRespawn( 
-//native GetTrainDirection( 
-//native GetTrainSpeed( 
-//native GetVehicleHeadLightColor( 
-//native GetVehicleModelFromName( 
-//native GetVehicleNameFromModel( 
-//native IsTrainDerailable( 
-//native IsTrainDerailed( 
-//native IsVehicleBlown( 
-//native IsVehicleTaxiLightOn( 
-//native SetTrainDerailable( 
-//native SetTrainDerailed( 
-//native SetTrainDirection( 
-//native SetTrainSpeed( 
-//native SetVehicleHeadLightColor( 
-//native SetVehicleTaxiLightOn( 
-//native GetVehicleVariant( 
-//native SetVehicleVariant( 
-//native GetVehicleSirenParams( 
-//native RemoveVehicleSirens( 
-//native GetVehicleSirens( 
-//native AddVehicleSirens( 
-//native SetVehicleSirens(
-//native GetVehiclePlateText (vehicleid, const nuberplate[], buf);
+native GetVehicleTowingVehicle( vehicleid );
+native GetVehicleTurnVelocity( vehicleid, &Float:turnX, &Float:turnY, &Float:turnZ );
+native GetVehicleTurretPosition( vehicleid, &Float:turnX, &Float:turnY );
+native GetVehicleUpgradeOnSlot( vehicleid, slotid );
+native GetVehicleUpgradeSlotName( vehicleid, slotid, buf[], bufSize )
+native GetVehicleWheelStates( vehicleid, state1, state2, state3, state4 )
+native GetVehicleDoorOpenRatio( vehicleid, &Float:ratio );
+native IsVehicleDamageProof( vehicleid );
+native IsVehicleFuelTankExplodable( vehicleid );
+native RemoveVehicleUpgrade( vehicleid, upgradeid );
+native ResetVehicleExplosionTime( vehicleid );
+native ResetVehicleIdleTime( vehicleid );
+native SetVehicleDamageProof( vehicleid, enabled );
+native SetVehicleDoorState( vehicleid, door, doorstate );
+native SetVehicleDoorsUndamageable( vehicleid, enabled );
+native SetVehicleEngineState( vehicleid, enginestate );
+native SetVehicleFuelTankExplodable( vehicleid, explodable );
+native SetVehicleIdleRespawnDelay( vehicleid, timeDelay );
+native SetVehicleLandingGearDown( vehicleid, geardown );
+native SetVehicleLightState( vehicleid, light, lightstate );
+native SetVehicleOverrideLights( vehicleid, value );
+native SetVehiclePaintjob( vehicleid, paintjobid );
+native SetVehiclePanelState( vehicleid, panelID, panelState );
+native SetVehicleRespawnDelay( vehicleid, timeDelay );
+native SetVehicleRespawnPosition( vehicleid, Float:turnX, Float:turnY, Float:turnZ );
+native SetVehicleSirensOn( vehicleid, sinrensOn );
+native SetVehicleTurretPosition( vehicleid, Float:turX, Float:turY, Float:turZ );
+native SetVehicleDoorOpenRatio( vehicleid, door, Float:ratio );
+native SetVehicleTurnVelocity( vehicleid, Float:turnX, Float:turnY, Float:turnZ );
+native SetVehicleWheelStates( vehicleid, frontLeft );
+native ToggleVehicleRespawn( vehicleid, toggle );
+native GetTrainDirection( vehicleid );
+native GetTrainSpeed( vehicleid );
+native GetVehicleHeadLightColor( vehicleid, &R, &G, &B );
+native GetVehicleModelFromName( name[] );
+native GetVehicleNameFromModel( vehid, buf[], bufSize );
+native IsTrainDerailable( vehicleid );
+native IsTrainDerailed( vehicleid );
+native IsVehicleBlown( vehicleid );
+native IsVehicleTaxiLightOn( vehicleid );
+native SetTrainDerailable( vehicleid, enabled );
+native SetTrainDerailed( vehicleid, enabled );
+native SetTrainDirection( vehicleid, enabled );
+native SetTrainSpeed( vehicleid, Float:Speed );
+native SetVehicleHeadLightColor( vehicleid, r, g, b );
+native SetVehicleTaxiLightOn( vehicleid, lightstate );
+native GetVehicleVariant( vehicleid, &var1, &var2 );
+native SetVehicleVariant( vehicleid );
+native RemoveVehicleSirens( vehicleid );
+native AddVehicleSirens( vehicleid, sirenCount, sirenType );
+native SetVehicleSirens( vehicleid, sirenPoint, Float:posX, Float:posY, Float:posZ, red, green, blue );
+//SetVehicleColor
+//GetVehicleColor
+//getVehicleCompatibleUpgrades
+//GetVehicleOccupants
+//GetVehiclesOfType
+//GetVehicleTowedByVehicle
+//getVehicleUpgrades  
+//getVehicleHandling 
+//getModelHandling 
+//getOriginalHandling 
+//setVehicleHandling 
+//setModelHandling 
+//getVehicleSirenParams 
+//getVehicleSirens 
 
 
 
