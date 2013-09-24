@@ -207,8 +207,10 @@ end
 function GetVehicleName ( amx, vehicle, nameBuf, bufSize )
 	local vehName =  getVehicleName ( vehicle )
 	if #vehName <= bufSize then
-		writeMemString(amx, nameBuf, vehName)
+		writeMemString( amx, nameBuf, vehName );
+		return true;
 	end
+	return false;
 end
 
 function GetVehicleOccupant( amx, vehicle )
@@ -263,8 +265,10 @@ end
 function GetVehicleType ( amx, vehicle, nameBuf, bufSize )
 	local vehType = getVehicleType ( vehicle )
 	if #vehType <= bufSize then
-		writeMemString( amx, nameBuf, vehType )
+		writeMemString( amx, nameBuf, vehType );
+		return true;
 	end
+	return false;
 end
 
 --getVehicleUpgradeOnSlot 
@@ -437,10 +441,12 @@ function GetPlayerIP( axm, player )
 end
 
 function GetPlayerName ( amx, player, nameBuf, bufSize )
-	local name = getPlayerName(player)
+	local name = getPlayerName( player )
 	if #name <= bufSize then
-		writeMemString(amx, nameBuf, name)
+		writeMemString( amx, nameBuf, name );
+		return true;
 	end
+	return false;
 end
 
 function SetPlayerName ( amx, player, newName )
@@ -561,7 +567,9 @@ function GetWeaponNameFromID( amx, id, nameBuf, bufSize )
 	local name = getWeaponNameFromID( id );
 	if #name <= bufSize then
 		writeMemString( amx, nameBuf, name );
+		return true;
 	end
+	return false;
 end
 
 function GiveWeapon( amx, player, weapon )
