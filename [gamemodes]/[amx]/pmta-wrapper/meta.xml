@@ -1,6 +1,7 @@
 <meta>
   <info name="AMX" author="adamix" type="gamemode" />
 
+  <min_mta_version server="1.3.4-9.05815" client="1.3.4-9.05815" />
   <script src="rpc/server.lua" type="server" />
   <script src="server/defines.lua" type="server" />
   <script src="server/util.lua" type="server" />

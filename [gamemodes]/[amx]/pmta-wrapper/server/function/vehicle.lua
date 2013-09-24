@@ -162,14 +162,13 @@ end
 
 function GetVehicleWheelStates( amx, vehicle, refState1, refState2, refState3, refState4 )
 	local state1, state2, state3, state4 = getVehicleWheelStates( vehicle );
-	
 	WriteMemInt( amx, refState1, state1 );
 	WriteMemInt( amx, refState2, state2 );
 	WriteMemInt( amx, refState3, state3 );
 	WriteMemInt( amx, refState4, state4 );
 end
 
-function GetVehicleDoorOpenRatio( amx, vehicle, refRatio, )
+function GetVehicleDoorOpenRatio( amx, vehicle, refRatio )
 	local ratio = getVehicleDoorOpenRatio( vehicle );
 	
 	WriteMemFloat( amx, refRatio, ratio );
