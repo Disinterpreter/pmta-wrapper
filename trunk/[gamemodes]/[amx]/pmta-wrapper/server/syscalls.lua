@@ -1250,6 +1250,14 @@ g_SAMPSyscallPrototypes = {
 	--Element
 	GetPedPosition = { 'e', 'r', 'r', 'r' },
 	SetPedPosition = { 'e', 'f', 'f', 'f' },
+	GetPedRotation = { 'e', 'r', 'r', 'r' },
+	SetPedRotation = { 'e', 'f', 'f', 'f' },
+	GetPedInterior  = { 'e' },
+	SetPedInterior  = { 'e', 'i' },
+	GetPedDimension  = { 'e' },
+	SetPedDimension  = { 'e', 'i' },
+	GetPedVelocity = { 'e', 'r', 'r', 'r' },
+	SetPedVelocity = { 'e', 'f', 'f', 'f' },
 	GetPedAlpha = { 'e' },
 	SetPedAlpha = { 'e', 'i' },
 	GetPedHealth = { 'e', 'r' },
@@ -1259,25 +1267,39 @@ g_SAMPSyscallPrototypes = {
 	GetPedSkin = { 'e' },
 	SetPedSkin = { 'e', 'i' },
 	IsPedFrozen = { 'e' },
-	SetPedFrozen = { 'e', 'b' },
 	IsPedInWater = { 'e' },
 	
 	GetVehiclePosition = {'v', 'r', 'r', 'r'},
 	SetVehiclePosition = { 'v', 'f', 'f', 'f' },
+	GetVehicleRotation = { 'v', 'r', 'r', 'r' },
+	SetVehicleRotation = { 'v', 'f', 'f', 'f' },
+	GetVehicleInterior  = { 'v' },
+	SetVehicleInterior  = { 'v', 'i' },
+	GetVehicleDimension  = { 'v' },
+	SetVehicleDimension  = { 'v', 'i' },
+	GetVehicleVelocity = { 'v', 'r', 'r', 'r' },
+	SetVehicleVelocity = { 'v', 'f', 'f', 'f' },
 	GetVehicleAlpha = { 'v' };
 	SetVehicleAlpha = { 'v', 'i' };
 	GetVehicleHealth = { 'v', 'r' },
 	SetVehicleHealth = { 'v', 'f' };
 	GetVehicleFrozen = { 'v' },
 	SetVehicleFrozen = { 'v', 'b' },
-	GetVehicleSkin = { 'v' },
-	SetVehicleSkin = { 'v', 'i' },
+	GetVehicleModel = { 'v' },
+	SetVehicleModel = { 'v', 'i' },
 	IsVehicleFrozen = { 'v' },
-	SetVehicleFrozen = { 'v', 'b' },
 	IsVehicleInWater = { 'v' },
 	
 	GetPlayerPosition = {'p', 'r', 'r', 'r'},
 	SetPlayerPosition = { 'p', 'f', 'f', 'f' },
+	GetPlayerRotation = { 'p', 'r', 'r', 'r' },
+	SetPlayerRotation = { 'p', 'f', 'f', 'f' },
+	GetPlayerInterior  = { 'p' },
+	SetPlayerInterior  = { 'p', 'i' },
+	GetPlayerDimension  = { 'p' },
+	SetPlayerDimension  = { 'p', 'i' },
+	GetPlayerVelocity = { 'p', 'r', 'r', 'r' },
+	SetPlayerVelocity = { 'p', 'f', 'f', 'f' },
 	GetPlayerAlpha = { 'p' };
 	SetPlayerAlpha = { 'p', 'i' };
 	GetPlayerHealth = { 'p', 'r' },
@@ -1287,9 +1309,59 @@ g_SAMPSyscallPrototypes = {
 	GetPlayerSkin = { 'p' },
 	SetPlayerSkin = { 'p', 'i' },
 	IsPlayerFrozen = { 'p' },
-	SetPlayerFrozen = { 'p', 'b' },
 	IsPlayerInWater = { 'p' },
 	
+	--[[
+	clearElementVisibleTo 
+	cloneElement 
+	createElement 
+	destroyElement 
+	getAllElementData 
+	getAttachedElements 
+	getElementAlpha 
+	getElementAttachedOffsets 
+	getElementCollisionsEnabled 
+	getElementAttachedTo 
+	getElementByID 
+	getElementByIndex 
+	getElementChild 
+	getElementChildren 
+	getElementChildrenCount 
+	getElementColShape 
+	getElementData 
+
+	getElementID 
+	getElementParent 
+	getElementsByType 
+	getElementsWithinColShape 
+	getElementType  
+	getElementZoneName 
+	getRootElement 
+	isElement 
+	isElementAttached 
+	isElementDoubleSided 
+	isElementVisibleTo 
+	isElementWithinColShape 
+	removeElementData 
+	setElementAlpha 
+	setElementCollisionsEnabled 
+	setElementData 
+	setElementDoubleSided 
+
+
+	setElementID 
+	setElementParent 
+	setElementSyncer  
+	setElementVisibleTo 
+	attachElements 
+	detachElements  
+	getElementSyncer 
+	setElementAttachedOffsets 
+	setLowLODElement 
+	getLowLODElement 
+	isElementLowLOD
+
+	]]
 	
 	------------------------------------------------------------------------
 	-- Player
