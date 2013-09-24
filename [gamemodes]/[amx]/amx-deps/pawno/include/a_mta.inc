@@ -51,36 +51,12 @@ native OutputChatBoxToAll(text[], r = 255, g = 255, b = 255, colorCoded = 0);
 
 ////////////////////////////////////////////////////
 // Player natives
-//native forcePlayerMap 
-//native getAlivePlayers 
-//native getDeadPlayers 
-//native getPlayerAnnounceValue 
 native GetPlayerCount();
 native GetPlayerMoney(playerid);
-native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
-native SetPlayerPosition(playerid, Float:X, Float:Y, Float:Z);
-//native getPlayerNametagColor 
-//native getPlayerNametagText
-native GetPlayerPing(playerid);
-//native getPlayerTeam 
-//native getPlayerVersion 
-//native getPlayerWantedLevel 
-//native getRandomPlayer
 native GivePlayerMoney(playerid, money);
-//native isPlayerMapForced 
-//native isPlayerMuted 
-//native isPlayerNametagShowing 
-//native setPlayerAnnounceValue 
 native SetPlayerMoney(playerid, money);
-//native setPlayerMuted 
-//native setPlayerNametagColor 
-//native setPlayerNametagShowing 
-//native setPlayerNametagText 
-//native setPlayerTeam 
 native setPlayerWantedLevel( playerid, level );
-//native isPlayerHudComponentVisible 
-//native showPlayerHudComponent 
-//native setPlayerHudComponentVisible
+native GetPlayerPing(playerid);
 native SpawnPlayer(playerid, Float:X, Float:Y, Float:Z);
 native takePlayerMoney( playerid, money );
 native GetPlayerFromName(name[]);
@@ -88,48 +64,25 @@ native GetPlayerIP(playerid, ip[], bufSize);
 native GetPlayerName(playerid, const nuberplate[], buf);
 native SetPlayerName(playerid, newName[], bufSize);
 native RedirectPlayer(playerid, host[], port);
-//native getPlayerIdleTime 
-//native resendPlayerModInfo 
-//native isVoiceEnabled 
-//native setPlayerVoiceBroadcastTo 
-//native setPlayerVoiceIgnoreFrom 
-//native takePlayerScreenShot
-native SetPlayerAlpha(playerid, alpha);
-native SetPlayerHealth(playerid, Float:Health);
-native SetPlayerFrozen(playerid, state2);
-native GetPlayerAlpha(playerid);
-native GetPlayerHealth(playerid, &Float:Health);
-native GetPlayerFrozen(playerid);
 native AddPlayerClothes( Playerid, clothestex[], clothesmodel[], clothestype );
 native DoesPlayerHaveJetPack( Playerid );
 native GetPlayerAmmoInClip( Playerid );
 native GetPlayerArmor( Playerid );
-//native GetPlayerClothes( Playerid );
-//native GetPlayerContactElement( Playerid );
 native GetPlayerFightingStyle( Playerid );
 native GetPlayerGravity( Playerid );
-//native GetPlayerMoveState( Playerid );
 native GetPlayerOccupiedVehicle( Playerid );
 native GetPlayerOccupiedVehicleSeat( Playerid );
-native GetPlayerSkin( Playerid );
 native GetPlayerStat( Playerid, statid, &Float:value );
-//native getPlayerTarget( Playerid );
 native GetPlayerTotalAmmo( Playerid );
-//native GetPlayerVoice( Playerid );
 native GetPlayerWalkingStyle( Playerid );
 native GetPlayerWeapon( Playerid );
-//native GetPlayerWeaponMuzzlePosition( Playerid );
 native GetPlayerWeaponSlot( Playerid );
 native IsPlayerChoking( Playerid );
 native IsPlayerDoingGangDriveby( Playerid );
-//native IsPlayerDoingTask( Playerid ); ( CLIENT ONLY )
-native IsPlayerFrozen( Playerid );
 native IsPlayerHeadless( Playerid );
 native IsPlayerInVehicle( Playerid );
-native IsPlayerInWater( Playerid );
 native IsPlayerOnFire( Playerid );
 native IsPlayerOnGround( Playerid );
-//native SetPlayerAimTarget( Playerid, Float:x, Float:y, Float:z ); ( CLIENT ONLY )
 native SetPlayerAnalogControlState( Playerid, analog[], &Float:fstate );
 native SetPlayerAnimation( Playerid );
 native SetPlayerAnimationProgress( Playerid );
@@ -144,56 +97,134 @@ native SetPlayerStat( Playerid, statid, Float:value );
 native SetPlayerWeaponSlot( Playerid, slotid );
 native SetPlayerWalkingStyle( Playerid, styleid );
 native WarpPlayerIntoVehicle( Playerid, vehicleid );
-
-
-////////////////////////////////////////////////////
-//Element-Player natives
 native GetPlayerBlurLevel(playerid);
 native SetPlayerBlurLevel(playerid, level);
+//native getPlayerIdleTime 
+//native resendPlayerModInfo 
+//native isVoiceEnabled 
+//native setPlayerVoiceBroadcastTo 
+//native setPlayerVoiceIgnoreFrom 
+//native takePlayerScreenShot
+//native GetPlayerClothes( Playerid );
+//native GetPlayerContactElement( Playerid );
+//native GetPlayerMoveState( Playerid );
+//native getPlayerTarget( Playerid );
+//native GetPlayerVoice( Playerid );
+//native GetPlayerWeaponMuzzlePosition( Playerid );
+//native IsPlayerDoingTask( Playerid ); ( CLIENT ONLY )
+//native SetPlayerAimTarget( Playerid, Float:x, Float:y, Float:z ); ( CLIENT ONLY )
+//native getPlayerNametagColor 
+//native getPlayerNametagText
+//native getPlayerTeam 
+//native getPlayerVersion 
+//native getPlayerWantedLevel 
+//native getRandomPlayer
+//native isPlayerMapForced 
+//native isPlayerMuted 
+//native isPlayerNametagShowing 
+//native setPlayerAnnounceValue 
+//native setPlayerMuted 
+//native setPlayerNametagColor 
+//native setPlayerNametagShowing 
+//native setPlayerNametagText 
+//native setPlayerTeam 
+//native isPlayerHudComponentVisible 
+//native showPlayerHudComponent 
+//native setPlayerHudComponentVisible
+//native forcePlayerMap 
+//native getAlivePlayers 
+//native getDeadPlayers 
+//native getPlayerAnnounceValue 
 
+////////////////////////////////////////////////////
+//Element natives
+
+////////////////////////////////////////////////////
+//Element natives
+native GetPedPosition( pedid, &Float:X, &Float:Y, &Float:Z );
+native SetPedPosition( pedid, Float:X, Float:Y, Float:Z );
+native GetPedRotation( pedid, &Float:rotX, &Float:rotY, &Float:rotZ );
+native SetPedRotation( pedid, Float:rotX, Float:rotY, Float:rotZ );
+native GetPedInterior( pedid );
+native SetPedInterior( pedid, interior );
+native GetPedDimension( pedid );
+native SetPedDimension( pedid, dimension );
+native GetPedVelocity( pedid, &Float:velX, &Float:velY, &Float:velZ );
+native SetPedVelocity( pedid, Float:velX, Float:velY, Float:velZ );
+native GetPedAlpha( pedid );
+native SetPedAlpha( pedid, alpha );
+native GetPedHealth( pedid, &Float:Health );
+native SetPedHealth( pedid, Float:health );
+native GetPedFrozen( pedid );
+native SetPedFrozen( pedid, frozen );
+native GetPedSkin( pedid );
+native SetPedSkin( pedid, skin );
+native IsPedFrozen( pedid );
+native IsPedInWater( pedid );
+
+native GetVehiclePosition( vehicleid, &Float:X, &Float:Y, &Float:Z );
+native SetVehiclePosition( vehicleid, Float:X, Float:Y, Float:Z );
+native GetVehicleRotation( vehicleid, &Float:rotX, &Float:rotY, &Float:rotZ );
+native SetVehicleRotation( vehicleid, Float:rotX, Float:rotY, Float:rotZ );
+native GetVehicleInterior( vehicleid );
+native SetVehicleInterior( vehicleid, interior );
+native GetVehicleDimension( vehicleid );
+native SetVehicleDimension( vehicleid, dimension );
+native GetVehicleAlpha( vehicleid );
+native SetVehicleAlpha( vehicleid, alpha );
+native GetVehicleHealth( vehicleid, &Float:Health );
+native SetVehicleHealth( vehicleid, Float:health );
+native GetVehicleFrozen( vehicleid );
+native SetVehicleFrozen( vehicleid, frozen );
+native GetVehicleModel( vehicleid );
+native SetVehicleModel( vehicleid, model );
+native IsVehicleFrozen( vehicleid );
+native IsVehicleInWater( vehicleid );
+
+native GetPlayerPosition( playerid, &Float:X, &Float:Y, &Float:Z );
+native SetPlayerPosition( playerid, Float:X, Float:Y, Float:Z );
+native GetPlayerRotation( playerid, &Float:rotX, &Float:rotY, &Float:rotZ );
+native SetPlayerRotation( playerid, Float:rotX, Float:rotY, Float:rotZ );
+native GetPlayerInterior( playerid );
+native SetPlayerInterior( playerid, interior );
+native GetPlayerDimension( playerid );
+native SetPlayerDimension( playerid, dimension );
+native GetPlayerVelocity( playerid, &Float:velX, &Float:velY, &Float:velZ );
+native SetPlayerVelocity( playerid, Float:velX, Float:velY, Float:velZ );
+native GetPlayerAlpha( playerid );
+native SetPlayerAlpha( playerid, alpha );
+native GetPlayerHealth( playerid, &Float:Health );
+native SetPlayerHealth( playerid, Float:health );
+native GetPlayerFrozen( playerid );
+native SetPlayerFrozen( playerid, frozen );
+native GetPlayerSkin( playerid );
+native SetPlayerSkin( playerid, skin );
+native IsPlayerFrozen( playerid );
+native IsPlayerInWater( playerid );
 
 
 ////////////////////////////////////////////////////
 //Element-Ped natives
 native CreatePed(modelid, Float:X, Float:Y, Float:Z, Float:Rot = 0.0, sync = 1);
-native GetPedPosition(playerid, &Float:X, &Float:Y, &Float:Z);
-native SetPedPosition(playerid, Float:X, Float:Y, Float:Z);
-native SetPedAlpha(playerid, alpha);
-native SetPedHealth(playerid, Float:Health);
-native SetPedFrozen(playerid, state2);
-native GetPedAlpha(playerid);
-native GetPedHealth(playerid, &Float:Health);
-native GetPedFrozen(playerid);
 native AddPedClothes( pedid, clothestex[], clothesmodel[], clothestype );
 native DoesPedHaveJetPack( pedid );
 native GetPedAmmoInClip( pedid );
 native GetPedArmor( pedid );
-//native GetPedClothes( pedid );
-//native GetPedContactElement( pedid );
 native GetPedFightingStyle( pedid );
 native GetPedGravity( pedid );
-//native GetPedMoveState( pedid );
 native GetPedOccupiedVehicle( pedid );
 native GetPedOccupiedVehicleSeat( pedid );
-native GetPedSkin( pedid );
 native GetPedStat( pedid, statid, &Float:value );
-//native getPedTarget( pedid );
 native GetPedTotalAmmo( pedid );
-//native GetPedVoice( pedid );
 native GetPedWalkingStyle( pedid );
 native GetPedWeapon( pedid );
-//native GetPedWeaponMuzzlePosition( pedid );
 native GetPedWeaponSlot( pedid );
 native IsPedChoking( pedid );
 native IsPedDoingGangDriveby( pedid );
-//native IsPedDoingTask( pedid ); ( CLIENT ONLY )
-native IsPedFrozen( pedid );
 native IsPedHeadless( pedid );
 native IsPedInVehicle( pedid );
-native IsPedInWater( pedid );
 native IsPedOnFire( pedid );
 native IsPedOnGround( pedid );
-//native SetPedAimTarget( pedid, Float:x, Float:y, Float:z ); ( CLIENT ONLY )
 native SetPedAnalogControlState( pedid, analog[], &Float:fstate );
 native SetPedAnimation( pedid );
 native SetPedAnimationProgress( pedid );
@@ -208,17 +239,24 @@ native SetPedStat( pedid, statid, Float:value );
 native SetPedWeaponSlot( pedid, slotid );
 native SetPedWalkingStyle( pedid, styleid );
 native WarpPedIntoVehicle( pedid, vehicleid );
+//native GetPedMoveState( pedid );
+//native GetPedClothes( pedid );
+//native GetPedContactElement( pedid );
+//native SetPedAimTarget( pedid, Float:x, Float:y, Float:z ); ( CLIENT ONLY )
+//native IsPedDoingTask( pedid ); ( CLIENT ONLY )
+//native GetPedWeaponMuzzlePosition( pedid );
+//native getPedTarget( pedid );
+//native GetPedVoice( pedid );
 
 ////////////////////////////////////////////////////
 //Camera natives
 native FadeCamera(playerid, fadestate);
 native GetCameraInterior(playerid);
 native GetCameraMatrix(playerid, &Float:refCameraX, &Float:refCameraY, &Float:refCameraZ, &Float:refTargetX, &Float:refTargetY, &Float:refTargetZ, &Float:refRoll, &Float:refFov );
-//native GetCameraTarget(playerid)
 native SetCameraInterior(playerid, interior);
 native SetCameraMatrix(playerid, Float:X, Float:Y, Float:Z);
 native SetCameraTarget(playerid, playerid2);
-
+//native GetCameraTarget(playerid)
 
 ////////////////////////////////////////////////////
 // Vehicle natives
@@ -228,8 +266,6 @@ native BlowVehicle(vehicleid);
 native DetachTrailerFromVehicle(vehicleid); 
 native CreateVehicle(model, Float:X, Float:Y, Float:Z);
 native FixVehicle (vehicleid);
-//navive GetVehicleColor(
-//navive getVehicleCompatibleUpgrades(
 native GetVehicleController(vehicleid);
 native GetVehicleDoorState(vehicleid, door); 
 native GetVehicleEngineState(vehicleid); 
@@ -237,17 +273,23 @@ native GetVehicleLandingGearDown(vehicleid);
 native GetVehicleLightState(vehicleid); 
 native GetVehicleName (vehicleid, const vehiclename[], buf);
 native GetVehicleOccupant(vehicleid);
-//native GetVehicleOccupants(
 native GetVehicleOverrideLights(vehicleid); 
 native GetVehiclePaintjob(vehicleid); 
 native GetVehiclePanelState(vehicleid, panel); 
 native GetVehicleSirensOn(vehicleid); 
+native GetVehicleType (vehicleid, const vehicletype[], buf);
+native IsVehicleLocked( vehicleid );
+native IsVehicleOnGround( vehicleid );
+native SpawnVehicle( vehicleid, Float:x, Float:y, Float:z );
+native RespawnVehicle (vehicleid);
+native SetVehicleLocked (vehicleid, locked);
+native SetVehiclePlateText (vehicleid, nuberplate[]);
+//native GetVehicleOccupants(
 //native GetVehiclesOfType(
 //native GetVehicleTowedByVehicle(
 //native GetVehicleTowingVehicle (
 //native GetVehicleTurnVelocity( 
 //native GetVehicleTurretPosition (
-native GetVehicleType (vehicleid, const vehicletype[], buf);
 //native GetVehicleUpgradeOnSlot( 
 //native GetVehicleUpgrades( 
 //native GetVehicleUpgradeSlotName( 
@@ -258,12 +300,9 @@ native GetVehicleType (vehicleid, const vehicletype[], buf);
 //native GetOriginalHandling(
 //native IsVehicleDamageProof( 
 //native IsVehicleFuelTankExplodable( 
-native IsVehicleLocked( vehicleid );
-native IsVehicleOnGround( vehicleid );
 //native RemoveVehicleUpgrade( 
 //native ResetVehicleExplosionTime( 
 //native ReSetVehicleIdleTime( 
-native RespawnVehicle (vehicleid);
 //native SetVehicleColor( 
 //native SetVehicleDamageProof( 
 //native SetVehicleDoorState( 
@@ -273,7 +312,6 @@ native RespawnVehicle (vehicleid);
 //native SetVehicleIdleRespawnDelay( 
 //native SetVehicleLandingGearDown( 
 //native SetVehicleLightState( 
-native SetVehicleLocked (vehicleid, locked);
 //native SetVehicleOverrideLights( 
 //native SetVehiclePaintjob( 
 //native SetVehiclePanelState( 
@@ -286,7 +324,8 @@ native SetVehicleLocked (vehicleid, locked);
 //native SetModelHandling( 
 //native SetVehicleTurnVelocity( 
 //native SetVehicleWheelStates( 
-native SpawnVehicle( vehicleid, Float:x, Float:y, Float:z );
+//navive GetVehicleColor(
+//navive getVehicleCompatibleUpgrades(
 //native ToggleVehicleRespawn( 
 //native GetTrainDirection( 
 //native GetTrainSpeed( 
@@ -311,18 +350,6 @@ native SpawnVehicle( vehicleid, Float:x, Float:y, Float:z );
 //native AddVehicleSirens( 
 //native SetVehicleSirens(
 //native GetVehiclePlateText (vehicleid, const nuberplate[], buf);
-native SetVehiclePlateText (vehicleid, nuberplate[]);
-
-
-
-////////////////////////////////////////////////////
-//Element-Vehicle natives
-native GetVehiclePosition(vehicleid, &Float:X, &Float:Y, &Float:Z);
-native SetVehiclePosition(vehicleid, Float:X, Float:Y, Float:Z);
-native GetVehicleHealth (vehicleid, &Float:Health);
-native SetVehicleHealth (vehicleid, Float:Health);
-native SetVehicleAlpha(vehicleid, alpha);
-native GetVehicleAlpha(vehicleid);
 
 
 
