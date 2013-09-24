@@ -96,17 +96,65 @@ native RedirectPlayer(playerid, host[], port);
 
 ////////////////////////////////////////////////////
 //Element-Player natives
-native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
-native SetPlayerPosition(playerid, Float:X, Float:Y, Float:Z);
-native SetPlayerAlpha(playerid, alpha);
-native SetPlayerHealth(playerid, Float:Health);
-native SetPlayerFrozen(playerid, state2);
-native GetPlayerAlpha(playerid);
-native GetPlayerHealth(playerid, &Float:Health);
-native GetPlayerFrozen(playerid);
 native GetPlayerBlurLevel(playerid);
 native SetPlayerBlurLevel(playerid, level);
 
+
+
+////////////////////////////////////////////////////
+//Element-Ped natives
+native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
+native SetPlayerPosition(playerid, Float:X, Float:Y, Float:Z);
+native SetPedAlpha(playerid, alpha);
+native SetPedHealth(playerid, Float:Health);
+native SetPedFrozen(playerid, state2);
+native GetPedAlpha(playerid);
+native GetPedHealth(playerid, &Float:Health);
+native GetPedFrozen(playerid);
+native AddPedClothes( pedid, clothestex[], clothesmodel[], clothestype );
+native DoesPedHaveJetPack( pedid );
+native GetPedAmmoInClip( pedid );
+native GetPedArmor( pedid );
+//native GetPedClothes( pedid );
+//native GetPedContactElement( pedid );
+native GetPedFightingStyle( pedid );
+native GetPedGravity( pedid );
+//native GetPedMoveState( pedid );
+native GetPedOccupiedVehicle( pedid );
+native GetPedOccupiedVehicleSeat( pedid );
+native GetPedSkin( pedid );
+native GetPedStat( pedid, statid, &Float:value );
+//native getPedTarget( pedid );
+native GetPedTotalAmmo( pedid );
+//native GetPedVoice( pedid );
+native GetPedWalkingStyle( pedid );
+native GetPedWeapon( pedid );
+//native GetPedWeaponMuzzlePosition( pedid );
+native GetPedWeaponSlot( pedid );
+native IsPedChoking( pedid );
+native IsPedDoingGangDriveby( pedid );
+//native IsPedDoingTask( pedid ); ( CLIENT ONLY )
+native IsPedFrozen( pedid );
+native IsPedHeadless( pedid );
+native IsPedInVehicle( pedid );
+native IsPedInWater( pedid );
+native IsPedOnFire( pedid );
+native IsPedOnGround( pedid );
+//native SetPedAimTarget( pedid, Float:x, Float:y, Float:z ); ( CLIENT ONLY )
+native SetPedAnalogControlState( pedid, analog[], &Float:fstate );
+native SetPedAnimation( pedid );
+native SetPedAnimationProgress( pedid );
+native SetPedArmor( pedid, Float:armor );
+native SetPedChoking( pedid, choking );
+native SetPedDoingGangDriveby( pedid, driveby );
+native SetPedFightingStyle( pedid, style );
+native SetPedGravity( pedid, Float:gravity );
+native SetPedHeadless( pedid, headless );
+native SetPedOnFire( pedid, onfire );
+native SetPedStat( pedid, statid, Float:value );
+native SetPedWeaponSlot( pedid, slotid );
+native SetPedWalkingStyle( pedid, styleid );
+native WarpPedIntoVehicle( pedid, vehicleid );
 
 ////////////////////////////////////////////////////
 //Camera natives

@@ -521,45 +521,233 @@ end
 
 
 ------------------------------------------------------------------------
--- Element-Player functions
+--PED functions
 
-function SetPlayerAlpha( amx, player, alpha )
-	return setElementAlpha( player, alpha );
+function SetPedAlpha( amx, ped, alpha )
+	return setElementAlpha( ped, alpha );
 end
 
-function SetPlayerHealth( amx, player, health )
-	return setElementHealth( player, health );
+function SetPedHealth( amx, ped, health )
+	return setElementHealth( ped, health );
 end
 
-function SetPlayerFrozen( amx, player, state )
-	return setElementFrozen( player, state );
+function SetPedFrozen( amx, ped, state )
+	return setElementFrozen( ped, state );
 end
 
-function GetPlayerAlpha( amx, player )
-	return getElementAlpha( player );
+function GetPedAlpha( amx, ped )
+	return getElementAlpha( ped );
 end
 
-function GetPlayerHealth( amx, player, refHealth )
-	local health = getElementHealth( player );
+function GetPedHealth( amx, ped, refHealth )
+	local health = getElementHealth( ped );
 	writeMemFloat( amx, refHealth, health );
 end
 
-function GetPlayerFrozen( axm, player )
-	return isElementFrozen( player );
+function GetPedFrozen( axm, ped )
+	return isElementFrozen( ped );
 end
 
-function GetPlayerPosition( amx, player, refX, refY, refZ )
-	local x, y, z = getElementPosition( player );
+function GetPedPosition( amx, ped, refX, refY, refZ )
+	local x, y, z = getElementPosition( ped );
 	writeMemFloat( amx, refX, x );
 	writeMemFloat( amx, refY, y );
 	writeMemFloat( amx, refZ, z );
 end
 
-function SetPlayerPosition( amx, player, fX, fY, fZ )
-	return setElementPosition( player, fX, fY, fZ );
+function SetPedPosition( amx, ped, fX, fY, fZ )
+	return setElementPosition( ped, fX, fY, fZ );
 end
 
+function AddPedClothes( amx, ped, clothestex, clothesmodel, clothestype )
+	return addPedClothes( ped, clothestex, clothesmodel, clothestype );
+end
 
+function DoesPedHaveJetPack( amx, ped )
+	return doesPedHaveJetPack( ped );
+end
+
+function GetPedAmmoInClip( amx, ped )
+	return getPedAmmoInClip( ped );
+end
+
+function GetPedArmor( amx, ped )
+	return getPedArmor( ped );
+end
+
+--GetPedClothes
+--GetPedContactElement
+
+function GetPedFightingStyle( amx, ped )
+	return getPedFightingStyle( ped );
+end
+
+function GetPedGravity( amx, ped )
+	return getPedGravity( ped );
+end
+
+--[[
+
+--CLIENT ONLY
+function GetPedMoveState( amx, ped )
+	return getPedMoveState( ped );
+end]]
+
+function GetPedOccupiedVehicle( amx, ped )
+	local vehicle = getPedOccupiedVehicle( ped );
+	
+	local vehicleID = getElemID( vehicle )
+	
+	return vehicleID
+end
+
+function GetPedOccupiedVehicleSeat( amx, ped )
+	return getPedOccupiedVehicleSeat( ped );
+end
+
+function GetPedSkin( amx, ped )
+	return getElementModel( ped );
+end
+
+function GetPedStat( amx, ped, stat, refValue )
+	local f = getPedStat( ped, stat );
+	writeMemFloat( amx, refValue, f ); 
+end
+
+--getPedTarget
+
+function GetPedTotalAmmo( amx, ped )
+	return getPedTotalAmmo( ped );
+end
+
+--[[
+--CLIENT ONLLY
+function GetPedVoice( amx, ped )
+	return getPedVoice( ped );
+end
+]]
+
+function GetPedWalkingStyle( amx, ped )
+	return getPedWalkingStyle( ped );
+end
+
+function GetPedWeapon( amx, ped )
+	return getPedWeapon( ped );
+end
+
+--[[
+
+function GetPedWeaponMuzzlePosition( amx, ped )
+
+end]]
+
+
+function GetPedWeaponSlot( amx, ped )
+	return getPedWeaponSlot( ped );
+end
+
+function IsPedChoking( amx, ped )
+	return isPedChoking( ped );
+end
+
+function IsPedDoingGangDriveby( amx, ped )
+	return isPedDoingGangDriveby( ped );
+end
+
+function IsPedDoingTask( amx, ped )
+	return isPedDoingTask( ped );
+end
+
+function IsPedFrozen( amx, ped )
+	return isElementFrozen( ped );
+end
+
+function IsPedHeadless( amx, ped )
+	return isPedHeadless( ped );
+end
+
+function IsPedInVehicle( amx, ped )
+	return isPedInVehicle( ped );
+end
+
+function IsPedInWater( amx, ped )
+	return isElementInWater( ped );
+end
+
+function IsPedOnFire( amx, ped )
+	return isPedOnFire( ped );
+end
+
+function IsPedOnGround( amx, ped )
+	return isPedOnGround( ped );
+end
+
+--[[
+--CLIENT ONLY
+function setPedAimTarget( amx, ped, x, y, z )
+
+end]]
+
+
+function SetPedAnalogControlState( amx, ped, control, analogstate )
+	return setPedAnalogControlState( ped, control, analogstate );
+end
+
+function SetPedAnimation( amx, ped )
+	return setPedAnimation( ped );
+end
+
+function SetPedAnimationProgress( amx, ped )
+	return setPedAnimationProgress( ped );
+end
+
+function SetPedArmor( amx, ped, armor )
+	return setPedArmor( ped, armor );
+end
+
+function SetPedChoking( amx, ped, choking )
+	return setPedChoking( ped, choking );
+end
+
+function SetPedDoingGangDriveby( amx, ped, bstate )
+	return setPedDoingGangDriveby( ped, bstate );
+end
+
+function SetPedFightingStyle( amx, ped, style )
+	return setPedFightingStyle( ped, style );
+end
+
+function SetPedFrozen( amx, ped, frozen )
+	return setElementFrozen( ped, frozen );
+end
+
+function SetPedGravity( amx, ped, value )
+	return setPedGravity( ped, value );
+end
+
+function SetPedHeadless( amx, ped, headless )
+	return setPedHeadless( ped, headless );
+end
+
+function SetPedOnFire( amx, ped, onfire )
+	return setPedOnFire( ped, onfire );
+end
+
+function SetPedStat( amx, ped, stat, fvalue )
+	return setPedStat( ped, stat, fvalue );
+end
+
+function SetPedWeaponSlot( amx, ped, weaponslot )
+	return setPedWeaponSlot( ped, weaponslot );
+end
+
+function SetPedWalkingStyle( amx, ped, style )
+	return setPedWalkingStyle( ped, style );
+end
+
+function WarpPedIntoVehicle( amx, ped, vehicle )
+	return warpPedIntoVehicle( ped, vehicle );
+end
 ------------------------------------------------------------------------
 -- Camera functions
 function FadeCamera( amx, player, state )
@@ -898,6 +1086,7 @@ g_SAMPSyscallPrototypes = {
 	SetVehicleHealth = { 'v', 'f' };
 	SetVehicleAlpha = { 'v', 'i' };
 	GetVehicleAlpha = { 'v' };
+	
 	--- ......
 	
 	
@@ -953,15 +1142,60 @@ g_SAMPSyscallPrototypes = {
 
 
 	------------------------------------------------------------------------
-	-- Element-Player functions
-	SetPlayerAlpha = { 'p', 'f' },
-	SetPlayerHealth = { 'p', 'f' },
-	SetPlayerFrozen = { 'p', 'b' },
-	GetPlayerAlpha = { 'p' },
-	GetPlayerHealth = { 'p', 'r' },
-	GetPlayerFrozen = { 'p' },
+	-- Ped functions
+	SetPedAlpha = { 'p', 'f' },
+	SetPedHealth = { 'p', 'f' },
+	SetPedFrozen = { 'p', 'b' },
+	GetPedAlpha = { 'p' },
+	GetPedHealth = { 'p', 'r' },
+	GetPedFrozen = { 'p' },
 	GetPlayerPosition = { 'p', 'r', 'r', 'r' },
 	SetPlayerPosition = { 'p', 'f', 'f', 'f' },
+	AddPedClothes = { 'p', 's', 's', 'i' },
+	DoesPedHaveJetPack = { 'p' },
+	GetPedAmmoInClip = { 'p' },
+	GetPedArmor = { 'p' },
+	--GetPedClothes
+	--GetPedContactElement
+	GetPedFightingStyle = { 'p' },
+	GetPedGravity = { 'p' },
+	--GetPedMoveState
+	GetPedOccupiedVehicle = { 'p' },
+	GetPedOccupiedVehicleSeat = { 'p' },
+	GetPedSkin = { 'p' },
+	GetPedStat = { 'p', 'i', 'r' },
+	--getPedTarget
+	GetPedTotalAmmo = { 'p' },
+	--GetPedVoice
+	GetPedWalkingStyle = { 'p' },
+	GetPedWeapon = { 'p' },
+	--GetPedWeaponMuzzlePosition
+	GetPedWeaponSlot = { 'p' },
+	IsPedChoking = { 'p' },
+	IsPedDoingGangDriveby = { 'p' },
+	--IsPedDoingTask ( CLIENT ONLY )
+	IsPedFrozen = { 'p' },
+	IsPedHeadless = { 'p' },
+	IsPedInVehicle = { 'p' },
+	IsPedInWater = { 'p' },
+	IsPedOnFire = { 'p' },
+	IsPedOnGround = { 'p' },
+	--SetPedAimTarget = { 'p', 'f', 'f', 'f' }, ( CLIENT ONLY )
+	SetPedAnalogControlState = { 'p', 's', 'f' },
+	SetPedAnimation = { 'p' },
+	SetPedAnimationProgress = { 'p' },
+	SetPedArmor = { 'p', 'f' },
+	SetPedChoking = { 'p', 'b' },
+	SetPedDoingGangDriveby = { 'p', 'b' },
+	SetPedFightingStyle = { 'p', 'i' },
+	SetPedFrozen = { 'p', 'b' },
+	SetPedGravity = { 'p', 'f' },
+	SetPedHeadless = { 'p', 'b' },
+	SetPedOnFire = { 'p', 'b' },
+	SetPedStat = { 'p', 'i', 'f' },
+	SetPedWeaponSlot = { 'p', 'i' },
+	SetPedWalkingStyle = { 'p', 'i' },
+	WarpPedIntoVehicle = { 'p', 'v' },
 	--- ......
 	
 	------------------------------------------------------------------------
