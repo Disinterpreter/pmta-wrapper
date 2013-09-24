@@ -5,7 +5,7 @@ function GetPlayerBlurLevel( amx, player )
 end
 
 function SetPlayerBlurLevel( amx, player, level)
-	return SetPlayerBlurLevel( player, level );
+	return setPlayerBlurLevel( player, level );
 end
 
 function GetPlayerCount( amx )

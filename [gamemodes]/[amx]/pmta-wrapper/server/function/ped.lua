@@ -191,6 +191,8 @@ function WarpPedIntoVehicle( amx, ped, vehicle )
 end
 WarpPlayerIntoVehicle = WarpPedIntoVehicle;
 
+
+
 --[[
 
 --CLIENT ONLY
