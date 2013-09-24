@@ -178,17 +178,6 @@ function FixVehicle ( amx, vehicle )
 	return fixVehicle ( vehicle )
 end
 
-
---[[
-function GetVehicleColor( amx, vehicle )
-
-end
-
-function getVehicleCompatibleUpgrades( amx, vehicle )
-
-end
-]]
-
 function GetVehicleController( amx, vehicle )
 	local player = getVehicleController( vehicle );
 	
@@ -230,13 +219,6 @@ function GetVehicleOccupant( amx, vehicle )
 	return playerID
 end
 
-
---[[
-function GetVehicleOccupants( amx, vehicle )
-
-end
-]]
-
 function GetVehicleOverrideLights( amx, vehicle )
 	return getVehicleOverrideLights( vehicle );
 end
@@ -254,6 +236,56 @@ function GetVehicleSirensOn(amx, vehicle)
 	return getVehicleSirensOn(vehicle)
 end
 
+function GetVehicleType ( amx, vehicle, nameBuf, bufSize )
+	local vehType = getVehicleType ( vehicle )
+	if #vehType <= bufSize then
+		writeMemString( amx, nameBuf, vehType );
+		return true;
+	end
+	return false;
+end
+
+function IsVehicleLocked( amx, vehicle )
+	return isVehicleLocked( vehicle );
+end
+
+function IsVehicleOnGround( amx, vehicle )
+	return isVehicleOnGround( vehicle );
+end
+
+
+function RespawnVehicle ( amx, vehicle )
+	return respawnVehicle ( vehicle )
+end
+
+function SetVehicleLocked ( amx ,vehicle, locked )
+	return setVehicleLocked ( vehicle, locked )
+end
+
+function SpawnVehicle( amx, vehicle, x, y, z )
+	return spawnVehicle( vehicle, x, y, z );
+end
+
+function SetVehiclePlateText ( amx, vehicle, nuberplate )
+	return setVehiclePlateText ( vehicle, nuberplate )
+end
+
+--[[
+function GetVehicleColor( amx, vehicle )
+
+end
+
+function getVehicleCompatibleUpgrades( amx, vehicle )
+
+end
+]]
+
+--[[
+function GetVehicleOccupants( amx, vehicle )
+
+end
+]]
+
 --[[
 
 function GetVehiclesOfType( amx, model )
@@ -270,16 +302,6 @@ end
 --getVehicleTowingVehicle 
 --getVehicleTurnVelocity 
 --getVehicleTurretPosition 
-
-function GetVehicleType ( amx, vehicle, nameBuf, bufSize )
-	local vehType = getVehicleType ( vehicle )
-	if #vehType <= bufSize then
-		writeMemString( amx, nameBuf, vehType );
-		return true;
-	end
-	return false;
-end
-
 --getVehicleUpgradeOnSlot 
 --getVehicleUpgrades 
 --getVehicleUpgradeSlotName 
@@ -290,23 +312,9 @@ end
 --getOriginalHandling 
 --isVehicleDamageProof 
 --isVehicleFuelTankExplodable 
-function IsVehicleLocked( amx, vehicle )
-	return isVehicleLocked( vehicle );
-end
-
-function IsVehicleOnGround( amx, vehicle )
-	return isVehicleOnGround( vehicle );
-end
-
 --removeVehicleUpgrade 
 --resetVehicleExplosionTime 
 --resetVehicleIdleTime 
-
-
-function RespawnVehicle ( amx, vehicle )
-	return respawnVehicle ( vehicle )
-end
-
 --setVehicleColor 
 --setVehicleDamageProof 
 --setVehicleDoorState 
@@ -316,11 +324,6 @@ end
 --setVehicleIdleRespawnDelay 
 --setVehicleLandingGearDown 
 --setVehicleLightState 
-
-function SetVehicleLocked ( amx ,vehicle, locked )
-	return setVehicleLocked ( vehicle, locked )
-end
-
 --setVehicleOverrideLights 
 --setVehiclePaintjob 
 --setVehiclePanelState 
@@ -333,11 +336,6 @@ end
 --setModelHandling 
 --setVehicleTurnVelocity 
 --setVehicleWheelStates 
-
-function SpawnVehicle( amx, vehicle, x, y, z )
-	return spawnVehicle( vehicle, x, y, z );
-end
-
 --toggleVehicleRespawn 
 --getTrainDirection 
 --getTrainSpeed 
@@ -362,56 +360,231 @@ end
 --addVehicleSirens 
 --setVehicleSirens 
 
-function SetVehiclePlateText ( amx, vehicle, nuberplate )
-	return setVehiclePlateText ( vehicle, nuberplate )
+-----------------------------------------------------
+--Element functions
+function GetElementAlpha( amx, element )
+	return getElementAlpha( element );
+end
+GetPlayerAlpha = GetElementAlpha;
+GetPedAlpha = GetElementAlpha;
+GetVehicleAlpha = GetElementAlpha;
+
+function GetElementDimension( amx, element );
+	return getElementDimension( element );
 end
 
+GetPlayerDimension = GetElementDimension;
+GetPedDimension = GetElementDimension;
+GetVehicleDimension = GetElementDimension;
+GetMarkerDimension = GetElementDimension;
+GetObjectDimension = GetElementDimension;
+GetPickupDimension = GetElementDimension;
+--.....
 
-
-
-------------------------------------------------------------------------
---Element-Vehicle functions
-
-
-function GetVehiclePosition(amx, vehicle, refX, refY, refZ)
-	local x, y, z = getElementPosition(vehicle);
-	writeMemFloat(amx, refX, x)
-	writeMemFloat(amx, refY, y)
-	writeMemFloat(amx, refZ, z)
-
-
-end
-
-function SetVehiclePosition( amx, vehicle, x, y, z )
-	return setElementPosition( vehicle, x, y, z );
-end
-
-function GetVehicleHealth ( amx, vehicle, refHealth )
-	local health = getElementHealth( vehicle );
+function GetElementHealth( amx, element, refHealth )
+	local health = getElementHealth( element );
 	writeMemFloat( amx, refHealth, health );
 end
 
-function SetVehicleHealth ( amx, vehicle, health )
-	return setElementHealth ( vehicle, health )
+GetPlayerHealth = GetElementHealth;
+GetPedHealth = GetElementHealth;
+GetVehicleHealth = GetElementHealth;
+GetObjectHealth = GetElementHealth;
+
+function GetElementInterior( amx, element )
+	return getElementInterior( element );
 end
 
-function SetVehicleAlpha( amx, vehicle, alpha )
-	return setElementAlpha( vehicle, alpha );
+GetPlayerInterior = GetElementInterior;
+GetPedInterior = GetElementInterior;
+GetVehicleInterior = GetElementInterior;
+GetMarkerInterior = GetElementInterior;
+GetObjectInterior = GetElementInterior;
+GetPickupInterior = GetElementInterior;
+
+function GetElementPosition( amx, element, refX, refY, refZ )
+	local x, y, z = getElementPosition( element );
+	writeMemFloat( amx, refX, x );
+	writeMemFloat( amx, refY, y );
+	writeMemFloat( amx, refZ, z );
 end
 
-function GetVehicleAlpha( amx, vehicle )
-	return getElementAlpha( vehicle );
+GetPlayerPosition = GetElementPosition;
+GetPedPosition = GetElementPosition;
+GetVehiclePosition = GetElementPosition;
+GetMarkerPosition = GetElementPosition;
+GetObjectPosition = GetElementPosition;
+GetPickupPosition = GetElementPosition;
+
+function GetElementRotation( amx, element, refRotX, refRotY, refRotZ )
+	local rotX, rotY, rotZ = getElementRotation( element );
+	writeMemFloat( amx, refRotX, rotX );
+	writeMemFloat( amx, refRotY, rotY );
+	writeMemFloat( amx, refRotZ, rotZ );
 end
 
+GetPlayerRotation = GetElementRotation;
+GetPedRotation = GetElementRotation;
+GetVehicleRotation = GetElementRotation;
+GetMarkerRotation = GetElementRotation;
+GetObjectRotation = GetElementRotation;
+GetPickupRotation = GetElementRotation;
 
+function GetElementVelocity( amx, element, refVelX, refVelY, refVelZ )
+	local velX, velY, velZ = getElementVelocity( element );
+	writeMemFloat( amx, refVelX, velX );
+	writeMemFloat( amx, refVelY, velY );
+	writeMemFloat( amx, refVelZ, velZ );
+end
+
+GetPlayerVelocity = GetElementVelocity;
+GetPedVelocity = GetElementVelocity;
+GetVehicleVelocity = GetElementVelocity;
+
+function IsElementFrozen( amx, element )
+	return isElementFrozen( element );
+end
+
+GetPlayerFrozen = IsElementFrozen;
+GetPedFrozen = IsElementFrozen;
+GetVehicleFrozen = IsElementFrozen;
+
+function SetElementDimension( amx, element, dimension );
+	return setElementDimension( element, dimension );
+end
+
+SetPlayerDimension = SetElementDimension;
+SetPedDimension = SetElementDimension;
+SetVehicleDimension = SetElementDimension;
+SetMarkerDimension = SetElementDimension;
+SetObjectDimension = SetElementDimension;
+SetPickupDimension = SetElementDimension;
+
+function SetElementFrozen( amx, element, frozen )
+	return isElementFrozen( element, frozen );
+end
+
+SetPlayerFrozen = SetElementFrozen;
+SetPedFrozen = SetElementFrozen;
+SetVehicleFrozen = SetElementFrozen;
+
+function SetElementHealth( amx, element, health )
+	return setElementHealth( element, health );
+end
+
+SetPlayerHealth = SetElementHealth;
+SetPedHealth = SetElementHealth;
+SetVehicleHealth = SetElementHealth;
+SetObjectHealth = SetElementHealth;
+
+function SetElementInterior( amx, element, interior )
+	return setElementInterior( element, interior );
+end
+
+SetPlayerInterior = SetElementInterior;
+SetPedInterior = SetElementInterior;
+SetVehicleInterior = SetElementInterior;
+SetMarkerInterior = SetElementInterior;
+SetObjectInterior = SetElementInterior;
+SetPickupInterior = SetElementInterior;
+--...
+
+function SetElementPosition( amx, element, x, y, z )
+	return setElementPosition( element, x, y, z );
+end
+
+SetPlayerPosition = SetElementPosition;
+SetPedPosition = SetElementPosition;
+SetVehiclePosition = SetElementPosition;
+SetMarkerPosition = SetElementPosition;
+SetObjectPosition = SetElementPosition;
+SetPickupPosition = SetElementPosition;
+
+function SetElementRotation( amx, element, rotX, rotY, rotZ )
+	return setElementRotation( element, rotX, rotY, rotZ );
+end
+
+SetPlayerRotation = SetElementRotation;
+SetPedRotation = SetElementRotation;
+SetVehicleRotation = SetElementRotation;
+SetMarkerRotation = SetElementRotation;
+SetObjectRotation = SetElementRotation;
+SetPickupRotation = SetElementRotation;
+
+function SetElementVelocity( amx, element, velX, velY, velZ )
+	return setElementRotation( element, velX, velY, velZ );
+end
+
+SetPlayerVelocity = SetElementVelocity;
+SetPedVelocity = SetElementVelocity;
+SetVehicleVelocity = SetElementVelocity;
+
+function GetElementModel( amx, element )
+	return getElementModel( element );
+end
+
+GetPlayerSkin = GetElementModel;
+GetPedSkin = GetElementModel;
+GetVehicleModel = GetElementModel;
+
+function IsElementInWater( amx, element )
+	return isElementInWater( element );
+end
+
+IsPlayerInWater = IsElementInWater;
+IsPedInWater = IsElementInWater;
+IsVehicleInWater = IsElementInWater;
+
+function SetElementModel( amx, element, model );
+	return setElementModel( element, model );
+end
+
+SetPlayerSkin = SetElementModel;
+SetPedSkin = SetElementModel;
+SetVehicleModel = SetElementModel;
+
+--[[
+getElementAttachedOffsets 
+getElementCollisionsEnabled 
+getElementAttachedTo 
+getElementByID 
+getElementByIndex 
+getElementChild 
+getElementChildren 
+getElementChildrenCount 
+getElementColShape 
+getElementData 
+getElementID 
+getElementParent 
+getElementsByType 
+getElementsWithinColShape 
+getElementType 
+getElementZoneName 
+getRootElement 
+isElement 
+isElementAttached 
+isElementDoubleSided 
+isElementVisibleTo 
+isElementWithinColShape 
+removeElementData 
+setElementAlpha 
+setElementCollisionsEnabled 
+setElementData 
+setElementDoubleSided 
+setElementID 
+setElementParent 
+setElementSyncer 
+setElementVisibleTo 
+attachElements 
+detachElements 
+getElementSyncer 
+setElementAttachedOffsets 
+setLowLODElement 
+getLowLODElement 
+isElementLowLOD
+]]
 ------------------------------------------------------------------------
 -- Player functions ( Start is empty but next stuff is sorted )
-
---forcePlayerMap 
---getAlivePlayers 
---getDeadPlayers 
---getPlayerAnnounceValue 
---getPlayerBlurLevel 
 
 function GetPlayerBlurLevel( amx, player )
 	return getPlayerBlurLevel( player );
@@ -429,45 +602,21 @@ function GetPlayerMoney( amx, player )
 	return getPlayerMoney( player );
 end
 
---getPlayerNametagColor 
---getPlayerNametagText
-
 function GetPlayerPing( amx, player )
 	return getPlayerPing( player );
 end
-
---getPlayerTeam 
---getPlayerVersion 
---getPlayerWantedLevel 
---getRandomPlayer
 
 function GivePlayerMoney( amx, player, money )
 	return givePlayerMoney( player, money );
 end
 
---isPlayerMapForced 
---isPlayerMuted 
---isPlayerNametagShowing 
---setPlayerAnnounceValue 
---setPlayerBlurLevel
-
 function SetPlayerMoney( amx, player, money )
 	return setPlayerMoney( player, money );
 end
 
---setPlayerMuted 
---setPlayerNametagColor 
---setPlayerNametagShowing 
---setPlayerNametagText 
---setPlayerTeam 
-
 function SetPlayerWantedLevel( amx, player, level )
 	return setPlayerWantedLevel( player, level );
 end
-
---isPlayerHudComponentVisible 
---showPlayerHudComponent 
---setPlayerHudComponentVisible
 
 function SpawnPlayer( amx, player, x, y, z )
 	return spawnPlayer( player, x, y, z );
@@ -517,10 +666,30 @@ end
 --setPlayerVoiceBroadcastTo 
 --setPlayerVoiceIgnoreFrom 
 --takePlayerScreenShot
-
-
-
-
+--isPlayerHudComponentVisible 
+--showPlayerHudComponent 
+--setPlayerHudComponentVisible
+--setPlayerMuted 
+--setPlayerNametagColor 
+--setPlayerNametagShowing 
+--setPlayerNametagText 
+--setPlayerTeam 
+--isPlayerMapForced 
+--isPlayerMuted 
+--isPlayerNametagShowing 
+--setPlayerAnnounceValue 
+--setPlayerBlurLevel
+--getPlayerTeam 
+--getPlayerVersion 
+--getPlayerWantedLevel 
+--getRandomPlayer
+--getPlayerNametagColor 
+--getPlayerNametagText
+--forcePlayerMap 
+--getAlivePlayers 
+--getDeadPlayers 
+--getPlayerAnnounceValue 
+--getPlayerBlurLevel 
 
 ------------------------------------------------------------------------
 --PED functions
@@ -530,50 +699,6 @@ function CreatePed( amx, model, fX, fY, fZ, fRot, bSynced )
 	local pedID = addElem(g_Peds, ped);
 	return pedID; 
 end
-
-function SetPedAlpha( amx, ped, alpha )
-	return setElementAlpha( ped, alpha );
-end
-SetPlayerAlpha = SetPedAlpha;
-
-function SetPedHealth( amx, ped, health )
-	return setElementHealth( ped, health );
-end
-SetPlayerHealth = SetPedHealth;
-
-function SetPedFrozen( amx, ped, state )
-	return setElementFrozen( ped, state );
-end
-SetPlayerFrozen = SetPedFrozen;
-
-function GetPedAlpha( amx, ped )
-	return getElementAlpha( ped );
-end
-GetPlayerAlpha = GetPedAlpha;
-
-function GetPedHealth( amx, ped, refHealth )
-	local health = getElementHealth( ped );
-	writeMemFloat( amx, refHealth, health );
-end
-GetPlayerHealth = GetPedHealth;
-
-function GetPedFrozen( axm, ped )
-	return isElementFrozen( ped );
-end
-GetPlayerFrozen = GetPedFrozen;
-
-function GetPedPosition( amx, ped, refX, refY, refZ )
-	local x, y, z = getElementPosition( ped );
-	writeMemFloat( amx, refX, x );
-	writeMemFloat( amx, refY, y );
-	writeMemFloat( amx, refZ, z );
-end
-GetPlayerPosition = GetPedPosition;
-
-function SetPedPosition( amx, ped, fX, fY, fZ )
-	return setElementPosition( ped, fX, fY, fZ );
-end
-SetPlayerPosition = SetPedPosition;
 
 function AddPedClothes( amx, ped, clothestex, clothesmodel, clothestype )
 	return addPedClothes( ped, clothestex, clothesmodel, clothestype );
@@ -595,9 +720,6 @@ function GetPedArmor( amx, ped )
 end
 GetPlayerArmor = GetPedArmor;
 
---GetPedClothes
---GetPedContactElement
-
 function GetPedFightingStyle( amx, ped )
 	return getPedFightingStyle( ped );
 end
@@ -607,13 +729,6 @@ function GetPedGravity( amx, ped )
 	return getPedGravity( ped );
 end
 GetPlayerGravity = GetPedGravity;
-
---[[
-
---CLIENT ONLY
-function GetPedMoveState( amx, ped )
-	return getPedMoveState( ped );
-end]]
 
 function GetPedOccupiedVehicle( amx, ped )
 	local vehicle = getPedOccupiedVehicle( ped );
@@ -629,30 +744,16 @@ function GetPedOccupiedVehicleSeat( amx, ped )
 end
 GetPlayerOccupiedVehicleSeat = GetPedOccupiedVehicleSeat;
 
-function GetPedSkin( amx, ped )
-	return getElementModel( ped );
-end
-GetPlayerSkin = GetPedSkin;
-
 function GetPedStat( amx, ped, stat, refValue )
 	local f = getPedStat( ped, stat );
 	writeMemFloat( amx, refValue, f ); 
 end
 GetPlayerStat = GetPedStat;
 
---getPedTarget
-
 function GetPedTotalAmmo( amx, ped )
 	return getPedTotalAmmo( ped );
 end
 GetPlayerTotalAmmo = GetPedTotalAmmo;
-
---[[
---CLIENT ONLLY
-function GetPedVoice( amx, ped )
-	return getPedVoice( ped );
-end
-]]
 
 function GetPedWalkingStyle( amx, ped )
 	return getPedWalkingStyle( ped );
@@ -663,13 +764,6 @@ function GetPedWeapon( amx, ped )
 	return getPedWeapon( ped );
 end
 GetPlayerWeapon = GetPedWeapon;
-
---[[
-
-function GetPedWeaponMuzzlePosition( amx, ped )
-
-end]]
-
 
 function GetPedWeaponSlot( amx, ped )
 	return getPedWeaponSlot( ped );
@@ -706,11 +800,6 @@ function IsPedInVehicle( amx, ped )
 end
 IsPlayerInVehicle = IsPedInVehicle;
 
-function IsPedInWater( amx, ped )
-	return isElementInWater( ped );
-end
-IsPlayerInWater = IsPedInWater;
-
 function IsPedOnFire( amx, ped )
 	return isPedOnFire( ped );
 end
@@ -720,13 +809,6 @@ function IsPedOnGround( amx, ped )
 	return isPedOnGround( ped );
 end
 IsPlayerOnGround = IsPedOnGroud;
-
---[[
---CLIENT ONLY
-function setPedAimTarget( amx, ped, x, y, z )
-
-end]]
-
 
 function SetPedAnalogControlState( amx, ped, control, analogstate )
 	return setPedAnalogControlState( ped, control, analogstate );
@@ -802,6 +884,39 @@ function WarpPedIntoVehicle( amx, ped, vehicle )
 	return warpPedIntoVehicle( ped, vehicle );
 end
 WarpPlayerIntoVehicle = WarpPedIntoVehicle;
+
+--[[
+
+--CLIENT ONLY
+function GetPedMoveState( amx, ped )
+	return getPedMoveState( ped );
+end]]
+
+--getPedTarget
+--[[
+--CLIENT ONLLY
+function GetPedVoice( amx, ped )
+	return getPedVoice( ped );
+end
+]]
+
+--[[
+
+function GetPedWeaponMuzzlePosition( amx, ped )
+
+end]]
+
+
+--[[
+--CLIENT ONLY
+function setPedAimTarget( amx, ped, x, y, z )
+
+end]]
+
+
+
+--GetPedClothes
+--GetPedContactElement
 ------------------------------------------------------------------------
 -- Camera functions
 function FadeCamera( amx, player, state )
@@ -829,13 +944,6 @@ function GetCameraMatrix( amx, player, refCameraX, refCameraY, refCameraZ, refTa
 	writeMemFloat(amx, refFov, fov)
 end
 
---[[
-function GetCameraTarget( amx, player )
-	local playerID = getElemID( player )
-	
-	return playerID
-end]]
-
 function SetCameraInterior( amx, player, interior )
 	return setCameraInterior( player, interior );
 end
@@ -844,6 +952,12 @@ function SetCameraMatrix( amx, player, positionX, positionY, positionZ )
 	return setCameraMatrix( player, positionX, positionY, positionZ );
 end
 
+--[[
+function GetCameraTarget( amx, player )
+	local playerID = getElemID( player )
+	
+	return playerID
+end]]
 
 
 ------------------------------------------------------------------------
@@ -1048,8 +1162,6 @@ g_SAMPSyscallPrototypes = {
 	DetachTrailerFromVehicle = { 'v' },
 	CreateVehicle = {'i', 'f', 'f', 'f'},
 	FixVehicle = { 'v' },
-	--GetVehicleColor
-	--getVehicleCompatibleUpgrades
 	GetVehicleController = { 'v' },
 	GetVehicleDoorState = { 'v', 'i' },
 	GetVehicleEngineState = { 'v' },
@@ -1057,17 +1169,25 @@ g_SAMPSyscallPrototypes = {
 	GetVehicleLightState = { 'v' },
 	GetVehicleName = { 'v', 'r', 'i' },
 	GetVehicleOccupant = { 'v' },
-	--GetVehicleOccupants
 	GetVehicleOverrideLights = { 'v' },
 	GetVehiclePaintjob = { 'v' },
 	GetVehiclePanelState = { 'v', 'i' },
 	GetVehicleSirensOn = { 'v' },
+	GetVehicleType = { 'v', 'r', 'i' },
+	IsVehicleLocked = { 'v' },
+	IsVehicleOnGround = { 'v' },
+	RespawnVehicle = { 'v' },
+	SetVehicleLocked = { 'v', 'b' },
+	SpawnVehicle = { 'v', 'f', 'f', 'f' },
+	SetVehiclePlateText = { 'v', 's' },
+	--GetVehicleColor
+	--getVehicleCompatibleUpgrades
+	--GetVehicleOccupants
 	--GetVehiclesOfType
 	--GetVehicleTowedByVehicle
 	--getVehicleTowingVehicle 
 	--getVehicleTurnVelocity 
 	--getVehicleTurretPosition 
-	GetVehicleType = { 'v', 'r', 'i' },
 	--getVehicleUpgradeOnSlot 
 	--getVehicleUpgrades 
 	--getVehicleUpgradeSlotName 
@@ -1078,12 +1198,9 @@ g_SAMPSyscallPrototypes = {
 	--getOriginalHandling 
 	--isVehicleDamageProof 
 	--isVehicleFuelTankExplodable 
-	IsVehicleLocked = { 'v' },
-	IsVehicleOnGround = { 'v' },
 	--removeVehicleUpgrade 
 	--resetVehicleExplosionTime 
 	--resetVehicleIdleTime 
-	RespawnVehicle = { 'v' },
 	--setVehicleColor 
 	--setVehicleDamageProof 
 	--setVehicleDoorState 
@@ -1093,7 +1210,6 @@ g_SAMPSyscallPrototypes = {
 	--setVehicleIdleRespawnDelay 
 	--setVehicleLandingGearDown 
 	--setVehicleLightState 
-	SetVehicleLocked = { 'v', 'b' },
 	--setVehicleOverrideLights 
 	--setVehiclePaintjob 
 	--setVehiclePanelState 
@@ -1106,7 +1222,6 @@ g_SAMPSyscallPrototypes = {
 	--setModelHandling 
 	--setVehicleTurnVelocity 
 	--setVehicleWheelStates 
-	SpawnVehicle = { 'v', 'f', 'f', 'f' },
 	--toggleVehicleRespawn 
 	--getTrainDirection 
 	--getTrainSpeed 
@@ -1130,53 +1245,63 @@ g_SAMPSyscallPrototypes = {
 	--getVehicleSirens 
 	--addVehicleSirens 
 	--setVehicleSirens 
-	SetVehiclePlateText = { 'v', 's' },
 
 	------------------------------------------------------------------------
-	--Element-Vehicle
+	--Element
+	GetPedPosition = { 'e', 'r', 'r', 'r' },
+	SetPedPosition = { 'e', 'f', 'f', 'f' },
+	GetPedAlpha = { 'e' },
+	SetPedAlpha = { 'e', 'i' },
+	GetPedHealth = { 'e', 'r' },
+	SetPedHealth = { 'e', 'f' },
+	GetPedFrozen = { 'e' },
+	SetPedFrozen = { 'e', 'b' },
+	GetPedSkin = { 'e' },
+	SetPedSkin = { 'e', 'i' },
+	IsPedFrozen = { 'e' },
+	SetPedFrozen = { 'e', 'b' },
+	IsPedInWater = { 'e' },
+	
 	GetVehiclePosition = {'v', 'r', 'r', 'r'},
 	SetVehiclePosition = { 'v', 'f', 'f', 'f' },
+	GetVehicleAlpha = { 'v' };
+	SetVehicleAlpha = { 'v', 'i' };
 	GetVehicleHealth = { 'v', 'r' },
 	SetVehicleHealth = { 'v', 'f' };
-	SetVehicleAlpha = { 'v', 'i' };
-	GetVehicleAlpha = { 'v' };
+	GetVehicleFrozen = { 'v' },
+	SetVehicleFrozen = { 'v', 'b' },
+	GetVehicleSkin = { 'v' },
+	SetVehicleSkin = { 'v', 'i' },
+	IsVehicleFrozen = { 'v' },
+	SetVehicleFrozen = { 'v', 'b' },
+	IsVehicleInWater = { 'v' },
 	
-	--- ......
+	GetPlayerPosition = {'p', 'r', 'r', 'r'},
+	SetPlayerPosition = { 'p', 'f', 'f', 'f' },
+	GetPlayerAlpha = { 'p' };
+	SetPlayerAlpha = { 'p', 'i' };
+	GetPlayerHealth = { 'p', 'r' },
+	SetPlayerHealth = { 'p', 'f' };
+	GetPlayerFrozen = { 'p' },
+	SetPlayerFrozen = { 'p', 'b' },
+	GetPlayerSkin = { 'p' },
+	SetPlayerSkin = { 'p', 'i' },
+	IsPlayerFrozen = { 'p' },
+	SetPlayerFrozen = { 'p', 'b' },
+	IsPlayerInWater = { 'p' },
 	
 	
 	------------------------------------------------------------------------
 	-- Player
 	
-	--forcePlayerMap 
-	--getAlivePlayers 
-	--getDeadPlayers 
-	--getPlayerAnnounceValue 
 	GetPlayerBlurLevel = { 'p' },
 	GetPlayerCount = { },
 	GetPlayerMoney = { 'p' },
-	--getPlayerNametagColor 
-	--getPlayerNametagText
 	GetPlayerPing = { 'p' },
-	--getPlayerTeam 
-	--getPlayerVersion 
-	--getPlayerWantedLevel 
-	--getRandomPlayer
 	GivePlayerMoney = { 'p', 'i' },
-	--isPlayerMapForced 
-	--isPlayerMuted 
-	--isPlayerNametagShowing 
-	--setPlayerAnnounceValue 
 	SetPlayerBlurLevel = { 'p', 'i' },
 	SetPlayerMoney = { 'p', 'i' },
-	--setPlayerMuted 
-	--setPlayerNametagColor 
-	--setPlayerNametagShowing 
-	--setPlayerNametagText 
-	--setPlayerTeam 
 	SetPlayerWantedLevel = { 'p', 'i' },
-	--isPlayerHudComponentVisible 
-	--showPlayerHudComponent 
-	--setPlayerHudComponentVisible
 	SpawnPlayer	= { 'p', 'f', 'f', 'f' },
 	TakePlayerMoney = { 'p', 'i' },
 	GetPlayerFromName = { 's' },
@@ -1184,50 +1309,25 @@ g_SAMPSyscallPrototypes = {
 	GetPlayerName = { 'p', 'r', 'i' },
 	SetPlayerName = { 'p', 's' },
 	RedirectPlayer = { 'p', 's', 'i' },
-	--getPlayerIdleTime 
-	--resendPlayerModInfo 
-	--isVoiceEnabled 
-	--setPlayerVoiceBroadcastTo 
-	--setPlayerVoiceIgnoreFrom 
-	--takePlayerScreenShot
-	SetPlayerAlpha = { 'p', 'i' },
-	SetPlayerHealth = { 'p', 'f' },
-	SetPlayerFrozen = { 'p', 'b' },
-	GetPlayerAlpha = { 'p' },
-	GetPlayerHealth = { 'p', 'r' },
-	GetPlayerFrozen = { 'p' },
-	GetPlayerPosition = { 'p', 'r', 'r', 'r' },
-	SetPlayerPosition = { 'p', 'f', 'f', 'f' },
 	AddPlayerClothes = { 'p', 's', 's', 'i' },
 	DoesPlayerHaveJetPack = { 'p' },
 	GetPlayerAmmoInClip = { 'p' },
 	GetPlayerArmor = { 'p' },
-	--GetPlayerClothes
-	--GetPlayerContactElement
 	GetPlayerFightingStyle = { 'p' },
 	GetPlayerGravity = { 'p' },
-	--GetPlayerMoveState
 	GetPlayerOccupiedVehicle = { 'p' },
 	GetPlayerOccupiedVehicleSeat = { 'p' },
-	GetPlayerSkin = { 'p' },
 	GetPlayerStat = { 'p', 'i', 'r' },
-	--getPlayerTarget
 	GetPlayerTotalAmmo = { 'p' },
-	--GetPlayerVoice
 	GetPlayerWalkingStyle = { 'p' },
 	GetPlayerWeapon = { 'p' },
-	--GetPlayerWeaponMuzzlePosition
 	GetPlayerWeaponSlot = { 'p' },
 	IsPlayerChoking = { 'p' },
 	IsPlayerDoingGangDriveby = { 'p' },
-	--IsPlayerDoingTask ( CLIENT ONLY )
-	IsPlayerFrozen = { 'p' },
 	IsPlayerHeadless = { 'p' },
 	IsPlayerInVehicle = { 'p' },
-	IsPlayerInWater = { 'p' },
 	IsPlayerOnFire = { 'p' },
 	IsPlayerOnGround = { 'p' },
-	--SetPlayerAimTarget = { 'p', 'f', 'f', 'f' }, ( CLIENT ONLY )
 	SetPlayerAnalogControlState = { 'p', 's', 'f' },
 	SetPlayerAnimation = { 'p' },
 	SetPlayerAnimationProgress = { 'p' },
@@ -1235,7 +1335,6 @@ g_SAMPSyscallPrototypes = {
 	SetPlayerChoking = { 'p', 'b' },
 	SetPlayerDoingGangDriveby = { 'p', 'b' },
 	SetPlayerFightingStyle = { 'p', 'i' },
-	SetPlayerFrozen = { 'p', 'b' },
 	SetPlayerGravity = { 'p', 'f' },
 	SetPlayerHeadless = { 'p', 'b' },
 	SetPlayerOnFire = { 'p', 'b' },
@@ -1243,51 +1342,64 @@ g_SAMPSyscallPrototypes = {
 	SetPlayerWeaponSlot = { 'p', 'i' },
 	SetPlayerWalkingStyle = { 'p', 'i' },
 	WarpPlayerIntoVehicle = { 'p', 'v' },
-
-
-
-
+	--SetPlayerAimTarget = { 'p', 'f', 'f', 'f' }, ( CLIENT ONLY )
+	--IsPlayerDoingTask ( CLIENT ONLY )
+	--GetPlayerWeaponMuzzlePosition
+	--getPlayerTarget
+	--GetPlayerVoice
+	--GetPlayerClothes
+	--GetPlayerContactElement
+	--GetPlayerMoveState
+	--getPlayerIdleTime 
+	--resendPlayerModInfo 
+	--isVoiceEnabled 
+	--setPlayerVoiceBroadcastTo 
+	--setPlayerVoiceIgnoreFrom 
+	--takePlayerScreenShot
+	--setPlayerMuted 
+	--setPlayerNametagColor 
+	--setPlayerNametagShowing 
+	--setPlayerNametagText 
+	--setPlayerTeam 
+	--isPlayerHudComponentVisible 
+	--showPlayerHudComponent 
+	--setPlayerHudComponentVisible
+	--isPlayerMapForced 
+	--isPlayerMuted 
+	--isPlayerNametagShowing 
+	--setPlayerAnnounceValue 
+	--getPlayerTeam 
+	--getPlayerVersion 
+	--getPlayerWantedLevel 
+	--getRandomPlayer
+	--forcePlayerMap 
+	--getAlivePlayers 
+	--getDeadPlayers 
+	--getPlayerAnnounceValue 
+	--getPlayerNametagColor 
+	--getPlayerNametagText
 	------------------------------------------------------------------------
 	-- Ped functions
 	CreatePed = { 'i', 'f', 'f', 'f', 'f', 'i' },
-	GetPedPosition = { 'e', 'r', 'r', 'r' },
-	SetPedPosition = { 'e', 'f', 'f', 'f' },
-	SetPedAlpha = { 'e', 'i' },
-	SetPedHealth = { 'e', 'f' },
-	SetPedFrozen = { 'e', 'b' },
-	GetPedAlpha = { 'e' },
-	GetPedHealth = { 'e', 'r' },
-	GetPedFrozen = { 'e' },
 	AddPedClothes = { 'e', 's', 's', 'i' },
 	DoesPedHaveJetPack = { 'e' },
 	GetPedAmmoInClip = { 'e' },
 	GetPedArmor = { 'e' },
-	--GetPedClothes
-	--GetPedContactElement
 	GetPedFightingStyle = { 'e' },
 	GetPedGravity = { 'e' },
-	--GetPedMoveState
 	GetPedOccupiedVehicle = { 'e' },
 	GetPedOccupiedVehicleSeat = { 'e' },
-	GetPedSkin = { 'e' },
 	GetPedStat = { 'e', 'i', 'r' },
-	--getPedTarget
 	GetPedTotalAmmo = { 'e' },
-	--GetPedVoice
 	GetPedWalkingStyle = { 'e' },
 	GetPedWeapon = { 'e' },
-	--GetPedWeaponMuzzlePosition
 	GetPedWeaponSlot = { 'e' },
 	IsPedChoking = { 'e' },
 	IsPedDoingGangDriveby = { 'e' },
-	--IsPedDoingTask ( CLIENT ONLY )
-	IsPedFrozen = { 'e' },
 	IsPedHeadless = { 'e' },
 	IsPedInVehicle = { 'e' },
-	IsPedInWater = { 'e' },
 	IsPedOnFire = { 'e' },
 	IsPedOnGround = { 'e' },
-	--SetPedAimTarget = { 'e', 'f', 'f', 'f' }, ( CLIENT ONLY )
 	SetPedAnalogControlState = { 'e', 's', 'f' },
 	SetPedAnimation = { 'e' },
 	SetPedAnimationProgress = { 'e' },
@@ -1295,7 +1407,6 @@ g_SAMPSyscallPrototypes = {
 	SetPedChoking = { 'e', 'b' },
 	SetPedDoingGangDriveby = { 'e', 'b' },
 	SetPedFightingStyle = { 'e', 'i' },
-	SetPedFrozen = { 'e', 'b' },
 	SetPedGravity = { 'e', 'f' },
 	SetPedHeadless = { 'e', 'b' },
 	SetPedOnFire = { 'e', 'b' },
@@ -1303,6 +1414,14 @@ g_SAMPSyscallPrototypes = {
 	SetPedWeaponSlot = { 'e', 'i' },
 	SetPedWalkingStyle = { 'e', 'i' },
 	WarpPedIntoVehicle = { 'e', 'v' },
+	--SetPedAimTarget = { 'e', 'f', 'f', 'f' }, ( CLIENT ONLY )
+	--IsPedDoingTask ( CLIENT ONLY )
+	--GetPedWeaponMuzzlePosition
+	--GetPedVoice
+	--getPedTarget
+	--GetPedMoveState
+	--GetPedClothes
+	--GetPedContactElement
 	--- ......
 	
 	------------------------------------------------------------------------
@@ -1310,11 +1429,10 @@ g_SAMPSyscallPrototypes = {
 	FadeCamera = { 'p', 'b' },
 	GetCameraInterior = { 'p' },
 	GetCameraMatrix = { 'p', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r' },
-	--GetCameraTarget = { 'p' };
 	SetCameraInterior = { 'p', 'i' },
 	SetCameraMatrix = { 'p', 'f', 'f', 'f' },
 	SetCameraTarget = { 'p', 'p' },
-
+	--GetCameraTarget = { 'p' };
 	------------------------------------------------------------------------
 	-- Weapon
 	GetSlotFromWeapon = { 'i' },
