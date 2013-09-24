@@ -47,6 +47,12 @@ public OnPlayerConnect(playerid)
 	FadeCamera(playerid, 1);
 	SpawnPlayer(playerid, 0.0, 0.0, 10.0);
 	SetCameraTarget(playerid, playerid);
+	
+	new name[256];
+	GetPlayerName(playerid, name, sizeof(name));
+	new fmt[256];
+	format(fmt, sizeof(fmt), "New player joined: %s", name);
+	OutputChatBoxToAll(fmt, 0, 255, 0, false);
 }
 
 public OnPlayerChat(playerid, msg[], msgType)

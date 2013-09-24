@@ -130,7 +130,14 @@ end
 -- >>>>>>>>>>>>>>>>>>>>>>> Implementation of PAWN API <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------------
 ----------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------
+-- Chat
+function OutputChatBox( amx, player, text, r, g, b, colorCoded )
+	return outputChatBox( text, player, r, g, b, colorCoded );
+end
 
+function OutputChatBoxToAll( amx, text, r, g, b, colorCoded )
+	return outputChatBox( text, getRootElement(), r, g, b, colorCoded );
+end
 
 
 
@@ -391,7 +398,18 @@ end
 --getDeadPlayers 
 --getPlayerAnnounceValue 
 --getPlayerBlurLevel 
---getPlayerCount
+
+function GetPlayerBlurLevel( amx, player )
+	return getPlayerBlurLevel( player );
+end
+
+function SetPlayerBlurLevel( amx, player, level)
+	return SetPlayerBlurLevel( player, level );
+end
+
+function GetPlayerCount( amx )
+	return getPlayerCount();
+end
 
 function GetPlayerMoney( amx, player )
 	return getPlayerMoney( player );
@@ -763,6 +781,12 @@ end
 
 g_SAMPSyscallPrototypes = {	
 	------------------------------------------------------------------------
+	-- Chat
+	OutputChatBox = { 'p', 's', 'i', 'i', 'i', 'b' },
+	OutputChatBoxToAll = { 's' , 'i', 'i', 'i', 'b' },
+
+
+	------------------------------------------------------------------------
 	-- Vehicle
 	AddVehicleUpgrade = { 'v', 'i' },
 	AttachTrailerToVehicle = { 'v', 'v' },
@@ -869,8 +893,8 @@ g_SAMPSyscallPrototypes = {
 	--getAlivePlayers 
 	--getDeadPlayers 
 	--getPlayerAnnounceValue 
-	--getPlayerBlurLevel 
-	--getPlayerCount
+	GetPlayerBlurLevel = { 'p' },
+	GetPlayerCount = { },
 	GetPlayerMoney = { 'p' },
 	--getPlayerNametagColor 
 	--getPlayerNametagText
@@ -884,7 +908,7 @@ g_SAMPSyscallPrototypes = {
 	--isPlayerMuted 
 	--isPlayerNametagShowing 
 	--setPlayerAnnounceValue 
-	--setPlayerBlurLevel
+	SetPlayerBlurLevel = { 'p', 'i' },
 	SetPlayerMoney = { 'p', 'i' },
 	--setPlayerMuted 
 	--setPlayerNametagColor 

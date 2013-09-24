@@ -45,14 +45,17 @@ forward OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss);
 ////////////////////////////////////////////////////
 
 
+// Chat natives
+native OutputChatBox(playerid, text[], r = 255, g = 255, b = 255, colorCoded = 0);
+native OutputChatBoxToAll(text[], r = 255, g = 255, b = 255, colorCoded = 0);
+
 ////////////////////////////////////////////////////
 // Player natives
 //native forcePlayerMap 
 //native getAlivePlayers 
 //native getDeadPlayers 
 //native getPlayerAnnounceValue 
-//native getPlayerBlurLevel 
-//native getPlayerCount
+native GetPlayerCount();
 native GetPlayerMoney(playerid);
 //native getPlayerNametagColor 
 //native getPlayerNametagText
@@ -66,7 +69,6 @@ native GivePlayerMoney(playerid, money);
 //native isPlayerMuted 
 //native isPlayerNametagShowing 
 //native setPlayerAnnounceValue 
-//native setPlayerBlurLevel
 native SetPlayerMoney(playerid, money);
 //native setPlayerMuted 
 //native setPlayerNametagColor 
@@ -80,7 +82,7 @@ native setPlayerWantedLevel( playerid, level );
 native SpawnPlayer(playerid, Float:X, Float:Y, Float:Z);
 native takePlayerMoney( playerid, money );
 native GetPlayerFromName(name[]);
-native GetPlayerIP(playerid);
+native GetPlayerIP(playerid, ip[], bufSize);
 native GetPlayerName(playerid, const nuberplate[], buf);
 native SetPlayerName(playerid, newName[], bufSize);
 native RedirectPlayer(playerid, host[], port);
@@ -95,12 +97,15 @@ native RedirectPlayer(playerid, host[], port);
 ////////////////////////////////////////////////////
 //Element-Player natives
 native GetPlayerPosition(playerid, &Float:X, &Float:Y, &Float:Z);
+native SetPlayerPosition(playerid, Float:X, Float:Y, Float:Z);
 native SetPlayerAlpha(playerid, alpha);
 native SetPlayerHealth(playerid, Float:Health);
 native SetPlayerFrozen(playerid, state2);
 native GetPlayerAlpha(playerid);
 native GetPlayerHealth(playerid, &Float:Health);
 native GetPlayerFrozen(playerid);
+native GetPlayerBlurLevel(playerid);
+native SetPlayerBlurLevel(playerid, level);
 
 
 ////////////////////////////////////////////////////
