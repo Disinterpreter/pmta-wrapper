@@ -121,7 +121,7 @@ native AttachTrailerToVehicle(vehicleid, vehicleid2);
 native BlowVehicle(vehicleid); 
 native DetachTrailerFromVehicle(vehicleid); 
 native CreateVehicle(model, Float:X, Float:Y, Float:Z);
-navive FixVehicle (vehicleid);
+native FixVehicle (vehicleid);
 //navive GetVehicleColor(
 //navive getVehicleCompatibleUpgrades(
 native GetVehicleController(vehicleid);
