@@ -9,11 +9,27 @@ g_SAMPSyscallPrototypes = {
 	ChangeInfo = { 'p', 'i', 's' },
 
 	------------------------------------------------------------------------
+	-- Marker
+	CreateMarker = { 'f', 'f', 'f' },
+	GetMarkerColor = { 'm', 'r', 'r', 'r' },
+	GetMarkerIcon = { 'm', 'r', 'i' },
+	GetMarkerSize = { 'm', 'r' },
+	GetMarkerTarget = { 'm', 'r', 'r', 'r' },
+	GetMarkerType = { 'm', 'r', 'i' },
+	SetMarkerColor = { 'm', 'i', 'i', 'i' },
+	SetMarkerIcon = { 'm', 's' },
+	SetMarkerSize = { 'm', 'f' },
+	SetMarkerTarget = { 'm', 'f', 'f', 'f' },
+	SetMarkerType = { 'm', 's' },
+	--getMarkerCount 
+	--isElementWithinMarker 
+	
+	------------------------------------------------------------------------
 	-- Object
 	CreateObject = { 'i', 'f', 'f', 'f' },
 	MoveObject = { 'o', 'i', 'f', 'f', 'f' },
 	StopObject = { 'o' },
-	GetObjectScale = { 'o', 'f' },
+	GetObjectScale = { 'o', 'r' },
 	SetObjectScale = { 'o', 'f' },
 	
 	------------------------------------------------------------------------
