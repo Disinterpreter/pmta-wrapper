@@ -6,7 +6,9 @@
   <script src="server/util.lua" type="server" />
   <script src="server/_triggerqueue.lua" type="server" />
   <script src="server/rcon.lua" type="server" />
+  <script src="server/_args.lua" type="server" />
   <script src="server/syscalls.lua" type="server" />
+  <script src="server/_prototypes.lua" type="server" />
   <script src="server/events.lua" type="server" />
   <script src="server/amx.lua" type="server" />
 
