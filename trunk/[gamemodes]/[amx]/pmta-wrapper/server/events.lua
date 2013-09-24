@@ -13,8 +13,8 @@ function joinHandler(player)
 	
 	local playerID = addElem(g_Players, player)
 	setElementData(player, 'ID', playerID)
-	clientCall(player, 'setAMXVersion', amxVersionString())
-	clientCall(player, 'setPlayerID', playerID)
+	triggerClientEvent('setAMXVersion', player, amxVersionString())
+	triggerClientEvent('setPlayerID', player, playerID)
 	
 	if playerJoined then
 		if getRunningGameMode() then
@@ -23,8 +23,7 @@ function joinHandler(player)
 		table.each(
 			g_LoadedAMXs,
 			function(amx)
-				-- add amx clientside
-				clientCall(player, 'addAMX', amx.name, amx.publics.OnGameModeInit and true)
+			
 			end
 		)
 		

@@ -3,6 +3,7 @@ g_LoadedAMXs = {}
 g_Players = {}
 g_Vehicles = {}
 g_Peds = {}
+g_Guis = {}
 
 function initGameModeGlobals()
 
@@ -105,10 +106,6 @@ function loadAMX(fileName, res)
 	amx.memDAT = setmetatable({ amx = amx.cptr }, { __index = amxMTReadDATCell, __newindex = amxMTWriteDATCell })
 	
 	g_LoadedAMXs[amx.name] = amx
-
-	amx.vehicles = {}
-	
-	clientCall(root, 'addAMX', amx.name, amx.type)
 	
 	-- run initialization
 	if amx.type == 'gamemode' then
@@ -140,10 +137,6 @@ function unloadAMX(amx, notifyClient)
 	end
 	
 	amxUnload(amx.cptr)
-
-	if notifyClient == nil or notifyClient == true then
-		clientCall(root, 'removeAMX', amx.name)
-	end
 
 	if amx.boundkeys then
 		for i,key in ipairs(amx.boundkeys) do

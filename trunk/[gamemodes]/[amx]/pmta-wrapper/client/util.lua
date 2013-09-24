@@ -42,32 +42,6 @@ fndebug(
 )
 --]]
 
-addEvent('onClientCall', true)
-addEventHandler('onClientCall', resourceRoot,
-	function(fnName, ...)
-		if _G[fnName] then
-			_G[fnName](...)
-		else
-			outputDebugString('amx: client: attempt to call unknown function ' .. tostring(fnName), 1)
-		end
-	end,
-	false
-)
-
-server = setmetatable(
-	{},
-	{
-		__index = function(self, k)
-			self[k] = function(...) triggerServerEvent('onCall', resourceRoot, k, ...) end
-			return self[k]
-		end
-	}
-)
-
-function serverAMXEvent(eventName, ...)
-	server.procCallOnAll(eventName, ...)
-end
-
 function drawBorderText(text, x, y, color, scale, font, outlinesize, outlinecolor)
 	local alpha = math.floor(color / 16777216)
 	outlinesize = outlinesize or 2
@@ -88,62 +62,6 @@ function drawShadowText(text, x, y, color, scale, font, shadowDist, width, align
 	local alpha = math.floor(color / 16777216)
 	dxDrawText(text, x + shadowDist, y + shadowDist, x + shadowDist + (width or 0), 0, tocolor(0, 0, 0, alpha), scale or 1, font or 'default', width and (align or 'center') or 'left')
 	dxDrawText(text, x, y, x + (width or 0), 0, color, scale or 1, font or 'default', width and (align or 'center') or 'left')
-end
-
-function destroyBlipsAttachedTo(elem)
-	table.each(table.filter(getAttachedElements(elem) or {}, getElementType, 'blip'), destroyElement)
-end
-
-local _bindKey = bindKey
-function bindKey(key, ...)
-	if type(key) == 'string' then
-		return _bindKey(key, ...)
-	elseif type(key) == 'table' then
-		local result = true
-		for i,k in ipairs(key) do
-			result = result and _bindKey(k, ...)
-		end
-		return result
-	end
-end
-
-local _isPedDead = isPedDead
-function isPedDead(player)
-	if _isPedDead(player) then
-		return true
-	end
-	local x, y, z = getElementPosition(player)
-	return x == 0 and y == 0 and z == 0
-end
-
-function isVehicleEmpty(vehicle)
-	local numPassengers = getVehicleMaxPassengers(vehicle)
-	if not numPassengers then
-		return true
-	end
-	for seat=0,numPassengers do
-		if getVehicleOccupant(vehicle, seat) then
-			return false
-		end
-	end
-	return true
-end
-
-function getElemID(elem)
-	return elem and isElement(elem) and getElementData(elem, 'amx.id')
-end
-
-function getElemAMX(elem)
-	return elem and isElement(elem) and g_AMXs[getElementData(elem, 'amx.amxfile')]
-end
-
-function atNextFrame(callback, ...)
-	local args = { ... }
-	local function fn()
-		callback(unpack(args))
-		removeEventHandler('onClientRender', root, fn)
-	end
-	addEventHandler('onClientRender', root, fn)
 end
 
 function table.find(t, ...)

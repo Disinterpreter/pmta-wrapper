@@ -127,6 +127,8 @@ function syscall(amx, svc, prototype, ...)		-- svc = service number (= index in 
 	return result or 0
 end
 
+local tempentity = nil;
+
 ----------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------
 -- >>>>>>>>>>>>>>>>>>>>>>> Implementation of PAWN API <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------------
@@ -169,7 +171,7 @@ function CreateVehicle(amx, model, x, y, z)
 		return false
 	end
 	
-	local vehID = addElem(amx, 'vehicles', vehicle)
+	local vehID = addElem(g_Vehicles, vehicle)
 	
 	return vehID
 end
@@ -369,7 +371,7 @@ GetPlayerAlpha = GetElementAlpha;
 GetPedAlpha = GetElementAlpha;
 GetVehicleAlpha = GetElementAlpha;
 
-function GetElementDimension( amx, element );
+function GetElementDimension( amx, element )
 	return getElementDimension( element );
 end
 
@@ -449,7 +451,7 @@ GetPlayerFrozen = IsElementFrozen;
 GetPedFrozen = IsElementFrozen;
 GetVehicleFrozen = IsElementFrozen;
 
-function SetElementDimension( amx, element, dimension );
+function SetElementDimension( amx, element, dimension )
 	return setElementDimension( element, dimension );
 end
 
@@ -535,7 +537,7 @@ IsPlayerInWater = IsElementInWater;
 IsPedInWater = IsElementInWater;
 IsVehicleInWater = IsElementInWater;
 
-function SetElementModel( amx, element, model );
+function SetElementModel( amx, element, model )
 	return setElementModel( element, model );
 end
 
@@ -1147,12 +1149,35 @@ function format(amx, outBuf, outBufSize, fmt, ...)
 	end
 end
 
+function DisplayInfo( amx, player, str )
+	outputChatBox("client " .. tostring(player) .. " text " .. str); 
+	local id = addRemoteElem();
+	setRemoteElem(id, setClientElem(id));
+	clientWrap.setClient(player);
+	clientWrap.setID(id);
+	clientWrap.guiCreateLabel( 0.1, 0.1, 0.9, 0.9, str, true );
+	
+	return id;	
+end
+
+function ChangeInfo( amx, player, info, str )
+	clientWrap.setClient(player);
+	clientWrap.guiSetText(setClientElem(info), str);
+end
+
+--function DisplayInfo( amx, player, str, out )
+--	setTimer(_DisplayInfo, 50, 1, amx, player, str, out);
+--end
+
 g_SAMPSyscallPrototypes = {	
 	------------------------------------------------------------------------
 	-- Chat
 	OutputChatBox = { 'p', 's', 'i', 'i', 'i', 'b' },
 	OutputChatBoxToAll = { 's' , 'i', 'i', 'i', 'b' },
 
+	-- Testing funcs
+	DisplayInfo = { 'p', 's' },
+	ChangeInfo = { 'p', 'i', 's' },
 
 	------------------------------------------------------------------------
 	-- Vehicle
