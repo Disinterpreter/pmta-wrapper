@@ -48,7 +48,8 @@ forward OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss);
 // Chat natives
 native OutputChatBox(playerid, text[], r = 255, g = 255, b = 255, colorCoded = 0);
 native OutputChatBoxToAll(text[], r = 255, g = 255, b = 255, colorCoded = 0);
-
+native DisplayInfo(playerid, str[]);
+native ChangeInfo(playerid, infoid, str[]);
 ////////////////////////////////////////////////////
 // Player natives
 native GetPlayerCount();

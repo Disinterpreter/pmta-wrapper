@@ -43,279 +43,6 @@ fndebug(
 )
 --]]
 
-function clientCall(player, fnName, ...)
-	triggerClientEvent(player, 'onClientCall', g_ResRoot, fnName, ...)
-end
-
-g_Keys = {
-	[1] = 'mouse1',
-	[2] = 'mouse2',
-	[3] = 'mouse3',
-	[4] = 'mouse4',
-	[5] = 'mouse5',
-	[6] = 'mouse_wheel_up',
-	[7] = 'mouse_wheel_down',
-	[8] = 'arrow_l',
-	[9] = 'arrow_u',
-	[10] = 'arrow_r',
-	[11] = 'arrow_d',
-	[12] = '0',
-	[13] = '1',
-	[14] = '2',
-	[15] = '3',
-	[16] = '4',
-	[17] = '5',
-	[18] = '6',
-	[19] = '7',
-	[20] = '8',
-	[21] = '9',
-	[22] = 'a',
-	[23] = 'b',
-	[24] = 'c',
-	[25] = 'd',
-	[26] = 'e',
-	[27] = 'f',
-	[28] = 'g',
-	[29] = 'h',
-	[30] = 'i',
-	[31] = 'j',
-	[32] = 'k',
-	[33] = 'l',
-	[34] = 'm',
-	[35] = 'n',
-	[36] = 'o',
-	[37] = 'p',
-	[38] = 'q',
-	[39] = 'r',
-	[40] = 's',
-	[41] = 't',
-	[42] = 'u',
-	[43] = 'v',
-	[44] = 'w',
-	[45] = 'x',
-	[46] = 'y',
-	[47] = 'z',
-	[48] = 'num_0',
-	[49] = 'num_1',
-	[50] = 'num_2',
-	[51] = 'num_3',
-	[52] = 'num_4',
-	[53] = 'num_5',
-	[54] = 'num_6',
-	[55] = 'num_7',
-	[56] = 'num_8',
-	[57] = 'num_9',
-	[58] = 'num_mul',
-	[59] = 'num_add',
-	[60] = 'num_sep',
-	[61] = 'num_sub',
-	[62] = 'num_div',
-	[63] = 'num_dec',
-	[64] = 'F1',
-	[65] = 'F2',
-	[66] = 'F3',
-	[67] = 'F4',
-	[68] = 'F5',
-	[69] = 'F6',
-	[70] = 'F7',
-	[71] = 'F8',
-	[72] = 'F9',
-	[73] = 'F10',
-	[74] = 'F11',
-	[75] = 'F12',
-	[76] = 'backspace',
-	[77] = 'tab',
-	[78] = 'lalt',
-	[79] = 'ralt',
-	[80] = 'enter',
-	[81] = 'space',
-	[82] = 'pgup',
-	[83] = 'pgdn',
-	[84] = 'end',
-	[85] = 'home',
-	[86] = 'insert',
-	[87] = 'delete',
-	[88] = 'lshift',
-	[89] = 'rshift',
-	[90] = 'lctrl',
-	[91] = 'rctrl',
-	[92] = '[',
-	[93] = ']',
-	[94] = 'pause',
-	[95] = 'capslock',
-	[96] = 'scroll',
-	[97] = ';',
-	[98] = ',',
-	[99] = '-',
-	[100] = '.',
-	[101] = '/',
-	[102] = '#',
-	[103] = '\\',
-	[104] = '=', 
-}
-
-g_EventNames = {
-	OnPlayerConnect = true,
-	OnPlayerDisconnect = true,
-	OnPlayerShoot = true,
-	OnPlayerEnterCheckpoint = true,
-	OnPlayerLeaveCheckpoint = true,
-	OnPlayerEnterRaceCheckpoint = true,
-	OnPlayerLeaveRaceCheckpoint = true,
-	OnVehicleStreamIn = true,
-	OnPlayerStreamIn = true,
-	OnVehicleStreamOut = true,
-	OnPlayerStreamOut = true,
-	OnPlayerExitedMenu = true,
-	OnPlayerSelectedMenuRow = true,
-	OnDialogResponse = true,
-	OnGameModeInit = true,
-	OnFilterScriptInit = true,
-	OnPlayerConnect = true,
-	OnGameModeExit = true,
-	OnFilterScriptExit = true,
-	OnPlayerRequestClass = true,
-	OnPlayerUpdate = true,
-	OnPlayerConnect = true,
-	OnPlayerKeyStateChange = true,
-	OnKeyPress = true,
-	OnPlayerRequestClass = true,
-	OnPlayerRequestSpawn = true,
-	OnPlayerSpawn = true,
-	OnPlayerText = true,
-	OnPlayerShootingPlayer = true,
-	OnPlayerWeaponSwitch = true,
-	OnPlayerDeath = true,
-	OnPlayerDisconnect = true,
-	OnVehicleSpawn = true,
-	OnBotEnterVehicle = true,
-	OnPlayerEnterVehicle = true,
-	OnBotExitVehicle = true,
-	OnPlayerExitVehicle = true,
-	OnVehicleDeath = true,
-	OnVehicleDamage = true,
-	OnPlayerExitVehicle = true,
-	OnMarkerHit = true,
-	OnMarkerLeave = true,
-	OnBotDeath = true,
-	OnBotPickUpPickup = true,
-	OnPlayerPickUpPickup = true,
-	OnPlayerCommandText = true,
-	OnPlayerClickWorld = true,
-	OnPlayerClickWorldPlayer = true,
-	OnPlayerClickWorldObject = true,
-	OnPlayerClickWorldVehicle = true,
-	OnPlayerPickUpPickup = true,
-	OnObjectMoved = true,
-	OnPlayerObjectMoved = true,
-	OnBotConnect = true,
-	OnMarkerCreate = true,
-	OnPlayerStateChange = true,
-	OnBotStateChange = true,
-}
-
-local allowedRPC = {
-	procCallOnAll = true,
-	setCameraMatrix = true,
-	setCameraInterior = true,
-	setElementInterior = true,
-	spawnPlayer = true,
-	syncPlayerWeapons = true,
-	setGarageOpen = true,
-	requestClass = true,
-	requestSpawn = true
-}
-
-addEvent('onCall', true)
-addEventHandler('onCall', g_ResRoot,
-	function(fnName, ...)
-		if allowedRPC[fnName] and _G[fnName] then
-			_G[fnName](...)
-		end
-	end,
-	false
-)
-
-function isPlayerInACLGroup(player, groupName)
-	local account = getPlayerAccount(player)
-	local group = aclGetGroup(groupName)
-	if not account or not group then
-		return false
-	end
-	local accountName = getAccountName(account)
-	for i,obj in ipairs(aclGroupListObjects(group)) do
-		if obj == 'user.' .. accountName or obj == 'user.*' then
-			return true
-		end
-	end
-	return false
-end
-
-local _warpPedIntoVehicle = warpPedIntoVehicle
-function warpPedIntoVehicle(player, vehicle, seat)
-	removePedFromVehicle(player)
-	g_Players[getElemID(player)].vehicle = vehicle
-	setTimer(_warpPedIntoVehicle, 500, 1, player, vehicle, seat)
-end
-
-local _bindKey = bindKey
-function bindKey(player, key, ...)
-	if type(key) == 'string' then
-		return _bindKey(player, key, ...)
-	elseif type(key) == 'table' then
-		local result = true
-		for i,k in ipairs(key) do
-			result = result and _bindKey(player, k, ...)
-		end
-		return result
-	end
-end
-
-local _unbindKey = unbindKey
-function unbindKey(player, key, ...)
-	if type(key) == 'string' then
-		return _unbindKey(player, key, ...)
-	elseif type(key) == 'table' then
-		local result = true
-		for i,k in ipairs(key) do
-			result = result and _unbindKey(player, k, ...)
-		end
-		return result
-	end
-end
-
-local _isPedDead = isPedDead
-function isPedDead(player)
-	if _isPedDead(player) then
-		return true
-	end
-	local x, y, z = getElementPosition(player)
-	return x == 0 and y == 0 and z == 0
-end
-
-local _spawnPlayer = spawnPlayer
-function spawnPlayer(player, x, y, z, r, skin, interior, ...)
-	local result = _spawnPlayer(player, x, y, z, r, skin, interior, ...)
-	return result
-end
-
-function destroyBlipsAttachedTo(elem)
-	table.each(table.filter(getAttachedElements(elem) or {}, getElementType, 'blip'), destroyElement)
-end
-
-function giveWeapons(player, weapons, currentslot)
-	for slot,weapon in pairs(weapons) do
-		giveWeapon(player, weapon.id, weapon.ammo)
-	end
-	if currentslot then
-		setPedWeaponSlot(player, currenslot)
-	end
-end
-
-function isTimer(timer)
-	return timer and table.find(getTimers(), timer) and true
-end
-
 function getElemAMX(elem)
 	return elem and isElement(elem) and g_LoadedAMXs[getElementData(elem, 'amx.amxfile')]
 end
@@ -364,6 +91,34 @@ function addElem(amx, listname, elem)
 	return id, newtable
 end
 
+g_RemoteElems = {}
+
+function addRemoteElem()
+	local id
+	local newtable = {  }
+	
+	if not id then
+		id = 0
+		while g_RemoteElems[id] do
+			id = id + 1
+		end
+	end
+	g_RemoteElems[id] = newtable
+	
+	return id, newtable
+end
+
+function setRemoteElem(id, elem)
+	local newtable = { elem = elem }
+	g_RemoteElems[id] = newtable
+	return id, newtable
+end
+
+function setClientElem(id)
+	local tbl = { "userdata", id };
+	return tbl;
+end
+
 function removeElem(amx, listname, elem)
 	local list
 	if not elem then
@@ -397,28 +152,6 @@ function setElemID(elem, id)
 	if elem and isElement(elem) then
 		setElementData(elem, 'amx.id', id)
 	end
-end
-
-function getPlayerState(player)
-	return g_Players[getElemID(player)] and g_Players[getElemID(player)].state or PLAYER_STATE_ONFOOT
-end
-
-function getBotState(bot)
-	return g_Bots[getElemID(bot)] and g_Bots[getElemID(bot)].state or PLAYER_STATE_ONFOOT
-end
-
-function setPlayerState(player, state)
-	local playerID = getElemID(player)
-	local oldState = g_Players[playerID].state or PLAYER_STATE_ONFOOT
-	g_Players[playerID].state = state
-	procCallOnAll('OnPlayerStateChange', playerID, state, oldState)
-end
-
-function setBotState(bot, state)
-	local botID = getElemID(bot)
-	local oldState = g_Bots[botID].state or PLAYER_STATE_ONFOOT
-	g_Bots[botID].state = state
-	procCallOnAll('OnBotStateChange', botID, state, oldState)
 end
 
 -- Table extensions
@@ -798,6 +531,10 @@ end
 
 function writeMemFloat(amx, offset, float)
 	amx.memDAT[offset] = float2cell(float)
+end
+
+function writeMemInt(amx, offset, int)
+	amx.memDAT[offset] = int
 end
 
 -- Binary operations

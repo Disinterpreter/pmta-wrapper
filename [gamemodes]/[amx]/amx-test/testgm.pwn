@@ -92,6 +92,15 @@ public OnPlayerConsole(playerid, text[])
 	{
 		SetPlayerAlpha(playerid, 230);
 	}
+	else if(strcmp("infos", cmd, true) == 0)
+	{
+		new id = -1;
+		id = DisplayInfo(playerid, "TEST BIATCH!!111");
+		new str[256];
+		format(str, sizeof(str), "Created label with id %d", id);
+		ChangeInfo(playerid, id, "kenixgay");
+		OutputChatBoxToAll(str);
+	}
 }
 
 public OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, skin, interior, dimension)
