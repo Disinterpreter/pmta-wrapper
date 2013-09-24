@@ -1299,10 +1299,10 @@ g_SAMPSyscallPrototypes = {
 	SetPlayerDimension  = { 'p', 'i' },
 	GetPlayerVelocity = { 'p', 'r', 'r', 'r' },
 	SetPlayerVelocity = { 'p', 'f', 'f', 'f' },
-	GetPlayerAlpha = { 'p' };
-	SetPlayerAlpha = { 'p', 'i' };
+	GetPlayerAlpha = { 'p' },
+	SetPlayerAlpha = { 'p', 'i' },
 	GetPlayerHealth = { 'p', 'r' },
-	SetPlayerHealth = { 'p', 'f' };
+	SetPlayerHealth = { 'p', 'f' },
 	IsPlayerFrozen = { 'p' },
 	SetPlayerFrozen = { 'p', 'b' },
 	GetPlayerSkin = { 'p' },
@@ -1502,7 +1502,7 @@ g_SAMPSyscallPrototypes = {
 	SetCameraInterior = { 'p', 'i' },
 	SetCameraMatrix = { 'p', 'f', 'f', 'f' },
 	SetCameraTarget = { 'p', 'p' },
-	--GetCameraTarget = { 'p' };
+	--GetCameraTarget = { 'p' },
 	------------------------------------------------------------------------
 	-- Weapon
 	GetSlotFromWeapon = { 'i' },
