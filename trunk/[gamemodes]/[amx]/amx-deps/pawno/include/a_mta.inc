@@ -73,12 +73,12 @@ native SetPlayerMoney(playerid, money);
 //native setPlayerNametagShowing 
 //native setPlayerNametagText 
 //native setPlayerTeam 
-//native setPlayerWantedLevel 
+native setPlayerWantedLevel( playerid, level );
 //native isPlayerHudComponentVisible 
 //native showPlayerHudComponent 
 //native setPlayerHudComponentVisible
 native SpawnPlayer(playerid, Float:X, Float:Y, Float:Z);
-//native takePlayerMoney
+native takePlayerMoney( playerid, money );
 native GetPlayerFromName(name[]);
 native GetPlayerIP(playerid);
 native GetPlayerName(playerid, const nuberplate[], buf);
@@ -152,8 +152,8 @@ native GetVehicleType (vehicleid, const vehicletype[], buf);
 //native GetOriginalHandling(
 //native IsVehicleDamageProof( 
 //native IsVehicleFuelTankExplodable( 
-//native IsVehicleLocked( 
-//native IsVehicleOnGround( 
+native IsVehicleLocked( vehicleid );
+native IsVehicleOnGround( vehicleid );
 //native RemoveVehicleUpgrade( 
 //native ResetVehicleExplosionTime( 
 //native ReSetVehicleIdleTime( 
@@ -180,7 +180,7 @@ native SetVehicleLocked (vehicleid, locked);
 //native SetModelHandling( 
 //native SetVehicleTurnVelocity( 
 //native SetVehicleWheelStates( 
-//native SpawnVehicle( 
+native SpawnVehicle( vehicleid, Float:x, Float:y, Float:z );
 //native ToggleVehicleRespawn( 
 //native GetTrainDirection( 
 //native GetTrainSpeed( 

@@ -281,8 +281,14 @@ end
 --getOriginalHandling 
 --isVehicleDamageProof 
 --isVehicleFuelTankExplodable 
---isVehicleLocked 
---isVehicleOnGround 
+function IsVehicleLocked( amx, vehicle )
+	return isVehicleLocked( vehicle );
+end
+
+function IsVehicleOnGround( amx, vehicle )
+	return isVehicleOnGround( vehicle );
+end
+
 --removeVehicleUpgrade 
 --resetVehicleExplosionTime 
 --resetVehicleIdleTime 
@@ -318,7 +324,11 @@ end
 --setModelHandling 
 --setVehicleTurnVelocity 
 --setVehicleWheelStates 
---spawnVehicle 
+
+function SpawnVehicle( amx, vehicle, x, y, z )
+	return spawnVehicle( vehicle, x, y, z );
+end
+
 --toggleVehicleRespawn 
 --getTrainDirection 
 --getTrainSpeed 
@@ -340,7 +350,7 @@ end
 --getVehicleSirenParams 
 --removeVehicleSirens 
 --getVehicleSirens 
---addVehicleSirens? 
+--addVehicleSirens 
 --setVehicleSirens 
 
 function SetVehiclePlateText ( amx, vehicle, nuberplate )
@@ -418,7 +428,11 @@ end
 --setPlayerNametagShowing 
 --setPlayerNametagText 
 --setPlayerTeam 
---setPlayerWantedLevel 
+
+function SetPlayerWantedLevel( amx, player, level )
+	return setPlayerWantedLevel( player, level );
+end
+
 --isPlayerHudComponentVisible 
 --showPlayerHudComponent 
 --setPlayerHudComponentVisible
@@ -427,7 +441,9 @@ function SpawnPlayer( amx, player, x, y, z )
 	return spawnPlayer( player, x, y, z );
 end
 
---takePlayerMoney
+function TakePlayerMoney( amx, player, money )
+	return takePlayerMoney( player, money );
+end
 
 function GetPlayerFromName( amx, name )
 	local player = getPlayerFromName( name );
@@ -784,8 +800,8 @@ g_SAMPSyscallPrototypes = {
 	--getOriginalHandling 
 	--isVehicleDamageProof 
 	--isVehicleFuelTankExplodable 
-	--isVehicleLocked 
-	--isVehicleOnGround 
+	IsVehicleLocked = { 'v' },
+	IsVehicleOnGround = { 'v' },
 	--removeVehicleUpgrade 
 	--resetVehicleExplosionTime 
 	--resetVehicleIdleTime 
@@ -812,7 +828,7 @@ g_SAMPSyscallPrototypes = {
 	--setModelHandling 
 	--setVehicleTurnVelocity 
 	--setVehicleWheelStates 
-	--spawnVehicle 
+	SpawnVehicle = { 'v', 'f', 'f', 'f' },
 	--toggleVehicleRespawn 
 	--getTrainDirection 
 	--getTrainSpeed 
@@ -875,12 +891,12 @@ g_SAMPSyscallPrototypes = {
 	--setPlayerNametagShowing 
 	--setPlayerNametagText 
 	--setPlayerTeam 
-	--setPlayerWantedLevel 
+	SetPlayerWantedLevel = { 'p', 'i' },
 	--isPlayerHudComponentVisible 
 	--showPlayerHudComponent 
 	--setPlayerHudComponentVisible
 	SpawnPlayer	= { 'p', 'f', 'f', 'f' },
-	--takePlayerMoney
+	TakePlayerMoney = { 'p', 'i' },
 	GetPlayerFromName = { 's' },
 	GetPlayerIP = { 'p', 'r', 'i' },
 	GetPlayerName = { 'p', 'r', 'i' },
