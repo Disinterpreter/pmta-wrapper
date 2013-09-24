@@ -380,6 +380,10 @@ function GetVehiclePosition(amx, vehicle, refX, refY, refZ)
 
 end
 
+function SetVehiclePosition( amx, vehicle, x, y, z )
+	return setElementPosition( vehicle, x, y, z );
+end
+
 function GetVehicleHealth ( amx, vehicle, refHealth )
 	local health = getElementHealth( vehicle );
 	writeMemFloat( amx, refHealth, health );
@@ -387,6 +391,14 @@ end
 
 function SetVehicleHealth ( amx, vehicle, health )
 	return setElementHealth ( vehicle, health )
+end
+
+function SetVehicleAlpha( amx, vehicle, alpha )
+	return setElementAlpha( vehicle, alpha );
+end
+
+function GetVehicleAlpha( amx, vehicle )
+	return getElementAlpha( vehicle );
 end
 
 
@@ -880,9 +892,12 @@ g_SAMPSyscallPrototypes = {
 
 	------------------------------------------------------------------------
 	--Element-Vehicle
+	GetVehiclePosition = {'v', 'r', 'r', 'r'},
+	SetVehiclePosition = { 'v', 'f', 'f', 'f' },
 	GetVehicleHealth = { 'v', 'r' },
 	SetVehicleHealth = { 'v', 'f' };
-	GetVehiclePosition = {'v', 'r', 'r', 'r'},
+	SetVehicleAlpha = { 'v', 'i' };
+	GetVehicleAlpha = { 'v' };
 	--- ......
 	
 	
