@@ -370,6 +370,19 @@ native SetVehicleSirens( vehicleid, sirenPoint, Float:posX, Float:posY, Float:po
 //getVehicleSirens 
 
 ////////////////////////////////////////////////////
+// Blip natives
+native CreateBlip ( Float:x, Float:y, Float:z, icon, size, r, g, b, a, ordering, Float:visibleDistance, playerid );
+native SetBlipColor ( blipid, red, green, blue, alpha );
+native GetBlipColor ( blipid, &red, &green, &blue, &alpha );
+native SetBlipIcon ( blipid, icon );
+native GetBlipIcon ( blipid, &icon );
+native SetBlipSize ( blipid, size );
+native GetBlipSize ( blipid, &size );
+native SetBlipOrdering ( blipid, ordering );
+native GetBlipOrdering ( blipid, &ordering );
+native SetBlipVisibleDistance ( blipid, Float:distance );
+native GetBlipVisibleDistance ( blipid, &Float:distance );
+////////////////////////////////////////////////////
 // Pickup natives
 native CreatePickup( Float:x, Float:y, Float:z, ptype, ammount );
 native GetPickupAmmo( pickupid );

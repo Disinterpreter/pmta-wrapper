@@ -21,6 +21,7 @@
   <script src="server/function/object.lua" type="server" />
   <script src="server/function/marker.lua" type="server" />
   <script src="server/function/pickup.lua" type="server" />
+  <script src="server/function/blip.lua" type="server" />
   <!-- end -->
   <script src="server/_prototypes.lua" type="server" />
   <script src="server/events.lua" type="server" />
