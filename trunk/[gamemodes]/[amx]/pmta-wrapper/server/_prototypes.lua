@@ -7,6 +7,20 @@ g_SAMPSyscallPrototypes = {
 	-- Testing funcs
 	DisplayInfo = { 'p', 's' },
 	ChangeInfo = { 'p', 'i', 's' },
+	------------------------------------------------------------------------
+	-- Blip
+	CreateBlip = { 'f', 'f', 'f', 'i', 'i', 'i', 'i', 'i', 'i', 'i', 'f', 'e' },
+	GetBlipIcon = { 'l' },
+	SetBlipIcon = { 'l', 'i' },
+	GetBlipSize = { 'l' },
+	SetBlipSize = { 'l', 'i' },
+	SetBlipColor = { 'l', 'i', 'i', 'i', 'i' },
+	GetBlipColor = { 'l' },
+	SetBlipOrdering = { 'l', 'i' },
+	GetBlipOrdering = { 'l' },
+	SetBlipVisibleDistance = { 'l', 'f' },
+	GetBlipVisibleDistance = { 'l' },
+
 
 	------------------------------------------------------------------------
 	-- Pickup
@@ -330,36 +344,6 @@ g_SAMPSyscallPrototypes = {
 	--IsPlayerDoingTask ( CLIENT ONLY )
 	--GetPlayerWeaponMuzzlePosition
 	--getPlayerTarget
-	--GetPlayerVoice
-	--GetPlayerClothes
-	--GetPlayerContactElement
-	--GetPlayerMoveState
-	--resendPlayerModInfo 
-	--isVoiceEnabled 
-	--setPlayerVoiceBroadcastTo 
-	--setPlayerVoiceIgnoreFrom 
-	--takePlayerScreenShot
-	--setPlayerMuted 
-	--setPlayerNametagColor 
-	--setPlayerNametagShowing 
-	--setPlayerTeam 
-	--isPlayerHudComponentVisible 
-	--showPlayerHudComponent 
-	--setPlayerHudComponentVisible
-	--isPlayerMapForced 
-	--isPlayerMuted 
-	--isPlayerNametagShowing 
-	--setPlayerAnnounceValue 
-	--getPlayerTeam 
-	--getPlayerVersion 
-	--getPlayerWantedLevel 
-	--getRandomPlayer
-	--forcePlayerMap 
-	--getAlivePlayers 
-	--getDeadPlayers 
-	--getPlayerAnnounceValue 
-	--getPlayerNametagColor 
-	--getPlayerNametagText
 	--IsVoiceEnabled = {  },
 	------------------------------------------------------------------------
 	-- Ped functions

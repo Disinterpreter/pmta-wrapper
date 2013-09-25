@@ -34,6 +34,8 @@ function argsToMTA(amx, prototype, ...)
 			val = g_Markers[val] and g_Markers[val].elem
 		elseif vartype == 'k' then
 			val = g_Pickups[val] and g_Pickups[val].elem
+		elseif vartype == 'l' then
+			val = g_Blips[val] and g_Blips[val].elem
 		end
 		if val == nil then
 			val = false
