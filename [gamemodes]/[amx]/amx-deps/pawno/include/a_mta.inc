@@ -48,7 +48,9 @@ forward OnVehicleMarkerLeave(markerid, vehicleid, matchingDimension);
 forward OnPedMarkerLeave(markerid, pedid, matchingDimension);
 
 forward OnClientKey(playerid, button[], press);
-
+forward OnPlayerWeaponFire(playerid, weapon, ammo, ammoInClip, Float:hitX, Float:hitY, Float:hitZ, elemType[], elem);
+forward OnPlayerWeaponSwitch(playerid, prevSlot, newSlot);
+forward OnPlayerTarget(playerid, etype[], elemid);
 
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
@@ -440,7 +442,7 @@ native SetObjectScale( objectid, Float:Scale );
 native GetSlotFromWeapon(idweapon);
 native GetWeaponIDFromName(weaponname[]);
 native GetWeaponNameFromID(weaponid, const name[], bufsize);
-native GiveWeapon(playerid, weaponid);
+native GiveWeapon(playerid, weaponid, ammo = 30, current = 1);
 native SetWeaponAmmo( playerid, weaponid, ammo );
 native TakeAllWeapons( playerid );
 native TakeWeapon( playerid, weaponid );

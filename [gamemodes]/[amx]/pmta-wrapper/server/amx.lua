@@ -252,5 +252,12 @@ end
 
 function playerEvent(client, fnName, ...)
 	--outputChatBox("playerEvent called " .. fnName);
-	procCallOnAll(fnName, getElemID(client), ...);
+	local args = { ... }
+	for k,v in pairs(args) do
+		--outputChatBox("type " .. type(v) .. " val " .. v);
+		if type(v) == "number" and math.floor(v) ~= v then
+			args[k] = float2cell(v);
+		end	
+	end
+	procCallOnAll(fnName, getElemID(client), unpack(args));
 end

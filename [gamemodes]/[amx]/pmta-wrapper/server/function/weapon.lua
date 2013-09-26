@@ -16,8 +16,8 @@ function GetWeaponNameFromID( amx, id, nameBuf, bufSize )
 	return false;
 end
 
-function GiveWeapon( amx, player, weapon )
-	return giveWeapon( player, weapon );
+function GiveWeapon( amx, player, weapon, ammo, current )
+	return giveWeapon( player, weapon, ammo, current );
 end
 
 function SetWeaponAmmo( amx, player, weapon, totalAmmo )
