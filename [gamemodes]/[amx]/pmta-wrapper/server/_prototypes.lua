@@ -73,8 +73,8 @@ g_SAMPSyscallPrototypes = {
 	
 	------------------------------------------------------------------------
 	-- Object
-	CreateObject = { 'i', 'f', 'f', 'f' },
-	MoveObject = { 'o', 'i', 'f', 'f', 'f' },
+	CreateObject = { 'i', 'f', 'f', 'f', 'f', 'f', 'f', 'b' },
+	MoveObject = { 'o', 'i', 'f', 'f', 'f', 'f', 'f', 'f', 's', 'f', 'f', 'f' },
 	StopObject = { 'o' },
 	GetObjectScale = { 'o', 'r' },
 	SetObjectScale = { 'o', 'f' },
