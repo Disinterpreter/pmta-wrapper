@@ -18,6 +18,13 @@ addEventHandler('onServerCallback', root,
 )
 
 
+addEvent('onServerCallbackEvent', true)
+addEventHandler('onServerCallbackEvent', root,
+	function(crID, fnName, ...)
+			--outputChatBox("onservercallbackevent called " .. fnName);
+			_G["playerEvent"](client, fnName, ...)
+	end
+)
 --------------------------------
 -- Server -> Client
 CRs = {}

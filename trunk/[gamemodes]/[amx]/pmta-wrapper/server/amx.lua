@@ -249,3 +249,8 @@ function procCallOnAll(fnName, ...)
 	end
 	return true
 end
+
+function playerEvent(client, fnName, ...)
+	--outputChatBox("playerEvent called " .. fnName);
+	procCallOnAll(fnName, getElemID(client), ...);
+end

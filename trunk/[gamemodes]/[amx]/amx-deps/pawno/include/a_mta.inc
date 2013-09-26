@@ -47,6 +47,8 @@ forward OnPlayerMarkerLeave(markerid, playerid, matchingDimension);
 forward OnVehicleMarkerLeave(markerid, vehicleid, matchingDimension);
 forward OnPedMarkerLeave(markerid, pedid, matchingDimension);
 
+forward OnClientKey(playerid, button[], press);
+
 
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
