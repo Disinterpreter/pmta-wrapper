@@ -5,6 +5,7 @@
 #include <a_mta>
 
 new renderid = -1;
+new textid = -1;
 
 #if defined FILTERSCRIPT
 
@@ -129,6 +130,16 @@ public OnPlayerConsole(playerid, text[])
 	else if(strcmp("renderoff", cmd, true) == 0)
 	{
 	    RemoveRenderItem(renderid);
+	}
+	else if(strcmp("st", cmd, true) == 0)
+	{
+	    new t[256];
+		t = strtok( text, idx );
+		textid= AddRenderItem(playerid, "dxDrawText", "sffffifs", 3, "WASTED!", 120.0, 120.0, 120.0, 120.0, 0xFFFF0000, 1.5, "pricedown");
+	}
+	else if(strcmp("ht", cmd, true) == 0)
+	{
+	    RemoveRenderItem(textid);
 	}
 }
 forward Respawn(playerid, msg[]);
