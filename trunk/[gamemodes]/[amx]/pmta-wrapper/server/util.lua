@@ -154,6 +154,15 @@ function setElemID(elem, id)
 	end
 end
 
+function guiWrap(player, fnName, id, ...)
+	if id == -1 then
+		id = addRemoteElem();
+	end
+	
+	__triggerClientEvent(player, 'onClientCallbackGUI', getRootElement(), setClientElem(id), fnName, id, ...)
+	return id;
+end
+
 -- Table extensions
 
 local _table_insert = table.insert

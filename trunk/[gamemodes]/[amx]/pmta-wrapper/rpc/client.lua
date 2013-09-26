@@ -36,6 +36,22 @@ addEventHandler('onClientCallback', root,
 		--outputChatBox("replied")
 	end
 )
+
+addEvent('onClientCallbackGUI', true)
+addEventHandler('onClientCallbackGUI', root,
+	function(dummyid, fnName, elemid, ...)
+		local t = {...}
+		
+		if not IDs[elemid] then
+			IDs[elemid] = _G[fnName](unpack(t));
+		elseif dummyid == "destroy" then
+			destroyElement(IDs[elemid]);
+			IDs[elemid] = nil;
+		else
+			_G[fnName](IDs[elemid], unpack(t))
+		end
+	end
+)
 --------------------------------
 
 --------------------------------

@@ -144,7 +144,7 @@ SetPlayerChoking = SetPedChoking;
 function SetPedDoingGangDriveby( amx, ped, bstate )
 	return setPedDoingGangDriveby( ped, bstate );
 end
-SetPlayerDoingDriveBy = SetPedDoingGangDriveby;
+SetPlayerDoingGangDriveby = SetPedDoingGangDriveby;
 
 function SetPedFightingStyle( amx, ped, style )
 	return setPedFightingStyle( ped, style );

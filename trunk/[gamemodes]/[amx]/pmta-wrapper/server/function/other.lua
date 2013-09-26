@@ -183,19 +183,15 @@ end
 
 function DisplayInfo( amx, player, str )
 	outputChatBox("client " .. tostring(player) .. " text " .. str); 
-	local id = addRemoteElem();
-	setRemoteElem(id, setClientElem(id));
-	clientWrap.setClient(player);
-	clientWrap.setID(id);
-	clientWrap.guiCreateLabel( 0.1, 0.1, 0.9, 0.9, str, true );
-	
+	local id = guiWrap(player, "guiCreateLabel", -1, 0.1, 0.1, 0.9, 0.9, str, true);
 	return id;	
 end
 
 function ChangeInfo( amx, player, info, str )
-	clientWrap.setClient(player);
-	clientWrap.guiSetText(setClientElem(info), str);
+	guiWrap(player, "guiSetText", info, "dsfasdfasdf");
 end
+
+
 
 --function DisplayInfo( amx, player, str, out )
 --	setTimer(_DisplayInfo, 50, 1, amx, player, str, out);
