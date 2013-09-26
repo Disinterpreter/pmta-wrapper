@@ -8,6 +8,9 @@ local screenWidth, screenHeight = guiGetScreenSize()
 addEventHandler('onClientResourceStart', resourceRoot,
 	function()
 		triggerServerEvent('onLoadedAtClient', resourceRoot, g_Me)
+		local w, h = guiGetScreenSize();
+		setElementData(g_Me, "screenWidth", w);
+		setElementData(g_Me, "screenHeight", h);
 	end,
 	false
 )

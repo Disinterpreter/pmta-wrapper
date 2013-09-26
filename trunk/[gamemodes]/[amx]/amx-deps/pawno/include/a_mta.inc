@@ -81,6 +81,7 @@ native OutputChatBoxToAll(text[], r = 255, g = 255, b = 255, colorCoded = 0);
 // GUI natives
 native ShowCursor(playerid, show, toggleControls = 1);
 native IsCursorShowing(playerid);
+native GetScreenSize(playerid, &width, &height);
 
 // Explosions
 native CreateExplosion(Float:X, Float:Y, Float:Z, etype, playerid = -1);
