@@ -57,7 +57,7 @@ g_SAMPSyscallPrototypes = {
 	
 	------------------------------------------------------------------------
 	-- Marker
-	CreateMarker = { 'f', 'f', 'f' },
+	CreateMarker = { 'f', 'f', 'f', 's', 'f', 'i', 'i', 'i', 'i' },
 	GetMarkerColor = { 'm', 'r', 'r', 'r' },
 	GetMarkerIcon = { 'm', 'r', 'i' },
 	GetMarkerSize = { 'm', 'r' },

@@ -439,7 +439,7 @@ native UsePickup( pickupid, playerid );
 
 ////////////////////////////////////////////////////
 // Marker natives
-native CreateMarker( Float:x, Float:y, Float:z );
+native CreateMarker( Float:x, Float:y, Float:z, theType[] = "checkpoint", Float:size = 4.0, r = 0, g = 0, b = 255, a = 255 );
 native GetMarkerColor( markerid, &r, &g, &b );
 native GetMarkerIcon( markerid, const buf[], bufSize );
 native GetMarkerSize( markerid, &Float:Size );
