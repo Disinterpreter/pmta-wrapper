@@ -238,20 +238,6 @@ function procCallInternal(amx, nameOrOffset, ...)
 end
 
 function procCallOnAll(fnName, ...)
-	for name,amx in pairs(g_LoadedAMXs) do
-		if amx.type == 'filterscript' and procCallInternal(amx, fnName, ...) ~= 0 and fnName == 'OnPlayerCommandText' then
-			return true
-		end
-	end
-	local gamemode = getRunningGameMode()
-	if gamemode and gamemode.publics[fnName] and procCallInternal(gamemode, fnName, ...) == 0 then
-		return false
-	end
-	return true
-end
-
-function playerEvent(client, fnName, ...)
-	--outputChatBox("playerEvent called " .. fnName);
 	local args = { ... }
 	for k,v in pairs(args) do
 		--outputChatBox("type " .. type(v) .. " val " .. v);
@@ -259,5 +245,21 @@ function playerEvent(client, fnName, ...)
 			args[k] = float2cell(v);
 		end	
 	end
-	procCallOnAll(fnName, getElemID(client), unpack(args));
+
+	for name,amx in pairs(g_LoadedAMXs) do
+		if amx.type == 'filterscript' and procCallInternal(amx, fnName, unpack(args)) ~= 0 and fnName == 'OnPlayerCommandText' then
+			return true
+		end
+	end
+	local gamemode = getRunningGameMode()
+	if gamemode and gamemode.publics[fnName] and procCallInternal(gamemode, fnName, unpack(args)) == 0 then
+		return false
+	end
+	return true
+end
+
+function playerEvent(client, fnName, ...)
+	--outputChatBox("playerEvent called " .. fnName);
+
+	procCallOnAll(fnName, getElemID(client), ...);
 end

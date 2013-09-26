@@ -8,6 +8,9 @@ g_SAMPSyscallPrototypes = {
 	ShowCursor = { 'p', 'b', 'b' },
 	IsCursorShowing = { 'p' },
 	
+	-- Explosions
+	CreateExplosion = { 'f', 'f', 'f', 'i', 'p' },
+	
 	-- Testing funcs
 	DisplayInfo = { 'p', 's' },
 	ChangeInfo = { 'p', 'i', 's' },

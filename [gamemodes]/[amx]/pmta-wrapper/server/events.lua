@@ -40,6 +40,11 @@ addEventHandler('onPlayerQuit', root,
 )
 
 
+function OnPlayerSpawn ( posX, posY, posZ, spawnRotation, theTeam, theSkin, theInterior, theDimension )
+	procCallOnAll("OnPlayerSpawn", getElemID(source), posX, posY, posZ, spawnRotation, 0, theSkin, theInterior, theDimension );
+end
+addEventHandler ( "onPlayerSpawn", getRootElement(), OnPlayerSpawn )
+
 -- Chat Events
 
 function OnPlayerChat(message, messageType)
@@ -56,11 +61,15 @@ addEventHandler ( "onConsole", getRootElement(), OnConsole )
 
 
 -- Player Events
-function OnPlayerSpawn ( posX, posY, posZ, spawnRotation, theTeam, theSkin, theInterior, theDimension )
-	procCallOnAll("OnPlayerSpawn", getElemID(source), float2cell(posX), float2cell(posY), float2cell(posZ), float2cell(spawnRotation), 0, theSkin, theInterior, theDimension )
+function OnPlayerWasted(totalAmmo, killer, killerWeapon, bodyPart)
+	if killer then
+		procCallOnAll("OnPlayerWasted", getElemID(source), totalAmmo, getElementType(killer), getElemID(killer), killerWeapon, bodyPart);
+	else
+		procCallOnAll("OnPlayerWasted", getElemID(source), totalAmmo, "", -1, -1, bodyPart);
+	end
+	
 end
-addEventHandler ( "onPlayerSpawn", getRootElement(), OnPlayerSpawn )
-
+addEventHandler( "onPlayerWasted", getRootElement( ), OnPlayerWasted);
 
 function OnPlayerDamage ( attacker, weapon, bodypart, loss )
 	procCallOnAll("OnPlayerDamage", getElemID(source), getElemID(attacker), weapon, bodypart, float2cell(loss))
@@ -97,3 +106,21 @@ function OnMarkerLeave( hitElement, matchingDimension )
 	end
 end
 addEventHandler( "onMarkerLeave", getRootElement(), OnMarkerLeave )
+
+function OnPlayerVehicleEnter ( theVehicle, seat, jacked )
+	local j = -1;
+	if jacked then
+		j = getElemID(jacked);
+	end
+	procCallOnAll("OnPlayerVehicleEnter", getElemID(source), getElemID(theVehicle), seat, j);
+end
+addEventHandler ( "onPlayerVehicleEnter", getRootElement(), OnPlayerVehicleEnter )
+
+function OnPlayerVehicleExit ( theVehicle, seat, jacker )
+	local j = -1;
+	if jacked then
+		j = getElemID(jacker);
+	end
+	procCallOnAll("OnPlayerVehicleExit", getElemID(source), getElemID(theVehicle), seat, j);
+end
+addEventHandler ( "onPlayerVehicleExit", getRootElement(), OnPlayerVehicleExit )
