@@ -23,3 +23,15 @@ function OnClientPlayerTarget ( target )
 	end
 end
 addEventHandler ( "onClientPlayerTarget", getLocalPlayer(), OnClientPlayerTarget )
+
+function OnClientClick ( button, state, absoluteX, absoluteY, worldX, worldY, worldZ, clickedElement )
+	serverEvent.OnPlayerClick(button, state, absoluteX, absoluteY, worldX, worldY, worldZ);
+	
+	if clickedElement then
+		local eType = getElementType(clickedElement);
+		if eType == "player" or eType == "vehicle" or eType == "ped" or eType == "object" then
+			serverEvent.OnPlayerClickElement(button, state, absoluteX, absoluteY, worldX, worldY, worldZ, eType, getElemID(clickedElement));
+		end
+	end
+end
+addEventHandler ( "onClientClick", getRootElement(), OnClientClick )
