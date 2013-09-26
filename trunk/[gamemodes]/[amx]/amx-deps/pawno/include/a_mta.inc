@@ -455,8 +455,8 @@ native SetMarkerType( markerid, icon[] );
 
 ////////////////////////////////////////////////////
 // Object natives
-native CreateObject( id, Float:x, Float:y, Float:z );
-native MoveObject( objectid, time, Float:tarX, Float:tarY, Float:tarZ );
+native CreateObject( id, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz, isLowLod = false );
+native MoveObject( objectid, time, Float:tarX, Float:tarY, Float:tarZ, Float:moverX, Float:moverY, Float:moverZ, easingType[], Float:fEasingPeriod, Float:fEasingAmplitude, Float:fEasingOvershoot );
 native StopObject( objectid );
 native GetObjectScale( objectid, &Float:Scale );
 native SetObjectScale( objectid, Float:Scale );
