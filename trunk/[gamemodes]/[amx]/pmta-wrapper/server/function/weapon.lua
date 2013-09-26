@@ -20,16 +20,16 @@ function GiveWeapon( amx, player, weapon, ammo, current )
 	return giveWeapon( player, weapon, ammo, current );
 end
 
-function SetWeaponAmmo( amx, player, weapon, totalAmmo )
-	return setWeaponAmmo( player, weapon, totalAmmo );
+function SetWeaponAmmo( amx, player, weapon, totalAmmo, ammoInClip )
+	return setWeaponAmmo( player, weapon, totalAmmo, ammoInClip );
 end
 
 function TakeAllWeapons( amx, player )
 	return takeAllWeapons( player );
 end
 
-function TakeWeapon( amx, player, weaponid )
-	return takeWeapon( player, weaponid );
+function TakeWeapon( amx, player, weaponid, ammo )
+	return takeWeapon( player, weaponid, ammo );
 end
 
 --[[
