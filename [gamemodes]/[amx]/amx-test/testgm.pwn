@@ -188,6 +188,16 @@ public OnPlayerCommand(playerid, cmd[], args[])
 
 public OnClientKey(playerid, button[], press)
 {
+	if(IsPlayerInVehicle(playerid))
+	{
+	    if(strcmp(button, "mouse2", true) == 0)
+	    {
+	        if(press == 1)
+	        {
+	            SetPlayerDoingGangDriveby(playerid, 1);
+	        }
+	    }
+	}
 	/*printf("player %d used button %s with state %d", playerid, button, press);
 	if(press != 1) return;
 	new str[256];
