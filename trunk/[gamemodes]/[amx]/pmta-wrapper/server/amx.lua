@@ -8,6 +8,7 @@ g_Objects = {}
 g_Markers = {}
 g_Pickups = {}
 g_Blips = {}
+g_Timers = {}
 
 function initGameModeGlobals()
 

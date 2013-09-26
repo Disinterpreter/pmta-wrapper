@@ -11,6 +11,10 @@ g_SAMPSyscallPrototypes = {
 	-- Explosions
 	CreateExplosion = { 'f', 'f', 'f', 'i', 'p' },
 	
+	-- Timers
+	SetTimer = { 's', 'i', 'i', 's' },
+	KillTimer = { 't' },
+	
 	-- Testing funcs
 	DisplayInfo = { 'p', 's' },
 	ChangeInfo = { 'p', 'i', 's' },

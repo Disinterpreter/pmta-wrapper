@@ -26,6 +26,30 @@ function CreateExplosion( amx, x, y, z, etype, creator )
 	end
 end
 
+-- Timers
+function SetTimer(amx, fnName, interval, repeats, fmt, ...)
+	local vals = { ... }
+	for i,val in ipairs(vals) do
+		if fmt:sub(i, i) == 's' then
+			vals[i] = readMemString(amx, val)
+		else
+			vals[i] = amx.memDAT[val]
+		end
+	end
+	
+	if repeats == 0 then
+		local timer = setTimer(procCallInternal, interval, 0, amx.name, fnName, unpack(vals))
+		return addElem(g_Timers, timer);
+	else
+		local timer = setTimer(procCallInternal, interval, repeats, amx.name, fnName, unpack(vals))
+		return -1;
+	end
+end
+
+function KillTimer(amx, timer)
+	killTimer(timer);
+end
+
 -- Mathematics
 
 function acos(amx, f)
