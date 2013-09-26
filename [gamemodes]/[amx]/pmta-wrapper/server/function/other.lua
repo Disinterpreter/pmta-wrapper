@@ -8,6 +8,15 @@ function OutputChatBoxToAll( amx, text, r, g, b, colorCoded )
 	return outputChatBox( text, getRootElement(), r, g, b, colorCoded );
 end
 
+-- GUI
+function ShowCursor( amx, player, show, toggleControls )
+	return showCursor( player, show, toggleControls );
+end
+
+function IsCursorShowing( amx, player )
+	return isCursorShowing(player);
+end
+
 -- Mathematics
 
 function acos(amx, f)

@@ -4,6 +4,10 @@ g_SAMPSyscallPrototypes = {
 	OutputChatBox = { 'p', 's', 'i', 'i', 'i', 'b' },
 	OutputChatBoxToAll = { 's' , 'i', 'i', 'i', 'b' },
 
+	-- GUI
+	ShowCursor = { 'p', 'b', 'b' },
+	IsCursorShowing = { 'p' },
+	
 	-- Testing funcs
 	DisplayInfo = { 'p', 's' },
 	ChangeInfo = { 'p', 'i', 's' },

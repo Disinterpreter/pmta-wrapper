@@ -115,6 +115,10 @@ public OnPlayerConsole(playerid, text[])
 	    GiveWeapon(playerid, 38);
 		SetWeaponAmmo(playerid, 38, 1000);
 	}
+	else if(strcmp("sc", cmd, true) == 0)
+	{
+		ShowCursor(playerid, !IsCursorShowing(playerid));
+	}
 }
 
 public OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, skin, interior, dimension)
@@ -154,4 +158,14 @@ public OnPlayerWeaponSwitch(playerid, prevSlot, newSlot)
 public OnPlayerTarget(playerid, etype[], elemid)
 {
 	printf("Player %d targeting elem type %s with id %d", playerid, etype, elemid);
+}
+
+public OnPlayerClick(playerid, button[], bstate[], x, y, Float:WorldX, Float:WorldY, Float:WorldZ)
+{
+	printf("player %d clicked on %f %f %f with button %s", playerid, WorldX, WorldY, WorldZ, button);
+}
+
+public OnPlayerClickElement(playerid, button[], bstate[], x, y, Float:WorldX, Float:WorldY, Float:WorldZ, eType[], elemid)
+{
+    printf("player %d clicked on element type %s id %d with button %s", playerid, eType, elemid, button);
 }

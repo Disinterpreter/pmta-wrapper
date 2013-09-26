@@ -52,6 +52,9 @@ forward OnPlayerWeaponFire(playerid, weapon, ammo, ammoInClip, Float:hitX, Float
 forward OnPlayerWeaponSwitch(playerid, prevSlot, newSlot);
 forward OnPlayerTarget(playerid, etype[], elemid);
 
+forward OnPlayerClick(playerid, button[], bstate[], x, y, Float:WorldX, Float:WorldY, Float:WorldZ);
+forward OnPlayerClickElement(playerid, button[], bstate[], x, y, Float:WorldX, Float:WorldY, Float:WorldZ, eType[], elemid);
+
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 //////////////// Native Functions ///////////////////
@@ -61,6 +64,11 @@ forward OnPlayerTarget(playerid, etype[], elemid);
 // Chat natives
 native OutputChatBox(playerid, text[], r = 255, g = 255, b = 255, colorCoded = 0);
 native OutputChatBoxToAll(text[], r = 255, g = 255, b = 255, colorCoded = 0);
+
+// GUI natives
+native ShowCursor(playerid, show, toggleControls = 1);
+native IsCursorShowing(playerid);
+
 native DisplayInfo(playerid, str[]);
 native ChangeInfo(playerid, infoid, str[]);
 ////////////////////////////////////////////////////
