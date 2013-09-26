@@ -99,4 +99,10 @@ function serverMT:__index(fnName)
 end
 server = setmetatable({}, serverMT)
 
-
+local serverEMT = {}
+function serverEMT:__index(fnName)
+	return function(...)
+		triggerServerEvent('onServerCallbackEvent', getLocalPlayer(), CRs[coroutine.running()], fnName, ...)
+	end
+end
+serverEvent = setmetatable({}, serverEMT)

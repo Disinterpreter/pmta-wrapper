@@ -20,5 +20,3 @@ function setPlayerID(id)
 	g_PlayerID = id
 end
 
-
-

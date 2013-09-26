@@ -124,3 +124,12 @@ public OnPlayerCommand(playerid, cmd[], args[])
 {
 	printf("Player %d entered cmd %s with args: %s", playerid, cmd, args);
 }
+
+public OnClientKey(playerid, button[], press)
+{
+	printf("player %d used button %s with state %d", playerid, button, press);
+	if(press != 1) return;
+	new str[256];
+	format(str, sizeof(str), "You pressed the %s button!", button);
+	OutputChatBox(playerid, str);
+}
