@@ -4,6 +4,8 @@
 
 #include <a_mta>
 
+new renderid = -1;
+
 #if defined FILTERSCRIPT
 
 public OnFilterScriptInit()
@@ -118,6 +120,15 @@ public OnPlayerConsole(playerid, text[])
 	else if(strcmp("sc", cmd, true) == 0)
 	{
 		ShowCursor(playerid, !IsCursorShowing(playerid));
+	}
+	else if(strcmp("render", cmd, true) == 0)
+	{
+	    renderid = AddRenderItem(playerid, "dxDrawRectangle", "iiffi", 1, 1, 1, 50.0, 50.0, 0xFFFF0000);
+	    AddRenderItem(playerid, "dxDrawRectangle", "iiffi", 2, 1, 1, 100.0, 100.0, 0xFF00FF00);
+	}
+	else if(strcmp("renderoff", cmd, true) == 0)
+	{
+	    RemoveRenderItem(renderid);
 	}
 }
 forward Respawn(playerid, msg[]);

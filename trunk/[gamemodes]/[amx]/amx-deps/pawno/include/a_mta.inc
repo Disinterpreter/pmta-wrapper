@@ -34,6 +34,10 @@ native md5hash(str[], const buf[], bufsize);
 native SetTimer(func[], interval, repeats, fmt[], {Float,_}:...);
 native KillTimer(timerid);
 
+// Render items
+native AddRenderItem(playerid, func[], fmt[], order, {Float,_}:...);
+native RemoveRenderItem(itemid);
+
 // Callbacks
 forward OnGameModeInit();
 forward OnPlayerConnect(playerid);

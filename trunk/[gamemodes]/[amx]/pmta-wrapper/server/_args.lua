@@ -38,6 +38,8 @@ function argsToMTA(amx, prototype, ...)
 			val = g_Blips[val] and g_Blips[val].elem
 		elseif vartype == 't' then
 			val = g_Timers[val] and g_Timers[val].elem
+		elseif vartype == 'r' then
+			val = g_RenderItems[val] and g_RenderItems[val].elem
 		end
 		if val == nil then
 			val = false

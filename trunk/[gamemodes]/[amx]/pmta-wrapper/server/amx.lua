@@ -9,6 +9,7 @@ g_Markers = {}
 g_Pickups = {}
 g_Blips = {}
 g_Timers = {}
+g_RenderItems = {}
 
 function initGameModeGlobals()
 
@@ -22,6 +23,8 @@ addEventHandler('onResourceStart', g_ResRoot,
 		end
 		
 		table.each(getElementsByType('player'), joinHandler)
+		
+		
 		
 		local plugins = get('amx.plugins')
 		if plugins then
