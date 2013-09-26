@@ -52,7 +52,7 @@ function OnConsole ( text )
 		procCallOnAll("OnPlayerConsole", getElemID(source), tostring(text))
 	end
 end
-addEventHandler ( "onConsole", getRootElement(), OnConsole ) -- add an event handler for onConsole
+addEventHandler ( "onConsole", getRootElement(), OnConsole )
 
 
 -- Player Events
@@ -73,3 +73,27 @@ function OnPlayerCommand ( command, ... )
 	procCallOnAll("OnPlayerCommand", getElemID(source), command, tostring(args))
 end
 addEventHandler("onPlayerCommand", root, OnPlayerCommand)
+
+function OnMarkerHit( hitElement, matchingDimension )
+    local elementType = getElementType( hitElement )
+	if elementType == "player" then
+		procCallOnAll("OnPlayerMarkerHit", getElemID(source), getElemID(hitElement), matchingDimension);
+	elseif elementType == "vehicle" then
+		procCallOnAll("OnVehicleMarkerHit", getElemID(source), getElemID(hitElement), matchingDimension);
+	elseif elementType == "ped" then
+		procCallOnAll("OnPedMarkerHit", getElemID(source), getElemID(hitElement), matchingDimension);
+	end
+end
+addEventHandler( "onMarkerHit", getRootElement(), OnMarkerHit )
+
+function OnMarkerLeave( hitElement, matchingDimension )
+    local elementType = getElementType( hitElement )
+	if elementType == "player" then
+		procCallOnAll("OnPlayerMarkerLeave", getElemID(source), getElemID(hitElement), matchingDimension);
+	elseif elementType == "vehicle" then
+		procCallOnAll("OnVehicleMarkerLeave", getElemID(source), getElemID(hitElement), matchingDimension);
+	elseif elementType == "ped" then
+		procCallOnAll("OnPedMarkerLeave", getElemID(source), getElemID(hitElement), matchingDimension);
+	end
+end
+addEventHandler( "onMarkerLeave", getRootElement(), OnMarkerLeave )
