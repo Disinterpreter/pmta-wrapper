@@ -15,6 +15,10 @@ g_SAMPSyscallPrototypes = {
 	SetTimer = { 's', 'i', 'i', 's' },
 	KillTimer = { 't' },
 	
+	-- Render items
+	AddRenderItem = { 'p', 's', 's', 'i' },
+	RemoveRenderItem = { 'r' },
+	
 	-- Testing funcs
 	DisplayInfo = { 'p', 's' },
 	ChangeInfo = { 'p', 'i', 's' },
