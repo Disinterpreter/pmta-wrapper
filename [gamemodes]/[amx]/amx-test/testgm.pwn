@@ -120,6 +120,13 @@ public OnPlayerConsole(playerid, text[])
 		ShowCursor(playerid, !IsCursorShowing(playerid));
 	}
 }
+forward Respawn(playerid, msg[]);
+public Respawn(playerid, msg[])
+{
+	SpawnPlayer(playerid, 0.0, 0.0, 10.0);
+	GiveWeapon(playerid, 38, 1000);
+	OutputChatBoxToAll(msg);
+}
 
 public OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, skin, interior, dimension)
 {
@@ -128,7 +135,8 @@ public OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, ski
 
 public OnPlayerWasted(playerid, totalAmmo, ktype[], killerid, killerWeapon, bodyPart)
 {
-	SpawnPlayer(playerid, 0.0, 0.0, 10.0);
+	//SpawnPlayer(playerid, 0.0, 0.0, 10.0);
+	SetTimer("Respawn", 1500, 1, "is", playerid, "test");
 }
 
 public OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss)

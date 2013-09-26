@@ -30,6 +30,10 @@ native amxVersion(&Float:ver);
 native amxVersionString(buffer[], maxsize);
 native md5hash(str[], const buf[], bufsize);
 
+// Timers
+native SetTimer(func[], interval, repeats, fmt[], {Float,_}:...);
+native KillTimer(timerid);
+
 // Callbacks
 forward OnGameModeInit();
 forward OnPlayerConnect(playerid);
