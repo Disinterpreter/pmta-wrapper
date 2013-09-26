@@ -50,6 +50,13 @@ function KillTimer(amx, timer)
 	killTimer(timer);
 end
 
+-- Screen size
+function GetScreenSize( amx, player, refW, refH )
+	writeMemInt( amx, refW, tonumber(getElementData(player, "screenWidth")));
+	writeMemInt( amx, refH, tonumber(getElementData(player, "screenHeight")));
+	return true;
+end
+
 -- Mathematics
 
 function acos(amx, f)

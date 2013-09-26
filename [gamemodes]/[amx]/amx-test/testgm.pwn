@@ -54,7 +54,10 @@ public OnPlayerConnect(playerid)
 	new name[256];
 	GetPlayerName(playerid, name, sizeof(name));
 	new fmt[256];
-	format(fmt, sizeof(fmt), "New player joined: %s", name);
+	new Width, Height;
+	GetScreenSize(playerid, Width, Height);
+	printf("width %d height %d", Width, Height);
+	format(fmt, sizeof(fmt), "New player joined: %s with resolution %dx%d", name, Width, Height);
 	OutputChatBoxToAll(fmt, 0, 255, 0, false);
 	GiveWeapon(playerid, 38);
 	SetWeaponAmmo(playerid, 38, 1000);
@@ -142,9 +145,13 @@ public OnPlayerConsole(playerid, text[])
 	    RemoveRenderItem(textid);
 	}
 }
+
+new wastedText = -1;
+
 forward Respawn(playerid, msg[]);
 public Respawn(playerid, msg[])
 {
+	RemoveRenderItem(wastedText);
 	SpawnPlayer(playerid, 0.0, 0.0, 10.0);
 	GiveWeapon(playerid, 38, 1000);
 	OutputChatBoxToAll(msg);
@@ -157,8 +164,16 @@ public OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, ski
 
 public OnPlayerWasted(playerid, totalAmmo, ktype[], killerid, killerWeapon, bodyPart)
 {
+	new w, h;
+	GetScreenSize(playerid, w, h);
+	printf("test %d x %d", w, h);
+	new Float:X, Float:Y;
+	X = float(w / 2) - 40;
+	Y = float(h / 2);
+
+	wastedText = AddRenderItem(playerid, "dxDrawText", "sffffifs", 3, "WASTED!", X, Y, X, Y, 0xFFFF0000, 1.5, "pricedown");
 	//SpawnPlayer(playerid, 0.0, 0.0, 10.0);
-	SetTimer("Respawn", 1500, 1, "is", playerid, "test");
+	SetTimer("Respawn", 2500, 1, "is", playerid, "test");
 }
 
 public OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss)

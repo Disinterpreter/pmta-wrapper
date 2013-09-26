@@ -7,6 +7,7 @@ g_SAMPSyscallPrototypes = {
 	-- GUI
 	ShowCursor = { 'p', 'b', 'b' },
 	IsCursorShowing = { 'p' },
+	GetScreenSize = { 'p', 'r', 'r' },
 	
 	-- Explosions
 	CreateExplosion = { 'f', 'f', 'f', 'i', 'p' },
@@ -17,7 +18,7 @@ g_SAMPSyscallPrototypes = {
 	
 	-- Render items
 	AddRenderItem = { 'p', 's', 's', 'i' },
-	RemoveRenderItem = { 'r' },
+	RemoveRenderItem = { 'd' },
 	
 	-- Testing funcs
 	DisplayInfo = { 'p', 's' },
