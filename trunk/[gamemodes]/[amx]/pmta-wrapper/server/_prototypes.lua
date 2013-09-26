@@ -44,7 +44,7 @@ g_SAMPSyscallPrototypes = {
 
 	------------------------------------------------------------------------
 	-- Pickup
-	CreatePickup = { 'f', 'f', 'f', 'i', 'i' },
+	CreatePickup = { 'f', 'f', 'f', 'i', 'i', 'i', 'i' },
 	GetPickupAmmo = { 'k' },
 	GetPickupAmount = { 'k' },
 	GetPickupType = { 'm', 'r', 'i' },

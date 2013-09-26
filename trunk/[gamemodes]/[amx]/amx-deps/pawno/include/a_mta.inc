@@ -426,7 +426,7 @@ native GetBlipVisibleDistance ( blipid, &Float:distance );
 
 ////////////////////////////////////////////////////
 // Pickup natives
-native CreatePickup( Float:x, Float:y, Float:z, ptype, ammount );
+native CreatePickup( Float:x, Float:y, Float:z, ptype, ammount, respawnTime = 30000, ammo = 50 );
 native GetPickupAmmo( pickupid );
 native GetPickupAmount( pickupid );
 native GetPickupType( pickupid, const ptype[], bufSize );
