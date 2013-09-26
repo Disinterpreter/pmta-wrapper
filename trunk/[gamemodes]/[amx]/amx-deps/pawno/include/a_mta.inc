@@ -38,6 +38,10 @@ forward OnPlayerConsole(playerid, text[]);
 forward OnPlayerCommand(playerid, cmd[], args[]);
 forward OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, skin, interior, dimension);
 forward OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss);
+forward OnPlayerWasted(playerid, totalAmmo, ktype[], killerid, killerWeapon, bodyPart);
+
+forward OnPlayerVehicleEnter(playerid, vehicleid, seatid, jackerPlayerId);
+forward OnPlayerVehicleExit(playerid, vehicleid, seatid, jackerPlayerId);
 
 forward OnPlayerMarkerHit(markerid, playerid, matchingDimension);
 forward OnVehicleMarkerHit(markerid, vehicleid, matchingDimension);
@@ -48,7 +52,8 @@ forward OnVehicleMarkerLeave(markerid, vehicleid, matchingDimension);
 forward OnPedMarkerLeave(markerid, pedid, matchingDimension);
 
 forward OnClientKey(playerid, button[], press);
-forward OnPlayerWeaponFire(playerid, weapon, ammo, ammoInClip, Float:hitX, Float:hitY, Float:hitZ, elemType[], elem);
+forward OnPlayerWeaponFireElement(playerid, weapon, ammo, ammoInClip, Float:hitX, Float:hitY, Float:hitZ, elemType[], elem);
+forward OnPlayerWeaponFire(playerid, weapon, ammo, ammoInClip, Float:hitX, Float:hitY, Float:hitZ);
 forward OnPlayerWeaponSwitch(playerid, prevSlot, newSlot);
 forward OnPlayerTarget(playerid, etype[], elemid);
 
@@ -68,6 +73,9 @@ native OutputChatBoxToAll(text[], r = 255, g = 255, b = 255, colorCoded = 0);
 // GUI natives
 native ShowCursor(playerid, show, toggleControls = 1);
 native IsCursorShowing(playerid);
+
+// Explosions
+native CreateExplosion(Float:X, Float:Y, Float:Z, etype, playerid = -1);
 
 native DisplayInfo(playerid, str[]);
 native ChangeInfo(playerid, infoid, str[]);

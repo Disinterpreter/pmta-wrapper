@@ -126,6 +126,11 @@ public OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, ski
 	printf("Player %d spawned: %f %f %f %f %d %d %d %d", playerid, X, Y, Z, Rot, teamid, skin, interior, dimension);
 }
 
+public OnPlayerWasted(playerid, totalAmmo, ktype[], killerid, killerWeapon, bodyPart)
+{
+	SpawnPlayer(playerid, 0.0, 0.0, 10.0);
+}
+
 public OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss)
 {
 	printf("Player %d damaged %d with weapon %d on bodypart %d with hploss %f", attackerid, playerid, weaponid, bodypart, loss);
@@ -138,16 +143,28 @@ public OnPlayerCommand(playerid, cmd[], args[])
 
 public OnClientKey(playerid, button[], press)
 {
-	printf("player %d used button %s with state %d", playerid, button, press);
+	/*printf("player %d used button %s with state %d", playerid, button, press);
 	if(press != 1) return;
 	new str[256];
 	format(str, sizeof(str), "You pressed the %s button!", button);
-	OutputChatBox(playerid, str);
+	OutputChatBox(playerid, str);*/
 }
 
-public OnPlayerWeaponFire(playerid, weapon, ammo, ammoInClip, Float:hitX, Float:hitY, Float:hitZ, elemType[], elem)
+public OnPlayerWeaponFireElement(playerid, weapon, ammo, ammoInClip, Float:hitX, Float:hitY, Float:hitZ, elemType[], elem)
 {
 	printf("Player %d fires with weapon %d with hits on %f %f %f and elem type %s with id %d", playerid, weapon, hitX, hitY, hitZ, elemType, elem);
+	if(weapon == 38)
+	{
+	    CreateExplosion(hitX, hitY, hitZ, 11, playerid);
+	}
+}
+
+public OnPlayerWeaponFire(playerid, weapon, ammo, ammoInClip, Float:hitX, Float:hitY, Float:hitZ)
+{
+	if(weapon == 38)
+	{
+	    CreateExplosion(hitX, hitY, hitZ, 12, playerid);
+	}
 }
 
 public OnPlayerWeaponSwitch(playerid, prevSlot, newSlot)

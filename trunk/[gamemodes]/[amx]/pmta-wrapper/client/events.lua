@@ -6,7 +6,9 @@ addEventHandler("onClientKey", root, OnClientKey)
 function OnClientPlayerWeaponFire(weapon, ammo, ammoInClip, hitX, hitY, hitZ, hitElement )
 	local eType = getElementType(hitElement);
 	if eType == "player" or eType == "vehicle" or eType == "ped" or eType == "object" then
-		serverEvent.OnPlayerWeaponFire(weapon, ammo, ammoInClip, hitX, hitY, hitZ, eType, getElemID(hitElement));
+		serverEvent.OnPlayerWeaponFireElement(weapon, ammo, ammoInClip, hitX, hitY, hitZ, eType, getElemID(hitElement));
+	else
+		serverEvent.OnPlayerWeaponFire(weapon, ammo, ammoInClip, hitX, hitY, hitZ);
 	end
 end
 addEventHandler ( "onClientPlayerWeaponFire", getLocalPlayer(), OnClientPlayerWeaponFire )

@@ -17,6 +17,15 @@ function IsCursorShowing( amx, player )
 	return isCursorShowing(player);
 end
 
+-- Explosion
+function CreateExplosion( amx, x, y, z, etype, creator )
+	if creator == false then
+		return createExplosion(x, y, z, etype, nil);
+	else
+		return createExplosion(x, y, z, etype, creator);
+	end
+end
+
 -- Mathematics
 
 function acos(amx, f)
