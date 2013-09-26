@@ -320,7 +320,7 @@ native AddVehicleUpgrade(vehicleid, upgradeid);
 native AttachTrailerToVehicle(vehicleid, vehicleid2); 
 native BlowVehicle(vehicleid); 
 native DetachTrailerFromVehicle(vehicleid); 
-native CreateVehicle(model, Float:X, Float:Y, Float:Z);
+native CreateVehicle( model, Float:X, Float:Y, Float:Z, Float:rx, Float:ry, Float:rz, numberplate[], bDirection, variant1, variant2 );
 native FixVehicle (vehicleid);
 native GetVehicleController(vehicleid);
 native GetVehicleDoorState(vehicleid, door); 

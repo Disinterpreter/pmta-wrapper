@@ -16,8 +16,8 @@ function DetachTrailerFromVehicle(amx, puller)
 	return detachTrailerFromVehicle(puller)
 end
 
-function CreateVehicle(amx, model, x, y, z)
-	local vehicle = createVehicle(model, x, y, z, 0, 0, 90.0)
+function CreateVehicle( amx, model, x, y, z, rx, ry, rz, numberplate, bDirection, variant1, variant2 )
+	local vehicle = createVehicle( model, x, y, z, rx, ry, rz, numberplate, bDirection, variant1, variant2 )
 	
 	if vehicle == false then
 		return false
