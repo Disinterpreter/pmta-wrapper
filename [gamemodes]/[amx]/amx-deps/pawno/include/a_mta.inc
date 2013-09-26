@@ -464,13 +464,13 @@ native SetObjectScale( objectid, Float:Scale );
 
 ////////////////////////////////////////////////////
 // Weapon natives
-native GetSlotFromWeapon(idweapon);
-native GetWeaponIDFromName(weaponname[]);
-native GetWeaponNameFromID(weaponid, const name[], bufsize);
-native GiveWeapon(playerid, weaponid, ammo = 30, current = 1);
-native SetWeaponAmmo( playerid, weaponid, ammo );
+native GetSlotFromWeapon( idweapon );
+native GetWeaponIDFromName( weaponname[] );
+native GetWeaponNameFromID( weaponid, const name[], bufsize );
+native GiveWeapon( playerid, weaponid, ammo = 30, current = 1);
+native SetWeaponAmmo( playerid, weaponid, ammo, ammoInClip = 0 );
 native TakeAllWeapons( playerid );
-native TakeWeapon( playerid, weaponid );
+native TakeWeapon( playerid, weaponid, ammo = 0 );
 //native GetOriginalWeaponProperty
 //native GetWeaponProperty
 //native SetWeaponProperty

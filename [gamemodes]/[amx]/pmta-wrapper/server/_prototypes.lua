@@ -426,9 +426,9 @@ g_SAMPSyscallPrototypes = {
 	GetWeaponIDFromName = { 's' },
 	GetWeaponNameFromID = { 'i', 'r', 'i' },
 	GiveWeapon = { 'p', 'i', 'i', 'b' },
-	SetWeaponAmmo = { 'p', 'i', 'i' },
+	SetWeaponAmmo = { 'p', 'i', 'i', 'i' },
 	TakeAllWeapons = { 'p' },
-	TakeWeapon = { 'p', 'i' },
+	TakeWeapon = { 'p', 'i', 'i' },
 	--GetOriginalWeaponProperty
 	--GetWeaponProperty
 	--SetWeaponProperty
