@@ -1,5 +1,5 @@
-function CreateBlip( amx, x, y, z, icon, size, r, g, b, a, ordering, visibleDistance, visibleTo )
-	local blip = createPickup( x, y, z, icon, size, r, g, b, a, ordering, visibleDistance, visibleTo );
+function CreateBlip( amx, x, y, z, icon, size, r, g, b, a, ordering, visibleDistance )
+	local blip = createBlip( x, y, z, icon, size, r, g, b, a, ordering, visibleDistance, getRootElement() );
 	
 	if not blip then
 		return false;
@@ -9,6 +9,23 @@ function CreateBlip( amx, x, y, z, icon, size, r, g, b, a, ordering, visibleDist
 	
 	return blipID;
 end
+
+function CreateBlipAttachedTo( amx, elem, icon, size, r, g, b, a, ordering, visibleDistance )
+	local blip = createBlipAttachedTo( elem, icon, size, r, g, b, a, ordering, visibleDistance, getRootElement() );
+	
+	if not blip then
+		return false;
+	end
+	
+	local blipID = addElem( g_Blips, blip );
+	
+	return blipID;
+end
+CreateBlipAttachedToPlayer = CreateBlipAttachedTo;
+CreateBlipAttachedToVehicle = CreateBlipAttachedTo;
+CreateBlipAttachedToMarker = CreateBlipAttachedTo;
+CreateBlipAttachedToPed = CreateBlipAttachedTo;
+
 
 --[[function CreateBlipAttachedTo( ... )
 	-- body

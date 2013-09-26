@@ -9,7 +9,11 @@ g_SAMPSyscallPrototypes = {
 	ChangeInfo = { 'p', 'i', 's' },
 	------------------------------------------------------------------------
 	-- Blip
-	CreateBlip = { 'f', 'f', 'f', 'i', 'i', 'i', 'i', 'i', 'i', 'i', 'f', 'e' },
+	CreateBlipAttachedToPlayer = { 'p', 'i', 'i', 'i', 'i', 'i', 'i', 'i', 'f' },
+	CreateBlipAttachedToVehicle = { 'v', 'i', 'i', 'i', 'i', 'i', 'i', 'i', 'f' },
+	CreateBlipAttachedToMarker = { 'm', 'i', 'i', 'i', 'i', 'i', 'i', 'i', 'f' },
+	CreateBlipAttachedToPed = { 'e', 'i', 'i', 'i', 'i', 'i', 'i', 'i', 'f' },
+	CreateBlip = { 'f', 'f', 'f', 'i', 'i', 'i', 'i', 'i', 'i', 'i', 'f' },
 	GetBlipIcon = { 'l' },
 	SetBlipIcon = { 'l', 'i' },
 	GetBlipSize = { 'l' },

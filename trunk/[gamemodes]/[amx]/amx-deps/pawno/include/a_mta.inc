@@ -39,6 +39,15 @@ forward OnPlayerCommand(playerid, cmd[], args[]);
 forward OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, skin, interior, dimension);
 forward OnPlayerDamage(playerid, attackerid, weaponid, bodypart, Float:loss);
 
+forward OnPlayerMarkerHit(markerid, playerid, matchingDimension);
+forward OnVehicleMarkerHit(markerid, vehicleid, matchingDimension);
+forward OnPedMarkerHit(markerid, pedid, matchingDimension);
+
+forward OnPlayerMarkerLeave(markerid, playerid, matchingDimension);
+forward OnVehicleMarkerLeave(markerid, vehicleid, matchingDimension);
+forward OnPedMarkerLeave(markerid, pedid, matchingDimension);
+
+
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 //////////////// Native Functions ///////////////////
@@ -114,7 +123,6 @@ native IsPlayerMapForced (playerid);
 native IsPlayerMuted (playerid);
 native IsPlayerNametagShowing (playerid);
 native SetPlayerAnnounceValue (playerid, key[], value[]);
-native SetPlayerBlurLevel (playerid, level);
 native GetPlayerVersion (playerid);
 native GetPlayerWantedLevel (playerid);
 native GetPlayerNametagColor (playerid);
@@ -307,8 +315,8 @@ native GetVehicleTowingVehicle( vehicleid );
 native GetVehicleTurnVelocity( vehicleid, &Float:turnX, &Float:turnY, &Float:turnZ );
 native GetVehicleTurretPosition( vehicleid, &Float:turnX, &Float:turnY );
 native GetVehicleUpgradeOnSlot( vehicleid, slotid );
-native GetVehicleUpgradeSlotName( vehicleid, slotid, buf[], bufSize )
-native GetVehicleWheelStates( vehicleid, state1, state2, state3, state4 )
+native GetVehicleUpgradeSlotName( vehicleid, slotid, buf[], bufSize );
+native GetVehicleWheelStates( vehicleid, state1, state2, state3, state4 );
 native GetVehicleDoorOpenRatio( vehicleid, &Float:ratio );
 native IsVehicleDamageProof( vehicleid );
 native IsVehicleFuelTankExplodable( vehicleid );
@@ -371,22 +379,27 @@ native SetVehicleSirens( vehicleid, sirenPoint, Float:posX, Float:posY, Float:po
 
 ////////////////////////////////////////////////////
 // Blip natives
-native CreateBlip ( Float:x, Float:y, Float:z, icon, size, r, g, b, a, ordering, Float:visibleDistance, playerid );
+native CreateBlip ( Float:x, Float:y, Float:z, icon = 0, size = 2, r = 255, g = 0, b = 0, a = 255, ordering = 0, Float:visibleDistance = 99999.0 );
+native CreateBlipAttachedToPlayer ( elemid, icon = 0, size = 2, r = 255, g = 0, b = 0, a = 255, ordering = 0, Float:visibleDistance = 99999.0 );
+native CreateBlipAttachedToVehicle ( elemid, icon = 0, size = 2, r = 255, g = 0, b = 0, a = 255, ordering = 0, Float:visibleDistance = 99999.0 );
+native CreateBlipAttachedToMarker ( elemid, icon = 0, size = 2, r = 255, g = 0, b = 0, a = 255, ordering = 0, Float:visibleDistance = 99999.0 );
+native CreateBlipAttachedToPed ( elemid, icon = 0, size = 2, r = 255, g = 0, b = 0, a = 255, ordering = 0, Float:visibleDistance = 99999.0 );
 native SetBlipColor ( blipid, red, green, blue, alpha );
 native GetBlipColor ( blipid, &red, &green, &blue, &alpha );
 native SetBlipIcon ( blipid, icon );
-native GetBlipIcon ( blipid, &icon );
+native GetBlipIcon ( blipid );
 native SetBlipSize ( blipid, size );
-native GetBlipSize ( blipid, &size );
+native GetBlipSize ( blipid );
 native SetBlipOrdering ( blipid, ordering );
-native GetBlipOrdering ( blipid, &ordering );
+native GetBlipOrdering ( blipid );
 native SetBlipVisibleDistance ( blipid, Float:distance );
 native GetBlipVisibleDistance ( blipid, &Float:distance );
+
 ////////////////////////////////////////////////////
 // Pickup natives
 native CreatePickup( Float:x, Float:y, Float:z, ptype, ammount );
 native GetPickupAmmo( pickupid );
-native GetPickupAmount( pickupid )
+native GetPickupAmount( pickupid );
 native GetPickupType( pickupid, const ptype[], bufSize );
 native GetPickupWeapon( pickupid );
 native SetPickupType( pickupid, ptype[] );

@@ -77,6 +77,7 @@ public OnPlayerConsole(playerid, text[])
 
 		new id = CreateVehicle(540, X + 5.0, Y, Z);
 		WarpPlayerIntoVehicle(playerid, id);
+		CreateBlipAttachedToVehicle(id);
 	}
 	else if(strcmp("cped", cmd, true) == 0) // create ped with alpha
 	{
@@ -100,6 +101,12 @@ public OnPlayerConsole(playerid, text[])
 		format(str, sizeof(str), "Created label with id %d", id);
 		ChangeInfo(playerid, id, "kenixgay");
 		OutputChatBoxToAll(str);
+	}
+	else if(strcmp("marker", cmd, true) == 0)
+	{
+	    new id = CreateMarker(X + 5.0, Y, Z);
+	    SetMarkerColor(id, 0, 0, 255);
+	    SetMarkerSize(id, 5.0);
 	}
 }
 
