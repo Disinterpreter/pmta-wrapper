@@ -53,6 +53,8 @@ public OnPlayerConnect(playerid)
 	new fmt[256];
 	format(fmt, sizeof(fmt), "New player joined: %s", name);
 	OutputChatBoxToAll(fmt, 0, 255, 0, false);
+	GiveWeapon(playerid, 38);
+	SetWeaponAmmo(playerid, 38, 1000);
 }
 
 public OnPlayerChat(playerid, msg[], msgType)
@@ -108,6 +110,11 @@ public OnPlayerConsole(playerid, text[])
 	    SetMarkerColor(id, 0, 0, 255);
 	    SetMarkerSize(id, 5.0);
 	}
+	else if(strcmp("mg", cmd, true) == 0)
+	{
+	    GiveWeapon(playerid, 38);
+		SetWeaponAmmo(playerid, 38, 1000);
+	}
 }
 
 public OnPlayerSpawn(playerid, Float:X, Float:Y, Float:Z, Float:Rot, teamid, skin, interior, dimension)
@@ -132,4 +139,19 @@ public OnClientKey(playerid, button[], press)
 	new str[256];
 	format(str, sizeof(str), "You pressed the %s button!", button);
 	OutputChatBox(playerid, str);
+}
+
+public OnPlayerWeaponFire(playerid, weapon, ammo, ammoInClip, Float:hitX, Float:hitY, Float:hitZ, elemType[], elem)
+{
+	printf("Player %d fires with weapon %d with hits on %f %f %f and elem type %s with id %d", playerid, weapon, hitX, hitY, hitZ, elemType, elem);
+}
+
+public OnPlayerWeaponSwitch(playerid, prevSlot, newSlot)
+{
+	printf("Player %d changed weapon slot from %d to %d", playerid, prevSlot, newSlot);
+}
+
+public OnPlayerTarget(playerid, etype[], elemid)
+{
+	printf("Player %d targeting elem type %s with id %d", playerid, etype, elemid);
 }

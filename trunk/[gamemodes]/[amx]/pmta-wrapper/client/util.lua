@@ -42,6 +42,10 @@ fndebug(
 )
 --]]
 
+function getElemID(elem)
+	return elem and isElement(elem) and getElementData(elem, 'amx.id')
+end
+
 function drawBorderText(text, x, y, color, scale, font, outlinesize, outlinecolor)
 	local alpha = math.floor(color / 16777216)
 	outlinesize = outlinesize or 2
