@@ -118,7 +118,7 @@ public OnPlayerConsole(playerid, text[])
 	}
 	else if(strcmp("mg", cmd, true) == 0)
 	{
-	    GiveWeapon(playerid, 38);
+		GiveWeapon(playerid, 38);
 		SetWeaponAmmo(playerid, 38, 1000);
 	}
 	else if(strcmp("sc", cmd, true) == 0)
@@ -136,7 +136,7 @@ public OnPlayerConsole(playerid, text[])
 	}
 	else if(strcmp("st", cmd, true) == 0)
 	{
-	    new t[256];
+		new t[256];
 		t = strtok( text, idx );
 		textid= AddRenderItem(playerid, "dxDrawText", "sffffifs", 3, "WASTED!", 120.0, 120.0, 120.0, 120.0, 0xFFFF0000, 1.5, "pricedown");
 	}
