@@ -407,6 +407,15 @@ native SetVehicleSirens( vehicleid, sirenPoint, Float:posX, Float:posY, Float:po
 //getVehicleSirens 
 
 ////////////////////////////////////////////////////
+// Announcement
+native GetGameType ( &gametype[] );
+native GetMapName ( &mapname[] );
+native GetRuleValue ( key[], &value[] );
+native RemoveRuleValue ( key[] );
+native SetGameType ( gameType[] );
+native SetMapName ( mapName[] );
+native SetRuleValue ( key[], value[] );
+////////////////////////////////////////////////////
 // Blip natives
 native CreateBlip ( Float:x, Float:y, Float:z, icon = 0, size = 2, r = 255, g = 0, b = 0, a = 255, ordering = 0, Float:visibleDistance = 99999.0 );
 native CreateBlipAttachedToPlayer ( elemid, icon = 0, size = 2, r = 255, g = 0, b = 0, a = 255, ordering = 0, Float:visibleDistance = 99999.0 );

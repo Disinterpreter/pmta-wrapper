@@ -24,6 +24,15 @@ g_SAMPSyscallPrototypes = {
 	DisplayInfo = { 'p', 's' },
 	ChangeInfo = { 'p', 'i', 's' },
 	------------------------------------------------------------------------
+	-- Announcement
+	GetGameType = {  },
+	GetMapName = {  },
+	GetRuleValue = { 's' },
+	RemoveRuleValue = { 's' },
+	SetGameType = { 's' },
+	SetMapName = { 's' },
+	SetRuleValue = { 's', 's' },
+	------------------------------------------------------------------------
 	-- Blip
 	CreateBlipAttachedToPlayer = { 'p', 'i', 'i', 'i', 'i', 'i', 'i', 'i', 'f' },
 	CreateBlipAttachedToVehicle = { 'v', 'i', 'i', 'i', 'i', 'i', 'i', 'i', 'f' },
