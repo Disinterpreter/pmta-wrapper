@@ -11,6 +11,7 @@
   <script src="server/_args.lua" type="server" />
   <script src="server/syscalls.lua" type="server" />
   <!-- Implementation of PAWN API -->
+  <script src="server/function/announcement.lua" type="server" />
   <script src="server/function/camera.lua" type="server" />
   <script src="server/function/element.lua" type="server" />
   <script src="server/function/other.lua" type="server" />
