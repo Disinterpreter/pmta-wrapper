@@ -445,6 +445,7 @@ g_SAMPSyscallPrototypes = {
 	
 	------------------------------------------------------------------------
 	-- Other
+	GetTickCount = {'i'},
 	acos = {'f'},
 	asin = {'f'},
 	atan = {'f'},

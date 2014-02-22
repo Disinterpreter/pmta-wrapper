@@ -22,6 +22,7 @@ native Float:asin(Float:value);
 native Float:acos(Float:value);
 native Float:atan(Float:value);
 native Float:atan2(Float:x, Float:y);
+native GetTickCount ();
 
 // MTA
 native lua(const fn[], {Float,_}:...);

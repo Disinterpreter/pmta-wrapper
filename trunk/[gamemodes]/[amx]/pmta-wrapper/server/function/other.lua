@@ -1,4 +1,8 @@
 --Other functions
+-- TickCount
+function GetTickCount( amx )
+	return getTickCount ();
+end
 -- Chat
 function OutputChatBox( amx, player, text, r, g, b, colorCoded )
 	return outputChatBox( text, player, r, g, b, colorCoded );
